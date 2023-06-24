@@ -1,12 +1,13 @@
 async function resultCheck() {
-    const sn = document.getElementById('rollNumber').value;
-    const grade = document.getElementById('grade').value;
-    const stream = document.getElementById('stream').value;
+    let sn = document.getElementById('rollNumber').value;
+    let grade = document.getElementById('grade').value;
+    let stream = document.getElementById('stream').value;
     const output = document.getElementById('output');
     const phoneArea = document.getElementById('phoneArea');
     const loadingGif = document.getElementById('loadingGif');
+    
+    // loadingGif.hidden=false;
     output.hidden =false;
-    phoneArea.hidden=false;
     if(sn.length===0||grade.length===0||stream.length===0){
     output.innerHTML = "There are empty fields";
     }else{
@@ -15,8 +16,6 @@ async function resultCheck() {
         grade: `${grade}`,
         faculty: `${stream}`
     };
-    try {
-        loadingGif.hidden=false;
         const url = 'https://academic.rianepal.edu.np/api/result';
         const options = {
             method: 'POST',
@@ -43,11 +42,12 @@ async function resultCheck() {
         let result = await fetch(url, options);
         let response = await result.json();
         console.log(response);
+        output.hidden = false;
         let keys = Object.keys(response);
-        loadingGif.hidden=true;
+        // loadingGif.hidden=true;
         if(keys.length===2){
            output.innerHTML = `<i>${response.message}!</i>`
-           phoneArea.innerHTML = `<i>${response.message}!</i>`;
+        //    phoneArea.innerHTML = `<i>${response.message}!</i>`;
         }
         console.log(response.data);
         output.innerHTML=`<table class="table-responsive table table-sm table-dark">
@@ -72,9 +72,7 @@ async function resultCheck() {
             </tr>
         </tbody>
     </table>`
-    } catch (error) {
-        console.log(error);
-    }
+
 }
 }
 document.getElementById('rollNumber').addEventListener('keyup', function (event) {
