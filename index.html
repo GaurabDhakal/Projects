@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+    <title>Gaurab Dhakal</title>
+</head>
+<link rel="stylesheet" href="./CSS/index.css" />
+
+<body>
+    <div id="navbar">
+        <nav>
+            <div class="logo">Gaurab Dhakal</div>
+            <input type="checkbox" id="click" />
+            <label for="click" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="genderGuesser.html">Gender Predictor</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </div>
+    <br />
+    <br />
+    <div id="divcalculator">
+        <h2>Select Your Calculator</h2>
+        <div>
+            <button type="button" class="toggle" onclick="toggle()">
+                Click here to open calculator v2
+            </button>
+            <button type="button" class="toggle" onclick="calc2()">
+                Click me to open calculator v1
+            </button>
+        </div>
+        <form>
+        <div class="calculator">
+            <h3 id="heading">Calculator</h3>
+            <label>Enter Your First Digit: </label>
+            <input type="number" id="usrinp_1" placeholder="Enter Your Number" minlength="1" /><br />
+            <label>Enter Your Second Digit: </label>
+            <input type="number" id="usrinp_2" placeholder="Enter Your Number" minlength="1" /><br />
+            <label>Enter Operator(+,-,*,/): </label>            
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+              </select>
+            <br />
+            <button type="button" id="hideUponClick" onclick="giveoutput()">Calculate</button>
+            <button type="reset" id="hideUponClick" onclick="clearOTA()">Reset</button>
+        </form>
+            <br />
+            <p id="outputhere"></p>
+        </div>
+    </div>
+</body>
+<script src="./JS/index._main.js"></script>
+<script>
+    let d = 10;
+    if(d==10){
+        console.log(a);
+    }
+</script>
+</html>
