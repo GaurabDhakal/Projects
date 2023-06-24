@@ -2,8 +2,11 @@ let a = () => {
     document.getElementById('here').innerHTML = "Hello My Name is Gaurab Dhakal";
 }
 let button = document.querySelector('.calculator')
+let buttons = document.getElementById('hideUponClick');
 let toggle = () => {
+    
     button.classList.toggle('calculator')
+
 }
 let giveoutput = () => {
     let user_inp1 = parseFloat(document.getElementById('usrinp_1').value)

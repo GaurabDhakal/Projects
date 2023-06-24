@@ -1,20 +1,12 @@
 let keys = Object.keys(localStorage);
 const countryName = new Intl.DisplayNames(['EN'], { type: 'region' });
 const output = document.getElementById('output');
-const sHB = document.getElementById("showHB");
-const pB = document.getElementById('predictB');
-
-function recordCheck(){
-    const keysForClear = Object.keys(localStorage);
-    if(keysForClear.length<=3){
-    historyDisplayArea.innerHTML = "No recorded history found."
-}
-}
-
+const historyWarning = document.getElementById('historyWarning');
+const loadingArea = document.querySelector('.hideLoadingGif');
 async function countryPredict() {
 
     let usrInp = document.getElementById('country').value;
-    let loadingArea = document.querySelector('.hideLoadingGif');
+
     loadingArea.classList.remove('hideLoadingGif');
 
     if (usrInp.length === 0) {
@@ -59,52 +51,53 @@ const historyDisplay = document.getElementById("history");
 
 //show history function
 function showHistory() {
-    container.classList.add("hideContainer");
-    sHB.classList.add('hide')
-    recordCheck();
-    pB.classList.add('hide')
-    historyDisplay.classList.remove("hide");
+    container.hidden = true;
+    historyDisplay.hidden = false;
     let keys = Object.keys(localStorage);
     let i = 1;
-    for (let key of keys) {
-        let value = localStorage.getItem(key);
-
-        try {
-            let parsedValue = JSON.parse(value);
-
-            if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)) {
-                historyDisplayArea.innerHTML += `<p>${i}. ${key} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</p><br>`;
-                i++;
-                
+        for (let key of keys) {
+            
+            let value = localStorage.getItem(key);
+            try {
+                let parsedValue = JSON.parse(value);
+                if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)) {
+                    historyWarning.innerHTML = ""
+                    historyDisplayArea.innerHTML += `<p>${i}. ${key} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</p><br>`;
+                    i++;}
+            } catch (error) {
+                console.error("Error parsing value for key:", key, error);
             }
-        } catch (error) {
-            console.error("Error parsing value for key:", key, error);
+            
         }
-        
-    }
-}
-
-// Go back function
-function goBack() {
-    container.classList.remove('hideContainer');
-    sHB.classList.remove('hide');
-    pB.classList.remove('hide');
-    historyDisplay.classList.add('hide');
-    historyDisplayArea.innerHTML = "";
-    output.innerHTML=""
-}
-
-//Clear History Function
-function clearHistory(){
-    const keysForClear = Object.keys(localStorage);
-    console.log("clicked")
-    if(keysForClear.length <= 3){
-    historyDisplayArea.innerHTML = "History is already empty!";
-    }else{
-        localStorage.clear(keysForClear);
-        historyDisplayArea.innerHTML = "History has been successfully cleared!";
-    }
     
 }
 
-recordCheck();
+
+
+// Go back function
+function goBack() {
+    container.hidden = false;
+    historyDisplay.hidden = true;
+    historyDisplayArea.innerHTML = "";
+    output.innerHTML = ""
+    if (keys.length < 3) {
+        historyWarning.innerHTML = "No recorded history found";
+    }
+}
+
+//Clear History Function
+function clearHistory() {
+    const keysForClear = Object.keys(localStorage);
+    console.log("clicked");
+    if (keysForClear.length > 3) {
+        localStorage.clear(keysForClear);
+        historyDisplayArea.innerHTML = "History has been successfully cleared!";
+    } else if (keysForClear.length === 0) {
+        historyWarning.innerHTML = "History is already empty.";
+    }
+    else {
+        localStorage.clear(keysForClear);
+        historyDisplayArea.innerHTML = "History is already empty.";
+    }
+
+}
