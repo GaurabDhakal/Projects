@@ -6,7 +6,8 @@ async function resultCheck() {
     const phoneArea = document.getElementById('phoneArea');
     const loadingGif = document.getElementById('loadingGif');
     
-    // loadingGif.hidden=false;
+    loadingGif.hidden=false;
+    // loadingGif.classList.remove('loadingGif')
     output.hidden =false;
     if(sn.length===0||grade.length===0||stream.length===0){
     output.innerHTML = "There are empty fields";
@@ -44,7 +45,8 @@ async function resultCheck() {
         console.log(response);
         output.hidden = false;
         let keys = Object.keys(response);
-        // loadingGif.hidden=true;
+        // loadingGif.classList.add('loadingGif')
+        loadingGif.hidden=true;
         if(keys.length===2){
            output.innerHTML = `<i>${response.message}!</i>`
         //    phoneArea.innerHTML = `<i>${response.message}!</i>`;
