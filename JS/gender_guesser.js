@@ -3,6 +3,7 @@ async function guessTheGender() {
     loader.classList.remove('hideLoadingGif');
     let n = document.getElementById('name').value;
     let outputArea = document.getElementById('output');
+    outputArea.innerHTML=""
     if (n.length === 0) {
         outputArea.innerHTML = "Please enter the name!"
     } else {
