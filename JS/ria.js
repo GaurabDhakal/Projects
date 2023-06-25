@@ -9,6 +9,7 @@ async function resultCheck() {
     loadingGif.hidden=false;
     // loadingGif.classList.remove('loadingGif')
     output.hidden =false;
+    output.innerHTML=""
     if(sn.length===0||grade.length===0||stream.length===0){
     output.innerHTML = "There are empty fields";
     }else{
