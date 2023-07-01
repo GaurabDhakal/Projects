@@ -1,6 +1,9 @@
 
 const outputArea = document.getElementById('output')
+const loader  = document.getElementById('loadingGif');
+
 let dislikeReturn = async () => {
+    loader.hidden = false;
     const usrVal = document.getElementById('name').value;
 let options = {
         method:'GET',
@@ -21,6 +24,7 @@ let chkStatus = ()=>{
     }
 }
 console.log(result);
+loader.hidden = true;
 outputArea.innerHTML = `<p id="warning">ID of the video : ${result.id} <br>
                         Dislikes Count: ${result.dislikes} <br>
                         Likes Count: ${result.likes} <br>
