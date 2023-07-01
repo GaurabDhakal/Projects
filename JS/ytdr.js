@@ -15,9 +15,9 @@ let response = await fetch(`https://returnyoutubedislikeapi.com/votes?videoId=${
 let result = await response.json();
 let chkStatus = ()=>{
     if((result.deleted)===true){
-        return "The video is deleted!"
+        return "This video is deleted!"
     }else{
-        return "The video is not deleted!"
+        return "This video is not deleted!"
     }
 }
 console.log(result);
