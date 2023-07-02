@@ -43,6 +43,6 @@ outputArea.innerHTML = `<p id="warning">ID of the video : ${result.id} <br>
 
 document.getElementById('name').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
-        resultCheck();
+        dislikeReturn();
     }
 });
