@@ -1,10 +1,11 @@
 let inpArea = document.getElementById('inpArea');
 let goBack = document.getElementById('goBack');
+let outputArea = document.getElementById('output');
 async function chkResult() {
     let loadingGif = document.getElementById('loadingGif');
     const symbolN = document.getElementById('symbolN').value;
     const dob = document.getElementById('dob').value;
-    let outputArea = document.getElementById('output');
+    
     outputArea.innerHTML=""
     inpArea.hidden=true;
     loadingGif.hidden=false
@@ -68,5 +69,6 @@ async function chkResult() {
 function goBackk(){
     inpArea.hidden=false;
     goBack.hidden=true;
+    outputArea.innerHTML=""
 
 }
