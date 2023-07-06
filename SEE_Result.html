@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="./CSS/navbar.css" />
+    <title>SEE Result Checker 2079/80</title>
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200&display=swap'); */
+        @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+
+        body {
+            font-family: "Roboto Slab", serif;
+            background-image: url("bg.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        @media (max-width: 480px) {
+
+            /* Adjust container styles for mobile devices */
+            #container {
+                width: 80%;
+                /* Decrease the width to fit smaller screens */
+                height: auto;
+                /* Allow the container height to adjust based on content */
+                margin-top: 30px;
+                /* Decrease the top margin for better alignment */
+                margin-left: 0;
+                /* Remove the left margin to prevent centering */
+                margin-right: 0;
+                /* Remove the right margin to prevent centering */
+            }
+        }
+
+        p {
+            margin: 10px;
+            font-family: "Roboto Slab", serif;
+        }
+
+        button {
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.51s linear;
+            font-family: "Roboto Slab", serif;
+            padding: 10px 20px 10px 20px;
+            border: 1px solid gray;
+            border-radius: 2px;
+            background-color: rgb(230, 133, 7);
+            color: white;
+        }
+
+        input {
+            margin: 10px;
+            font-family: "Roboto Slab", serif;
+            padding: 10px;
+            border: 1px solid grey;
+            border-radius: 4px;
+        }
+
+        #container {
+            border: 1px solid grey;
+            border-radius: 5px;
+            width: 40%;
+            height: 60vh;
+            color: white;
+            background-size: 100% 100%;
+            background-image: url("https://wallpapers.com/images/high/abstract-background-yxuswaw0j0i2qanj.webp");
+            margin-top: 60px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        #oa {
+            color: whitesmoke;
+        }
+
+        #warning {
+            background-color: black;
+        }
+
+        label {
+            background-color: black;
+        }
+
+        button:hover {
+            background-color: black;
+        }
+        table tr {
+            margin: 10px;
+        }
+
+        td,
+        th {
+            border: 1px solid white;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            font-size: 15px;
+            text-align: center;
+        }
+        #ff {
+            /* border: 1px solid black; */
+            font-style: oblique;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <nav>
+            <div class="logo">Gaurab Dhakal</div>
+            <input type="checkbox" id="click" />
+            <label for="click" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="CountryPredictor.html">Country Predictor</a></li>
+                <li><a href="genderGuesser.html">Gender Predictor</a></li>
+                <li><a href="ria_result.html">RIA Result Checker</a></li>
+                <li><a href="#" class="active">SEE Result Checker 2079/80</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="container">
+        <h3 align="center">SEE Result Checker 2079/80</h3>
+        <br />
+        <div id="inpArea">
+            <label for="name">Enter Symbol Number</label><br>
+            <input type="text" id="symbolN" placeholder="Enter Symbol Number Here  " /><br>
+            <label for="name">Enter DOB(BS)</label><br>
+            <input type="text" id="dob" placeholder="YYYY-MM-DD" /> <br>  
+            <button type="button" onclick="chkResult()">Show</button>
+        </div> 
+        <div id="loadingGif" hidden>
+            <div class="spinner-border" class="" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <p id="output"></p>
+        <div id="goBack" hidden>
+            <br>
+            <button type="button" onclick="goBackk()">GO BACK</button>
+        </div>
+    </div>
+
+
+</body>
+<script src="JS/seeResult.js"></script>
+
+</html>
