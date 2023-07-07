@@ -41,8 +41,9 @@ async function chkResult() {
         let response = await fetch('https://see.nicasiabank.com/api/see/get-result', options);
         let final = await response.json();
         loadingGif.hidden=true;
-        outputArea.innerHTML= ` <table>
-        <caption>Result</caption>
+        outputArea.innerHTML= ` 
+        <table>
+        <thead> <strong>Your Result</strong></thead>
         <tr>
             <th>ID </th>
             <th>Symbol Number </th>
@@ -60,7 +61,8 @@ async function chkResult() {
     </table>`
     goBack.hidden=false;
         console.log(final);
-    } catch (error) {
+    }
+    catch (error) {
         goBack.hidden=false;
         outputArea.innerHTML="Please submit correct details!"
         console.error(error);
@@ -72,3 +74,9 @@ function goBackk(){
     outputArea.innerHTML=""
 
 }
+
+document.getElementById('dob').addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+        resultCheck();
+    }
+});
