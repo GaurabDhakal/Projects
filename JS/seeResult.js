@@ -4,6 +4,7 @@ const historyArea = document.getElementById('historyMain');
 const historyInner = document.getElementById('history');
 const container = document.getElementById('container');
 let outputArea = document.getElementById('output');
+let historyWarning = document.getElementById('historyWarning');
 let keys  = Object.keys(localStorage);
 
 async function chkResult() {
@@ -94,6 +95,7 @@ function showHistory(){
         try {
             let parsedValue = JSON.parse(value);
             if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)) {
+                historyWarning.innerHTML=""
                 historyInner.innerHTML += `<p>
                 ${i}. Symbol Number: ${parsedValue.data.symbol_number}
                     GPA: ${parsedValue.data.gpa}
@@ -109,7 +111,7 @@ function showHistory(){
 
 function goBackFromHistoryPage(){
   container.hidden=false
-  historyArea.hidden = true
+  historyArea.hidden = true;
   historyInner.innerHTML=''
 
 }
