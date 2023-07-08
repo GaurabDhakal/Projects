@@ -52,7 +52,7 @@
             font-family: "Roboto Slab", serif;
             padding: 10px 20px 10px 20px;
             border: 1px solid gray;
-            border-radius: 2px;
+            border-radius: 0 6px 0 6px ;
             background-color: rgb(230, 133, 7);
             color: white;
         }
@@ -121,6 +121,11 @@
             font-size: 15px;
             text-align: center;
         }
+        #titleHistory{
+            text-align: center;
+            background-color: black;
+            border: 1px solid black;
+        }
         #ff {
             /* border: 1px solid black; */
             font-style: oblique;
@@ -147,6 +152,8 @@
     </div>
     <div id="historyMain" hidden>
         <button type="button" onclick="goBackFromHistoryPage()">Go Back</button>
+        <br>
+        <h3 id="titleHistory">Your Search History</h3>
     <div id="history" >
 
     </div>
