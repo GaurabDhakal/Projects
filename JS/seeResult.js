@@ -1,12 +1,21 @@
 let inpArea = document.getElementById('inpArea');
 let goBack = document.getElementById('goBack');
+const historyArea = document.getElementById('historyMain');
+const historyInner = document.getElementById('history');
+const container = document.getElementById('container');
 let outputArea = document.getElementById('output');
+let keys  = Object.keys(localStorage);
+
 async function chkResult() {
     let loadingGif = document.getElementById('loadingGif');
     const symbolN = document.getElementById('symbolN').value;
     const dob = document.getElementById('dob').value;
-    
     outputArea.innerHTML=""
+    if(symbolN.length ===0 || dob.length===0){
+    outputArea.innerHTML = "Please fill up all details!";
+    }else{
+
+    
     inpArea.hidden=true;
     loadingGif.hidden=false
     const options = {
@@ -41,6 +50,7 @@ async function chkResult() {
         let response = await fetch('https://see.nicasiabank.com/api/see/get-result', options);
         let final = await response.json();
         loadingGif.hidden=true;
+        localStorage.setItem(`${symbolN}`, JSON.stringify(final));
         outputArea.innerHTML= ` 
         <table>
         <thead> <strong>Your Result</strong></thead>
@@ -68,15 +78,43 @@ async function chkResult() {
         console.error(error);
     }
 }
+}
 function goBackk(){
     inpArea.hidden=false;
     goBack.hidden=true;
     outputArea.innerHTML=""
 
 }
+function showHistory(){
+    let i = 1;
+    container.hidden=true;
+    historyArea.hidden=false;
+    for(let key of keys){
+        let value = localStorage.getItem(key);
+        try {
+            let parsedValue = JSON.parse(value);
+            if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)) {
+                historyInner.innerHTML += `<p>
+                ${i}. Symbol Number: ${parsedValue.data.symbol_number}
+                    GPA: ${parsedValue.data.gpa}
+                </p> <br>`;
+                i++;
+            }
+        } catch (error) {
+            console.error("Error parsing value for key:", key, error);
+        }
+        
+    }
+}
 
+function goBackFromHistoryPage(){
+  container.hidden=false
+  historyArea.hidden = true
+  historyInner.innerHTML=''
+
+}
 document.getElementById('dob').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
-        resultCheck();
+        chkResult();
     }
 });

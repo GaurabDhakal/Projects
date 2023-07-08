@@ -56,7 +56,9 @@
             background-color: rgb(230, 133, 7);
             color: white;
         }
-
+        #historyMain{
+            color: white;
+        }
         input {
             margin: 10px;
             font-family: "Roboto Slab", serif;
@@ -84,6 +86,9 @@
 
         h3 {
             margin-bottom: 5px;
+        } 
+        #showHB{
+        margin-left:8px;
         }
 
         #oa {
@@ -104,7 +109,9 @@
         table tr {
             margin: 10px;
         }
-
+        #chkBtn{
+            margin-left: 9px;
+        }
         td,
         th {
             border: 1px solid white;
@@ -138,6 +145,12 @@
             </ul>
         </nav>
     </div>
+    <div id="historyMain" hidden>
+        <button type="button" onclick="goBackFromHistoryPage()">Go Back</button>
+    <div id="history" >
+
+    </div>
+</div>
     <div id="container">
         <h3 align="center"><strong> SEE Result Checker 2079/80</strong></h3>
         <br />
@@ -146,7 +159,9 @@
             <input type="text" id="symbolN" placeholder="Symbol Number" /><br>
             <label for="name">Enter DOB(BS)</label><br>
             <input type="text" id="dob" placeholder="YYYY-MM-DD" /> <br>  
-            <button type="button" onclick="chkResult()">Show</button>
+            <button type="button" id="chkBtn" onclick="chkResult()">Check</button>
+            <button type="button" id="showHB" onclick="showHistory()">History</button>
+            <br>
         </div> 
         <div id="loadingGif" hidden>
             <div class="spinner-border" class="" role="status">
@@ -158,7 +173,7 @@
             <br>
             <button type="button" onclick="goBackk()">GO BACK</button>
         </div>
-        <br>
+        
         <p><strong><i>NIC ASIA's API used!</i></strong></p>
     </div>
 
