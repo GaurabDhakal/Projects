@@ -1,4 +1,5 @@
 async function resultCheck() {
+    alert("Reliance has updated their API, so now you can't check final examinations result rather you can check entrance exam's result.");
     let sn = document.getElementById('rollNumber').value;
     let grade = document.getElementById('grade').value;
     let stream = document.getElementById('stream').value;
@@ -12,6 +13,7 @@ async function resultCheck() {
     output.innerHTML=""
     if(sn.length===0||grade.length===0||stream.length===0){
     output.innerHTML = "There are empty fields";
+    loadingGif.hidden=true;
     }else{
     const payload = {
         roll_number: `${sn}`,
@@ -19,6 +21,7 @@ async function resultCheck() {
         faculty: `${stream}`
     };
         const url = 'https://academic.rianepal.edu.np/api/result';
+        
         const options = {
             method: 'POST',
             body: JSON.stringify(payload),
@@ -42,12 +45,13 @@ async function resultCheck() {
             }
         }
         let result = await fetch(url, options);
+
         let response = await result.json();
+        loadingGif.hidden=true;
         console.log(response);
         output.hidden = false;
         let keys = Object.keys(response);
         // loadingGif.classList.add('loadingGif')
-        loadingGif.hidden=true;
         if(keys.length===2){
            output.innerHTML = `<i>${response.message}!</i>`
         //    phoneArea.innerHTML = `<i>${response.message}!</i>`;
