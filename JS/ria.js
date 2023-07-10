@@ -4,7 +4,6 @@ async function resultCheck() {
     let grade = document.getElementById('grade').value;
     let stream = document.getElementById('stream').value;
     const output = document.getElementById('output');
-    const phoneArea = document.getElementById('phoneArea');
     const loadingGif = document.getElementById('loadingGif');
     
     loadingGif.hidden=false;
