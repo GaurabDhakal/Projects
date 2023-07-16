@@ -1,0 +1,17 @@
+#container {
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 60%;
+    height: 70vh;
+    color: white;
+    background-size: 100% 100%;
+    /* background-image: url("https://wallpapers.com/images/high/abstract-background-yxuswaw0j0i2qanj.webp"); */
+    background-color: black;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

@@ -1,0 +1,18 @@
+#historyMain{
+    color: white;
+}
+
+#titleHistory{
+    text-align: center;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.history {
+    color: white;
+}
+
+#historyDisplayArea {
+    margin-top: 10px;
+    padding: 20px 20px 20px 3px;
+}

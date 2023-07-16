@@ -1,0 +1,19 @@
+button {
+    cursor: pointer;
+    /* margin-top: 10px; */
+    margin-bottom: 7px;
+    transition: all 0.51s linear;
+    font-family: "Roboto Slab", serif;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    background-color: rgb(230, 133, 7);
+    color: white;
+}
+button:hover {
+    background-color: black;
+}
+
+#chkBtn{
+    margin-left: 9px;
+}

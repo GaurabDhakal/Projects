@@ -1,0 +1,7 @@
+input {
+    font-family: "Roboto Slab", serif;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    border-radius: 4px;
+}
