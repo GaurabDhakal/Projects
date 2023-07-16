@@ -6,7 +6,7 @@ button {
     font-family: "Roboto Slab", serif;
     padding: 10px 20px 10px 20px;
     border: 1px solid gray;
-    border-radius: 2px;
+    border-radius: 2px 05px 2px 05px;
     background-color: rgb(230, 133, 7);
     color: white;
 }
