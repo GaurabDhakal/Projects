@@ -8,7 +8,7 @@ let toggle = () => {
     button.classList.toggle('calculator')
 
 }
-let giveoutput = () => {
+let giveOutput = () => {
     let user_inp1 = parseFloat(document.getElementById('usrinp_1').value)
     let user_inp2 = parseFloat(document.getElementById('usrinp_2').value)
     let operator = document.getElementById('operator');
@@ -29,7 +29,7 @@ let giveoutput = () => {
             answer = user_inp1 * user_inp2;
             output.innerHTML = `${answer}, is your answer!`
         }
-        else if (operator.value === "/") {
+        else if (operator.value === "/"){
             answer = user_inp1 / user_inp2;
             output.innerHTML = `${answer}, is your answer!`
         }
@@ -49,16 +49,16 @@ let calc2 = () => {
     let inp1 = parseFloat(prompt("Enter your number: "));
     let operate = prompt("Enter your operator(+,-,/,*): ");
     let inp2 = parseFloat(prompt("Enter your number: "))
-    if (operate == "+") {
+    if (operate === "+") {
         alert(inp1 + inp2)
     }
-    else if (operate == "-") {
+    else if (operate === "-") {
         alert(inp1 - inp2)
     }
-    else if (operate == "/") {
+    else if (operate === "/") {
         alert(inp1 / inp2)
     }
-    else if (operate == "*") {
+    else if (operate === "*") {
         alert(inp1 * inp2)
     }
     else {
@@ -67,13 +67,13 @@ let calc2 = () => {
 }
 document.getElementById('usrinp_1').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
-        giveoutput();
+        giveOutput();
     }
 });
 
 document.getElementById('usrinp_2').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
-        giveoutput();
+        giveOutput();
     }
 });
 
