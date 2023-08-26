@@ -6,6 +6,11 @@ let dislikeReturn = async () => {
     outputArea.innerHTML =""
     loader.hidden = false;
     const usrVal = document.getElementById('name').value;
+    if(usrVal.length===0){
+        loader.hidden = true;
+        outputArea.innerHTML="Empty Field!!!"
+        return;
+    }
 let options = {
         method:'GET',
         headers:{

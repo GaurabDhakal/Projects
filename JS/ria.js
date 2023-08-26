@@ -83,6 +83,6 @@ async function resultCheck() {
 }
 document.getElementById('rollNumber').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
-        resultCheck();
+        resultCheck().then(r => console.log("Pressed enter!!"));
     }
 });
