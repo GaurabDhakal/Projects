@@ -17,26 +17,26 @@ let giveoutput = () => {
 
 
     if (!isNaN(user_inp1) && !isNaN(user_inp2)) {
-        if (operator.value == "+") {
+        if (operator.value === "+") {
             answer = user_inp1 + user_inp2;
             output.innerHTML = `${answer}, is your answer`;
         }
-        else if (operator.value == "-") {
+        else if (operator.value === "-") {
             answer = user_inp1 - user_inp2;
             output.innerHTML = `${answer}, is your answer!`
         }
-        else if (operator.value == "*") {
+        else if (operator.value === "*") {
             answer = user_inp1 * user_inp2;
             output.innerHTML = `${answer}, is your answer!`
         }
-        else if (operator.value == "/") {
+        else if (operator.value === "/") {
             answer = user_inp1 / user_inp2;
             output.innerHTML = `${answer}, is your answer!`
         }
         else {
             output.innerHTML = "Something is Wrong, I recommend to check your operator.";
         }
-        if (operator.value == "/" && user_inp2 == 0) {
+        if (operator.value === "/" && user_inp2 === 0) {
             output.innerHTML = `Undefined, you can't divide a number by 0.`
         }
     }
