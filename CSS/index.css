@@ -116,6 +116,9 @@ form button{
     cursor: pointer;
 
 } */
+.selectCalcH2{
+  margin-bottom: 20px;
+}
 form button:hover{
     background-color: brown;
     color: white;
@@ -124,9 +127,6 @@ form button:hover{
 form button:active{
     padding: 5px;
     transition: all linear 0.4s;
-}
-.calculator{
-    visibility: hidden;
 }
 .hideBtns{
   display: none;

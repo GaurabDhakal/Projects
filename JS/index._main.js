@@ -2,10 +2,21 @@ let a = () => {
     document.getElementById('here').innerHTML = "Hello My Name is Gaurab Dhakal";
 }
 let button = document.querySelector('.calculator')
-let buttons = document.getElementById('hideUponClick');
+let toggleBtn = document.querySelector('.hideShowToggle');
+let buttons = document.getElementsByClassName('hideUponClick');
 let toggle = () => {
-    
-    button.classList.toggle('calculator')
+
+    if(button.hidden === false){
+        button.hidden = true
+    }else{
+        button.hidden = false
+    }
+   // For changing name of the buttons uopn toggle
+    if(toggleBtn.innerHTML === "Close"){
+        toggleBtn.innerHTML = "Calculator V.2"
+    }else{
+        toggleBtn.innerHTML = "Close"
+    }
 
 }
 let giveOutput = () => {
@@ -34,7 +45,7 @@ let giveOutput = () => {
             output.innerHTML = `${answer}, is your answer!`
         }
         else {
-            output.innerHTML = "Something is Wrong, I recommend to check your operator.";
+            output.innerHTML = "Something is Wrong, \n I recommend to check your operator.";
         }
         if (operator.value === "/" && user_inp2 === 0) {
             output.innerHTML = `Undefined, you can't divide a number by 0.`
@@ -46,23 +57,23 @@ let giveOutput = () => {
 
 }
 let calc2 = () => {
-    let inp1 = parseFloat(prompt("Enter your number: "));
+    let inp1 = parseFloat(prompt("Enter first number: "));
     let operate = prompt("Enter your operator(+,-,/,*): ");
-    let inp2 = parseFloat(prompt("Enter your number: "))
+    let inp2 = parseFloat(prompt("Enter second number: "))
     if (operate === "+") {
-        alert(inp1 + inp2)
+        alert("The sum is: " + inp1 + inp2)
     }
     else if (operate === "-") {
-        alert(inp1 - inp2)
+        alert("The difference is: "+ (inp1 - inp2))
     }
     else if (operate === "/") {
-        alert(inp1 / inp2)
+        alert("The division is: " + inp1 / inp2)
     }
     else if (operate === "*") {
-        alert(inp1 * inp2)
+        alert("The product is: "+  inp1 * inp2)
     }
     else {
-        alert("Kindly Check Your Operator")
+        alert("Invalid Operator")
     }
 }
 document.getElementById('usrinp_1').addEventListener('keyup', function (event) {

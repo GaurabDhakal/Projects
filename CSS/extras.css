@@ -51,9 +51,9 @@ option {
     margin-left:8px;
     }
 
-    .hideLoadingGif {
+ .hideLoadingGif {
         display: none;
-        }
-        .hideContainer{
+}
+.hideContainer{
         visibility: hidden;
         }

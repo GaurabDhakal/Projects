@@ -31,23 +31,23 @@
     <br />
     <br />
     <div id="divcalculator">
-        <h2>Select Your Calculator</h2>
+        <h2 class="selectCalcH2">Select Your Calculator</h2>
         <div>
-            <button type="button" class="toggle" onclick="toggle()">
-                Click here to open calculator v2
+            <button type="button" class="toggle hideShowToggle" onclick="toggle()">
+               Calculator V.2
             </button>
             <button type="button" class="toggle" onclick="calc2()">
-                Click me to open calculator v1
+                Calculator V.1
             </button>
         </div>
         <form>
-        <div class="calculator">
-            <h3 id="heading">Calculator</h3>
+        <div class="calculator" hidden>
+            <h3 id="heading">Calculator V.2</h3>
             <label>Enter Your First Digit: </label>
             <input type="number" id="usrinp_1" placeholder="Enter Your Number" minlength="1" /><br />
             <label>Enter Your Second Digit: </label>
             <input type="number" id="usrinp_2" placeholder="Enter Your Number" minlength="1" /><br />
-            <label>Enter Operator(+,-,*,/): </label>            
+            <label>Select Operator(+,-,*,/): </label>
             <select id="operator">
                 <option value="+">+</option>
                 <option value="-">-</option>
@@ -55,8 +55,8 @@
                 <option value="/">/</option>
             </select>
             <br />
-            <button type="button" id="hideUponClick" onclick="giveOutput()">Calculate</button>
-            <button type="reset" id="hideUponClick" onclick="clearOTA()">Reset</button>
+            <button type="button" class="hideUponClick" onclick="giveOutput()">Calculate</button>
+            <button type="reset" class="hideUponClick" onclick="clearOTA()">Reset</button>
         </form>
             <br />
             <p id="outputhere"></p>
