@@ -78,8 +78,7 @@ async function chkResult() {
             loadingGif.hidden = true;
             outputArea.innerHTML = "Pardon us! The API has been closed. Please try again later"
             console.error(error);
-        }
-    }
+        }}
 }
 function goBackk() {
     inpArea.hidden = false;
