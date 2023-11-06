@@ -75,6 +75,7 @@ async function chkResult() {
         }
         catch (error) {
             goBack.hidden = false;
+            loadingGif.hidden = true;
             outputArea.innerHTML = "Please submit correct details!"
             console.error(error);
         }
