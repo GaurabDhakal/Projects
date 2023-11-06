@@ -81,7 +81,7 @@ function goBack() {
     historyDisplayArea.innerHTML = "";
     output.innerHTML = ""
     if (keys.length < 3) {
-        historyWarning.innerHTML = "No recorded history found";
+        historyWarning.innerHTML = "No recorded history found!!";
     }
 }
 
@@ -89,15 +89,13 @@ function goBack() {
 function clearHistory() {
     const keysForClear = Object.keys(localStorage);
     console.log("clicked");
-    if (keysForClear.length > 3) {
-        localStorage.clear(keysForClear);
-        historyDisplayArea.innerHTML = "History has been successfully cleared!";
-    } else if (keysForClear.length === 0) {
-        historyWarning.innerHTML = "History is already empty.";
+    if(keysForClear.length === 0){
+        historyWarning.innerHTML="History is already empty."
     }
-    else {
+    else if (keysForClear.length > 0) {
         localStorage.clear(keysForClear);
-        historyDisplayArea.innerHTML = "History is already empty.";
+        historyDisplayArea.innerHTML = "";
+        historyWarning.innerHTML = "History has been successfully cleared!";
     }
 
 }
