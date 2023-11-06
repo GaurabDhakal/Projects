@@ -76,7 +76,7 @@ async function chkResult() {
         catch (error) {
             goBack.hidden = false;
             loadingGif.hidden = true;
-            outputArea.innerHTML = "Please submit correct details!"
+            outputArea.innerHTML = "Pardon us! The API has been closed. Please try again later"
             console.error(error);
         }
     }
