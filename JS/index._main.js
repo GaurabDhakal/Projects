@@ -11,7 +11,7 @@ let toggle = () => {
     }else{
         button.hidden = false
     }
-   // For changing name of the buttons uopn toggle
+   // For changing name of the buttons upon toggle
     if(toggleBtn.innerHTML === "Close"){
         toggleBtn.innerHTML = "Calculator V.2"
     }else{
