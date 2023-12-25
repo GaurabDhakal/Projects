@@ -31,7 +31,7 @@ async function guessTheGender() {
 
 }
 
-document.getElementById('name').addEventListener('keyup', function (event) {
+document.getElementById('name').addEventListener('keyup', (event)=> {
     if (event.key === 'Enter') {
         guessTheGender();
     }
