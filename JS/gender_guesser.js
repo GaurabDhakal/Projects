@@ -1,4 +1,4 @@
-async function guessTheGender() {
+let guessTheGender = async ()=> {
     let loader = document.getElementById('hideLoadingGif');
     loader.classList.remove('hideLoadingGif');
     let n = document.getElementById('name').value;
