@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaurab Dhakal</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+    body {
+        font-family: 'Playfair Display', serif;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    #form {
+        background-color: black;
+        color: white;
+        padding: 17px;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    input[type="text"]{
+        padding: 4px 20px;
+    }
+    input[type="button"]{
+        cursor: pointer;
+        background-color: aqua;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-family: 'Playfair Display', serif;
+        padding: 4px 20px;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+    input[type="button"]:hover{
+        opacity: 0.7;
+        background-color: rgb(144, 243, 210);
+    }
+    #warningArea{
+        color: red;
+        text-align: center;
+        margin: 10px 0;
+    }
+</style>
+
+<body>
+    <div id="form">
+        <form id="mainForm">
+            <label for="colorId">Enter the color: </label>
+            <input type="text" name="color" id="colorId" />
+            <input type="button" onclick="handleS()" value="Enter" />
+            <input type="button" onclick="randomColor()" value="Random" />
+            <p id="warningArea" hidden></p>
+        </form>
+    </div>
+</body>
+<script>
+    function generateRandomColor() {
+    // Generate random values for each color component
+    const randomRed = Math.floor(Math.random() * 256); 
+    // Random value between 0 and 255
+    const randomGreen = Math.floor(Math.random() * 256);
+    const randomBlue = Math.floor(Math.random() * 256);
+    // Convert the values to hexadecimal format
+    const hexRed = randomRed.toString(16).padStart(2, '0'); // Ensure two digits
+    const hexGreen = randomGreen.toString(16).padStart(2, '0');
+    const hexBlue = randomBlue.toString(16).padStart(2, '0');
+
+    // Concatenate the values to form the color code
+    const colorCode = `#${hexRed}${hexGreen}${hexBlue}`;
+
+    return colorCode;
+}
+let randomColor= ()=>{
+    const randomColor = generateRandomColor();
+    let bodyTag = document.querySelector('body');
+    bodyTag.style.backgroundColor = generateRandomColor();
+}
+    let handleS = () => {
+        let colorUsr = document.getElementById("colorId").value.toLowerCase();
+        let warningArea =document.getElementById("warningArea");
+        if(colorUsr.length===0){
+            warningArea.hidden = false
+            warningArea.innerHTML= ("Enter something first!!")
+        }else{
+            warningArea.hidden=true;
+        let bodyTag = document.querySelector("body");
+        bodyTag.style.backgroundColor = colorUsr;
+    }
+    };
+    let formMain = document.querySelector("form");
+    formMain.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleS();
+        }
+    });
+</script>
+
+</html>

@@ -1,4 +1,4 @@
-async function resultCheck() {
+let resultCheck= async()=> {
     alert("Reliance has updated their API, so now you can't check final examinations result rather you can check entrance exam's result.");
     let sn = document.getElementById('rollNumber').value;
     let grade = document.getElementById('grade').value;
