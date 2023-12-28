@@ -78,7 +78,8 @@
 let randomColor= ()=>{
     const randomColor = generateRandomColor();
     let bodyTag = document.querySelector('body');
-    bodyTag.style.backgroundColor = generateRandomColor();
+    console.log(randomColor);
+    bodyTag.style.backgroundColor = randomColor;
 }
     let handleS = () => {
         let colorUsr = document.getElementById("colorId").value.toLowerCase();
