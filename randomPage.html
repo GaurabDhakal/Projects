@@ -7,9 +7,9 @@
     <title>Gaurab Dhakal</title>
 </head>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap');
     body {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Open Sans', sans-serif;
         display: grid;
         place-items: center;
         height: 100vh;
@@ -31,7 +31,7 @@
         background-color: aqua;
         border: 1px solid gray;
         border-radius: 5px;
-        font-family: 'Playfair Display', serif;
+        font-family: 'Open Sans', sans-serif;
         padding: 4px 20px;
         opacity: 1;
         transition: opacity 0.3s ease;
@@ -79,7 +79,9 @@ let randomColor= ()=>{
     const randomColor = generateRandomColor();
     let bodyTag = document.querySelector('body');
     console.log(randomColor);
+    let colorUsr = document.getElementById("colorId")
     bodyTag.style.backgroundColor = randomColor;
+    colorUsr.value= randomColor;
 }
     let handleS = () => {
         let colorUsr = document.getElementById("colorId").value.toLowerCase();
@@ -90,16 +92,20 @@ let randomColor= ()=>{
         }else{
             warningArea.hidden=true;
         let bodyTag = document.querySelector("body");
+        
         bodyTag.style.backgroundColor = colorUsr;
     }
     };
     let formMain = document.querySelector("form");
-    formMain.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            handleS();
-        }
-    });
+    formMain.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.ctrlKey) {
+        e.preventDefault();
+        handleS();
+    } else if (e.ctrlKey && e.key === 'Enter') {
+        e.preventDefault();
+        randomColor();
+    }
+});
 </script>
 
 </html>
