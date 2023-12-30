@@ -61,16 +61,17 @@ let calc2 = () => {
     let operate = prompt("Enter your operator(+,-,/,*): ");
     let inp2 = parseFloat(prompt("Enter second number: "))
     if (operate === "+") {
-        alert("The sum is: " + inp1 + inp2)
+        let sum = inp1+inp2;
+        alert("The sum is: " + sum)
     }
     else if (operate === "-") {
         alert("The difference is: "+ (inp1 - inp2))
     }
     else if (operate === "/") {
-        alert("The division is: " + inp1 / inp2)
+        alert("The division is: " + (inp1 / inp2))
     }
     else if (operate === "*") {
-        alert("The product is: "+  inp1 * inp2)
+        alert("The product is: "+  (inp1 * inp2))
     }
     else {
         alert("Invalid Operator")
