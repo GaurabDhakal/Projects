@@ -1,5 +1,5 @@
 function btnSize(param) {
-    let btnElement = document.getElementById("btnTransform");
+    let btnElement = document.querySelector('.btnTransform')
     if (param) {
         btnElement.classList.add("changeSize")
     } else {
