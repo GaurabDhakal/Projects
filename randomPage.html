@@ -65,12 +65,9 @@
     // Random value between 0 and 255
     const randomGreen = Math.floor(Math.random() * 256);
     const randomBlue = Math.floor(Math.random() * 256);
-    // Convert the values to hexadecimal format
     const hexRed = randomRed.toString(16).padStart(2, '0'); // Ensure two digits
     const hexGreen = randomGreen.toString(16).padStart(2, '0');
     const hexBlue = randomBlue.toString(16).padStart(2, '0');
-
-    // Concatenate the values to form the color code
     const colorCode = `#${hexRed}${hexGreen}${hexBlue}`;
 
     return colorCode;
