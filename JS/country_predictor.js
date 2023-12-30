@@ -3,7 +3,7 @@ const countryName = new Intl.DisplayNames(['EN'], { type: 'region' });
 const output = document.getElementById('output');
 const historyWarning = document.getElementById('historyWarning');
 const loadingArea = document.querySelector('.hideLoadingGif');
-async function countryPredict() {
+let countryPredict= async () =>{
 
     let usrInp = document.getElementById('country').value;
 
@@ -38,7 +38,7 @@ async function countryPredict() {
         }
     }
 }
-document.getElementById('country').addEventListener('keyup', function (event) {
+document.getElementById('country').addEventListener('keyup',  (event)=> {
     if (event.key === 'Enter') {
         countryPredict();
     }
