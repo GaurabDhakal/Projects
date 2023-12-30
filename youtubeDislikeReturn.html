@@ -50,7 +50,9 @@
         <div>
             <label for="name">Enter Video ID :</label><br>
             <input type="text" id="name" placeholder="Enter video id here!!! " />
-            <button type="button" onclick="dislikeReturn()">Show</button>
+            <button type="button" class="btnTransform" onmousedown="btnSize(true)"
+            onmouseup="btnSize(false)" 
+            onmouseleave="btnSize(false)" onclick="dislikeReturn()">Show</button>
         </div> 
         <div id="loadingGif" hidden>
             <div class="spinner-border" class="" role="status">
@@ -66,5 +68,5 @@
     </div>
 </body>
 <script src="JS/ytdr.js"></script>
-
+<script src="JS/buttonTransform.js"></script>
 </html>
