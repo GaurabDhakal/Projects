@@ -42,7 +42,7 @@ outputArea.innerHTML = `<p id="warning">ID of the video : ${result.id} <br>
 }
                     else{
                         loader.hidden=true;
-                        outputArea.innerHTML=`Video with the id ${usrVal} doesn't exist!`
+                        outputArea.innerHTML=`<strong>Invalid ID!<strong>`
                     }
 }
 

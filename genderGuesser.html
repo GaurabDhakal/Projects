@@ -52,9 +52,11 @@
         <br />
         <div>
             <input type="text" id="name" placeholder="Enter the first name here! " />
-            <button type="button" onclick="guessTheGender()">Predict</button>
+            <button type="button" onclick="guessTheGender()" class="btnTransform" onmousedown="btnSize(true)"
+            onmouseup="btnSize(false)" 
+            onmouseleave="btnSize(false)">Predict</button>
         </div>
-        <div class="spinner-border hideLoadingGif" id="hideLoadingGif" role="status">
+        <div class="spinner-border" id="hideLoadingGif" role="status" hidden>
             <span class="sr-only">Loading...</span>
         </div>
         <p id="output"></p>
@@ -65,5 +67,5 @@
     </div>
 </body>
 <script src="./JS/gender_guesser.js"></script>
-
+<script src="./JS/buttonTransform.js"></script>
 </html>
