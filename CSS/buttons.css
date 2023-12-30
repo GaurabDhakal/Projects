@@ -17,3 +17,9 @@ button:hover {
 #chkBtn{
     margin-left: 9px;
 }
+#transfromButton{
+    transform-origin:center;
+}
+#transfromButton.changeSize{
+    transform:scale(.9);
+}
