@@ -4,15 +4,19 @@ const output = document.getElementById('output');
 const historyWarning = document.getElementById('historyWarning');
 const loadingArea = document.querySelector('.hideLoadingGif');
 let countryPredict= async () =>{
-
-    let usrInp = document.getElementById('country').value;
+    let usrInpElem = document.getElementById('country')
+    let usrInp = usrInpElem.value;
 
     loadingArea.classList.remove('hideLoadingGif');
 
     if (usrInp.length === 0) {
         loadingArea.classList.add('hideLoadingGif')
-        output.innerHTML = "Please enter the name of the country!"
+        usrInpElem.classList.add("invalidInputWarning")
+        output.innerHTML = `<p class="invalidInputWarning invalidInputWarningPtag">Kindly enter the name first!</p>`
     } else {
+        if(usrInpElem.classList.contains("invalidInputWarning")){
+            usrInpElem.classList.remove("invalidInputWarning")
+        }
         output.innerHTML = "Loading";
         let options = {
             method: 'GET'
@@ -40,6 +44,7 @@ let countryPredict= async () =>{
 }
 document.getElementById('country').addEventListener('keyup',  (event)=> {
     if (event.key === 'Enter') {
+
         countryPredict();
     }
 });
