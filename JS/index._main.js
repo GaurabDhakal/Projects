@@ -77,11 +77,6 @@ let calc2 = () => {
         alert("Invalid Operator")
     }
 }
-document.getElementById('usrinp_1').addEventListener('keyup', function (event) {
-    if (event.key === 'Enter') {
-        giveOutput();
-    }
-});
 
 document.getElementById('usrinp_2').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
@@ -93,4 +88,10 @@ document.getElementById('usrinp_2').addEventListener('keyup', function (event) {
 function clearOTA(){
     let output = document.getElementById('outputhere');
     output.innerHTML="";
+}
+function nextElem(event,elem2){
+    if(event.key==="Enter"){
+        event.preventDefault();
+        document.getElementById(elem2).focus();
+    }
 }

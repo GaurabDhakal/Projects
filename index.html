@@ -52,7 +52,7 @@
         <div class="calculator" hidden>
             <h3 id="heading">Calculator V.2</h3>
             <label>Enter Your First Digit: </label>
-            <input type="number" id="usrinp_1" placeholder="Enter Your Number" minlength="1" /><br />
+            <input type="number" id="usrinp_1" placeholder="Enter Your Number" minlength="1" onkeydown="nextElem(event,'usrinp_2')"/><br />
             <label>Enter Your Second Digit: </label>
             <input type="number" id="usrinp_2" placeholder="Enter Your Number" minlength="1" /><br />
             <label>Select Operator(+,-,*,/): </label>
