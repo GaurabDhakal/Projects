@@ -1,6 +1,5 @@
 button {
     cursor: pointer;
-    /* margin-top: 10px; */
     margin-bottom: 7px;
     transition: all 0.51s linear;
     font-family: "Roboto Slab", serif;

@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
 *{
     padding: 0;
     margin: 0;
     box-sizing:border-box;
-    /* font-family: 'Fira Sans', sans-serif; */
-    font-family: 'Roboto Slab', serif;
 }
 input{
     margin: 10px;
