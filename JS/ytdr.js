@@ -5,10 +5,12 @@ const loader  = document.getElementById('loadingGif');
 let dislikeReturn = async () => {
     outputArea.innerHTML =""
     loader.hidden = false;
-    const usrVal = document.getElementById('name').value;
+    const usrValElem = document.getElementById('name')
+    const usrVal = usrValElem.value;
     if(usrVal.length===0){
         loader.hidden = true;
-        outputArea.innerHTML="Empty Field!!!"
+        usrValElem.classList.add("invalidInputWarning")
+        outputArea.innerHTML=`<p class="invalidInputWarning invalidInputWarningPtag">Seems like you forgot to enter the id?`
         return;
     }
 let options = {
@@ -19,6 +21,9 @@ let options = {
             "Cache-Control": "no-cache",
             Connection: "keep-alive"
         }
+    }
+    if(usrValElem.classList.contains("invalidInputWarning")){
+        usrValElem.classList.remove("invalidInputWarning")
     }
 let response = await fetch(`https://returnyoutubedislikeapi.com/votes?videoId=${usrVal}`,options);
 let result = await response.json();
