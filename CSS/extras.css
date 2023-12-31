@@ -66,3 +66,11 @@ option {
     border-radius: 5px;
     padding: 10px;
 }
+
+.dislikeContainer{
+    margin: .1rem;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(15, 128, 134);
+    text-align: center;
+}
