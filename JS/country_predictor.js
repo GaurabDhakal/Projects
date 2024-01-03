@@ -114,9 +114,5 @@ function clearHistory() {
         historyDisplayArea.innerHTML = "";
         historyWarning.innerHTML = "History has been successfully cleared!";
     }
-        if(keys.length===0){
-        clearHistoryBtnElem.hidden=true;
-        }else if(keys.length>0){
-            clearHistoryBtnElem.hidden =false;
-        }
+
 }
