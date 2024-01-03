@@ -47,10 +47,17 @@
         </nav>
         </div>
     <div class="history" id="history" hidden>
+        <div class="historyHeaderDiv">
+            <h3 class="headerHistory" >History</h3>
+        </div>
+        <div class="historyDisplayMain">
+        <span class="historyPWrapped">
+            <p id="historyWarning" hidden>No recorded history found!</p>
+            <p id="historyDisplayArea" hidden></p>
+        </span><br>
         <button type="button" onclick="goBack()" class="goBackAndCHistory">Go Back</button>
         <button type="button" onclick="clearHistory()" id="clearHistory">Clear History</button><br>
-        <div id="historyWarning">No recorded history found!</div>
-        <div id="historyDisplayArea"></div>
+    </div>
     </div>
     <div id="container" class="show">
         <h3>Country Predictor</h3>
