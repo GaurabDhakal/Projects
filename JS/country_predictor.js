@@ -17,7 +17,7 @@ let countryPredict= async () =>{
         output.innerHTML = `<p class="invalidInputWarning invalidInputWarningPtag">Kindly enter the name first!</p>`
     } else if(hasSpace){
         loadingArea.classList.add('hideLoadingGif')
-        output.textContent = `Only first name!`
+        output.innerHTML = `<p class="invalidInputWarningPtag invalidInputWarning">Only First Name!</p>`
     } 
     else {
         if(usrInpElem.classList.contains("invalidInputWarning")){

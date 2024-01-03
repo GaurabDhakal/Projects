@@ -3,13 +3,18 @@ let guessTheGender = async ()=> {
     loader.hidden = false;
     let usrInpElem = document.getElementById('name')
     let n = usrInpElem.value;
+    let hasSpace = n.includes(" ");
     let outputArea = document.getElementById('output');
     outputArea.innerHTML=""
     if (n.length === 0) {
         usrInpElem.classList.add("invalidInputWarning")
         loader.hidden = true;
         outputArea.innerHTML = `<p class="invalidInputWarningPtag invalidInputWarning">Please enter the name!</p>`
-    } else {
+    } else if(hasSpace){
+        loader.hidden = true;
+        outputArea.innerHTML = `<p class="invalidInputWarningPtag invalidInputWarning">Only First Name!</p>`
+    } 
+    else {
         if(usrInpElem.classList.contains("invalidInputWarning")){
             usrInpElem.classList.remove("invalidInputWarning")
         }
