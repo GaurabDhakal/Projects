@@ -23,3 +23,7 @@ button:hover {
 .btnTransform.changeSize{
     transform:scale(.9);
 }
+
+.goBackAndCHistory{
+    margin: 10px;
+}

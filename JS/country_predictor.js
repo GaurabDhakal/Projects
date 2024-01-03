@@ -112,7 +112,11 @@ function clearHistory() {
     else if (keysForClear.length > 0) {
         localStorage.clear(keysForClear);
         historyDisplayArea.innerHTML = "";
+        clearHistoryBtnElem.textContent = "Hiding..."
+        setTimeout(()=>{
+            clearHistoryBtnElem.textContent = "Clear History"
+            clearHistoryBtnElem.hidden = true;
+        },400)
         historyWarning.innerHTML = "History has been successfully cleared!";
     }
-
 }
