@@ -3,17 +3,23 @@ const countryName = new Intl.DisplayNames(['EN'], { type: 'region' });
 const output = document.getElementById('output');
 const historyWarning = document.getElementById('historyWarning');
 const loadingArea = document.querySelector('.hideLoadingGif');
+let clearHistoryBtnElem = document.getElementById("clearHistory");
+
 let countryPredict= async () =>{
     let usrInpElem = document.getElementById('country')
     let usrInp = usrInpElem.value;
-
+    let hasSpace  = usrInp.includes(" ");
     loadingArea.classList.remove('hideLoadingGif');
 
     if (usrInp.length === 0) {
         loadingArea.classList.add('hideLoadingGif')
         usrInpElem.classList.add("invalidInputWarning")
         output.innerHTML = `<p class="invalidInputWarning invalidInputWarningPtag">Kindly enter the name first!</p>`
-    } else {
+    } else if(hasSpace){
+        loadingArea.classList.add('hideLoadingGif')
+        output.textContent = `Only first name!`
+    } 
+    else {
         if(usrInpElem.classList.contains("invalidInputWarning")){
             usrInpElem.classList.remove("invalidInputWarning")
         }
@@ -59,6 +65,11 @@ function showHistory() {
     container.hidden = true;
     historyDisplay.hidden = false;
     let keys = Object.keys(localStorage);
+    if(keys.length===0){
+    clearHistoryBtnElem.hidden=true;
+    }else if(keys.length>0){
+        clearHistoryBtnElem.hidden =false;
+    }
     let i = 1;
         for (let key of keys) {
             
@@ -68,7 +79,8 @@ function showHistory() {
                 if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)) {
                     historyWarning.innerHTML = ""
                     historyDisplayArea.innerHTML += `<p>${i}. ${key} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</p><br>`;
-                    i++;}
+                    i++;
+                }
             } catch (error) {
                 console.error("Error parsing value for key:", key, error);
             }
@@ -102,5 +114,9 @@ function clearHistory() {
         historyDisplayArea.innerHTML = "";
         historyWarning.innerHTML = "History has been successfully cleared!";
     }
-
+        if(keys.length===0){
+        clearHistoryBtnElem.hidden=true;
+        }else if(keys.length>0){
+            clearHistoryBtnElem.hidden =false;
+        }
 }
