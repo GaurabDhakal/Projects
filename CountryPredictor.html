@@ -55,16 +55,22 @@
             <p id="historyWarning" hidden>No recorded history found!</p>
             <p id="historyDisplayArea" hidden></p>
         </span><br>
-        <button type="button" onclick="goBack()" class="goBackAndCHistory">Go Back</button>
-        <button type="button" onclick="clearHistory()" id="clearHistory">Clear History</button><br>
+        <!-- Goback button -->
+        <button type="button" onclick="goBack()"
+        class="goBackAndCHistory">Go Back</button>
+        <!-- clear history button -->
+        <button type="button" onclick="clearHistory()" 
+        id="clearHistory">Clear History</button><br>
     </div>
     </div>
     <div id="container" class="show">
         <h3>Country Predictor</h3>
         <div><input type="text" id="country" placeholder="Enter the first name here! " />
-            <button type="button" class="btnTransform" id="predictB" onmousedown="btnSize(true)"
-                    onmouseup="btnSize(false)" 
-                    onmouseleave="btnSize(false)" onclick="countryPredict()">Predict</button>
+            <button type="button" class="btnTransform" id="predictB" 
+            onmousedown="btnSize(true)"
+            onmouseup="btnSize(false)" 
+            onmouseleave="btnSize(false)" 
+            onclick="countryPredict()">Predict</button>
         </div>
         <div class="spinner-border hideLoadingGif" role="status">
             <span class="sr-only ">Loading...</span>
@@ -73,7 +79,8 @@
         <p text-align="center" id="warning">
             Note: In some cases, the requested result may not be displayed due to absence of the data of the name in the
             API.</p>
-        <button type="button" id="showHB" onclick="showHistory()">Show History</button>
+        <button type="button" id="showHB"
+        onclick="showHistory()">Show History</button>
     </div>
 
 </body>
