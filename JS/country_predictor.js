@@ -4,6 +4,11 @@ const output = document.getElementById('output');
 const historyWarning = document.getElementById('historyWarning');
 const loadingArea = document.querySelector('.hideLoadingGif');
 let clearHistoryBtnElem = document.getElementById("clearHistory");
+
+const currentDate = new Date();
+const userTimezoneOffset = currentDate.getTimezoneOffset(); // Get the user's timezone offset in minutes
+const userTimestamp = new Date(currentDate.getTime() - userTimezoneOffset * 60000); 
+
 historyWarning.hidden=false;
 let countryPredict= async () =>{
     let usrInpElem = document.getElementById('country')
@@ -30,7 +35,16 @@ let countryPredict= async () =>{
         let response = await fetch(`https://api.nationalize.io?name=${usrInp}`, options);
         let result = await response.json();
         console.log(result);
-        localStorage.setItem(`${usrInp}`, JSON.stringify(result));
+        const dataToStore = {
+            data: result,
+            timestamp: new Date().toISOString(), // Current timestamp in ISO format
+        };
+        
+          // Ensure 'country' property exists before adding it to the stored data
+        if (result.country && Array.isArray(result.country) && result.country.length > 0) {
+            dataToStore.country = result.country;
+        }
+        localStorage.setItem(`${usrInp}`, JSON.stringify(dataToStore));
         if (!result.country[4]) {
             loadingArea.classList.add('hideLoadingGif')
 
@@ -78,9 +92,14 @@ function showHistory() {
                 historyDisplayArea.hidden=false;
                 let parsedValue = JSON.parse(value);
                 if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)) {
+                    const timestamp = new Date(parsedValue.timestamp).toLocaleDateString('en-CA', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                    }).replace(/\//g, '-');
                     historyWarning.hidden=true;
                     const name = key.charAt(0).toUpperCase() + key.slice(1)
-                    historyDisplayArea.innerHTML += `<p id="toBeHiddenLater"> ${name} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</p><br>`;
+                    historyDisplayArea.innerHTML += `<p id="toBeHiddenLater"> ${timestamp}: ${name} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</p><br>`;
                     
                 }
             } catch (error) {
@@ -91,6 +110,15 @@ function showHistory() {
     
 }
 
+function isValidFormat(parsedValue) {
+    return (
+        typeof parsedValue === "object" &&
+        parsedValue !== null &&
+        !Array.isArray(parsedValue) &&
+        parsedValue.timestamp &&
+        typeof parsedValue.timestamp === 'string'
+    );
+}
 
 
 // Go back function
