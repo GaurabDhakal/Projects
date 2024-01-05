@@ -78,38 +78,40 @@ function showHistory() {
     container.hidden = true;
     historyDisplay.hidden = false;
     let keys = Object.keys(localStorage);
-    if(keys.length===0){
-    historyWarning.hidden=false;
-    historyWarning.innerHTML = "No record found!"
-    clearHistoryBtnElem.hidden=true;
-    }else if(keys.length>0){
-        clearHistoryBtnElem.hidden =false;
+
+    if (keys.length === 0) {
+        historyWarning.hidden = false;
+        historyWarning.innerHTML = "No record found!";
+        clearHistoryBtnElem.hidden = true;
+    } else if (keys.length > 0) {
+        clearHistoryBtnElem.hidden = false;
     }
-        for (let key of keys) {
-            
-            let value = localStorage.getItem(key);
-            try {
-                historyDisplayArea.hidden=false;
-                let parsedValue = JSON.parse(value);
-                if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)) {
-                    const timestamp = new Date(parsedValue.timestamp).toLocaleDateString('en-CA', {
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit'
-                    }).replace(/\//g, '-');
-                    keys.sort((a, b) => b.timestamp - a.timestamp);
-                    historyWarning.hidden=true;
-                    const name = key.charAt(0).toUpperCase() + key.slice(1)
-                    historyDisplayArea.innerHTML += `<p id="toBeHiddenLater"> ${timestamp}: ${name} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</p><br>`;
-                    
-                }
-            } catch (error) {
-                console.error("Error parsing value for key:", key, error);
+
+    keys.sort((a, b) => {
+        return new Date(JSON.parse(localStorage.getItem(b)).timestamp) - new Date(JSON.parse(localStorage.getItem(a)).timestamp);
+    });
+
+    for (let key of keys) {
+        let value = localStorage.getItem(key);
+        try {
+            historyDisplayArea.hidden = false;
+            let parsedValue = JSON.parse(value);
+            if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)) {
+                const timestamp = new Date(parsedValue.timestamp).toLocaleDateString('en-CA', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                }).replace(/\//g, '-');
+                historyWarning.hidden = true;
+                const name = key.charAt(0).toUpperCase() + key.slice(1);
+                historyDisplayArea.innerHTML += `<p id="toBeHiddenLater"> ${timestamp}: ${name} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</p><br>`;
             }
-            
+        } catch (error) {
+            console.error("Error parsing value for key:", key, error);
         }
-    
+    }
 }
+
 
 function isValidFormat(parsedValue) {
     return (
