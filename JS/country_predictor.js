@@ -97,6 +97,7 @@ function showHistory() {
                         month: '2-digit',
                         day: '2-digit'
                     }).replace(/\//g, '-');
+                    keys.sort((a, b) => b.timestamp - a.timestamp);
                     historyWarning.hidden=true;
                     const name = key.charAt(0).toUpperCase() + key.slice(1)
                     historyDisplayArea.innerHTML += `<p id="toBeHiddenLater"> ${timestamp}: ${name} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</p><br>`;
