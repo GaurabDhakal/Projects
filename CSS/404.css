@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    height: 95vh;
+    justify-content: center;
+    flex-direction: column;
+    transform-origin: center;
+    align-items: center;
+}
+.pMain{
+    font-size: xx-large;
+    padding: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid gray;
+    background-color: rgb(39, 234, 230);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.goBack{
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: rgb(82, 227, 82);
+    border: 1px solid gray;
+    border-radius: 4px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.goBack:hover{
+    background-color: greenyellow;
+}
+.goBack:active,a:active{
+    transform: scale(.9);
+}
