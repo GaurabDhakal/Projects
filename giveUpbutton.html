@@ -9,6 +9,7 @@
             display: flex;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
             justify-content: center;
         }
         button{
@@ -28,9 +29,21 @@
         button:active{
             transform: scale(.9);
         }
+        p{
+            display: inline-flex;
+            font-size: 10rem;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
-    <button onclick="alert(`Looser😂😂`)">Give Up</button>
+    <button onclick="looser()">Give Up</button>
+    <p id="looser"></p>
 </body>
+<script>
+    function looser(){
+        alert(`Looser😂😂`);
+        document.getElementById('looser').innerText="LOOSER 🫵🫵"
+    }
+</script>
 </html>
