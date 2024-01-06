@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Up Button</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+        }
+        button{
+            border: 1px solid black;
+            padding: 2rem 4rem;
+            background-color: rgb(16, 151, 97);
+            color: white;
+            transition: .5s all linear;
+            cursor: pointer;
+            border-radius: 5px;
+            transform-origin: center;
+        }
+        button:hover{
+            background-color: red;
+            color: white;
+        }
+        button:active{
+            transform: scale(.9);
+        }
+    </style>
+</head>
+<body>
+    <button onclick="alert(`Looser😂😂`)">Give Up</button>
+</body>
+</html>
