@@ -7,12 +7,12 @@
     align-items: center;
 }
 .pMain{
-    font-size: xx-large;
+    font-size: 5rem;
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     border: 1px solid gray;
-    background-color: rgb(39, 234, 230);
+    background-color: rgb(214, 233, 233);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 a{
