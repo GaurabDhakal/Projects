@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+*{
+    margin: 0;
+}
 .container{
     display: flex;
-    height: 95vh;
     justify-content: center;
     flex-direction: column;
     transform-origin: center;
@@ -8,16 +11,23 @@
 }
 .pMain{
     font-size: 5rem;
-    padding: 30px;
-    border-radius: 4px;
-    cursor: pointer;
-    border: 1px solid gray;
-    background-color: rgb(214, 233, 233);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 a{
     text-decoration: none;
     color: black;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    height: 13vh;
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+    font-family: 'Exo 2', sans-serif;
+    flex-wrap: wrap;
+    background-color: black;
+    align-items: center;
 }
 .goBack{
     padding: 10px 20px;
@@ -32,4 +42,15 @@ a{
 }
 .goBack:active,a:active{
     transform: scale(.9);
+}
+span{
+    font-family: 'Exo 2', sans-serif;
+    margin: 0 10px;
+}
+.pageNotFoundCode{
+    font-size: 6rem;
+}
+.pageNotFoundText{
+    margin: 12px 0;
+    font-size: large;
 }
