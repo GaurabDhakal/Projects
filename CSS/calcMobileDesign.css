@@ -1,0 +1,15 @@
+@media (max-width: 1000px) {
+    #divcalculator{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: fit-content;
+        padding: 30px;
+    }
+    body{
+        overflow: hidden;
+        background-image: none;
+        
+    }
+}

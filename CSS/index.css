@@ -127,8 +127,8 @@ form button:hover{
     transition: all linear 0.6s;
 }
 form button:active{
-    padding: 5px;
-    transition: all linear 0.4s;
+    transform: scale(.9);
+    transition: all linear 0.2s;
 }
 .hideBtns{
   display: none;
@@ -154,14 +154,15 @@ button:hover{
 button:active{
     background-color: white;
     color: red;
-    border-width: .1rem;
+    /* border-width: .1rem; */
 }
 #divcalculator{
+  background-color: black;
+  color: white;
     border: 1px solid rgb(66, 82, 66);
     display: flex;
     height: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     width: 500px;
     align-items: center;
     border-radius: 3px;
