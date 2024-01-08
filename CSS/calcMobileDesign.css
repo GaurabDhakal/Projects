@@ -3,9 +3,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: auto;
         width: fit-content;
         padding: 30px;
+        background-color: rgb(33, 39, 44);
+        color: white;
+        margin: 5px;
+        border: none;
     }
     body{
         overflow: hidden;
