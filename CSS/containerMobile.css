@@ -1,0 +1,11 @@
+@media (max-width: 1000px) {
+    body{
+        background-image: none;
+    }
+    #container{
+        background-color: rgb(35, 27, 27);
+        background-image: none;
+        height: 80vh;
+        width: 95%;
+    }
+}

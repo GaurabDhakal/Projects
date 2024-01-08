@@ -16,3 +16,41 @@
     margin-top: 10px;
     padding: 20px 20px 20px 3px;
 }
+.historyDisplayMain{
+    text-align: center;
+    
+}
+.historyPWrapped{
+    text-align: center;
+    background-color: black;
+    padding: 0 40vh;
+    border: 1px solid rgb(32, 30, 30);
+    border-radius: 17px;
+    display: inline-block;
+}
+
+.historyHeaderDiv{
+    margin-top: 6px;
+    text-align: center;
+}
+.headerHistory{
+    text-align: center;
+    background-color: black;
+    padding: 15px;
+    border: 1px solid rgb(32, 30, 30);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+@media (max-width: 1000px) {
+
+    .history{
+        margin: 3px;
+    }
+    #historyDisplayArea{
+        width: 100%;
+    }
+    .historyPWrapped{
+    padding: 0;
+    }
+}

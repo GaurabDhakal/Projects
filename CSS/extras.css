@@ -74,31 +74,12 @@ option {
     background-color: rgb(15, 128, 134);
     text-align: center;
 }
-.historyDisplayMain{
-    text-align: center;
-    
-}
-.historyPWrapped{
-    text-align: center;
-    background-color: black;
-    padding: 15px;
-    padding: 0 40vh;
-    border: 1px solid rgb(32, 30, 30);
-    border-radius: 17px;
-    display: inline-block;
-}
-
-.historyHeaderDiv{
-    text-align: center;
-}
-.headerHistory{
-    text-align: center;
-    background-color: black;
-    padding: 15px;
-    border: 1px solid rgb(32, 30, 30);
-    border-radius: 10px;
-    display: inline-block;
-}
 #country{
     margin-top: 15px;
+}
+
+@media (max-width: 1000px) {
+    nav .logo{
+        font-size: 25px;
+    }
 }
