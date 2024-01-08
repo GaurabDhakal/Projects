@@ -1,19 +1,40 @@
 @media (max-width: 1000px) {
-    #divcalculator{
+    .forMobDivCalc{
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    nav .logo{
+        font-size: 25px;
+    }
+    .calculator{
+        margin: 5px;
+    }
+    #divcalculator{
+        display: flex;
         width: fit-content;
-        padding: 30px 80px;
+        justify-content: center;
+        align-items: center;
         background-color: rgb(33, 39, 44);
         color: white;
-        margin: auto;
-        
-        border: none;
+        margin: 12px;
+        padding: 15px;
+    }
+    #heading{
+        text-align: center;
+        margin: 10px;
     }
     body{
         overflow: hidden;
         background-image: none;
         
+    }
+}
+
+
+
+@media only screen and (min-width: 1001px) and (max-width: 1075px) {
+    nav .logo,input{
+        font-size: 20px;
     }
 }
