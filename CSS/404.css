@@ -54,3 +54,9 @@ span{
     margin: 12px 0;
     font-size: large;
 }
+
+@media (max-width: 1000px) {
+    .logo{
+        height: 10vh;
+    }
+}
