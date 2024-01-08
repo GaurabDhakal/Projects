@@ -3,6 +3,7 @@
         background-image: none;
     }
     #container{
+        margin-top: 3px;
         background-color: rgb(35, 27, 27);
         background-image: none;
         height: 80vh;
