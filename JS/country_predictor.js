@@ -81,7 +81,7 @@ function showHistory() {
 
     if (keys.length === 0) {
         historyWarning.hidden = false;
-        historyWarning.innerHTML = "No record found!";
+        historyWarning.innerHTML = `<p class="noRF">No record found!</p>`;
         clearHistoryBtnElem.hidden = true;
     } else if (keys.length > 0) {
         clearHistoryBtnElem.hidden = false;

@@ -53,4 +53,7 @@
     .historyPWrapped{
     padding: 0;
     }
+    .noRF{
+        padding: 7px;
+    }
 }
