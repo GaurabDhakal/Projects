@@ -2,26 +2,26 @@ let keys = Object.keys(localStorage);
 const countryName = new Intl.DisplayNames(['EN'], { type: 'region' });
 const output = document.getElementById('output');
 const historyWarning = document.getElementById('historyWarning');
-const loadingArea = document.querySelector('.hideLoadingGif');
 let clearHistoryBtnElem = document.getElementById("clearHistory");
-
 const currentDate = new Date();
 const userTimezoneOffset = currentDate.getTimezoneOffset(); // Get the user's timezone offset in minutes
-const userTimestamp = new Date(currentDate.getTime() - userTimezoneOffset * 60000); 
+const userTimestamp = new Date(currentDate.getTime() - userTimezoneOffset * 60000);
 
-historyWarning.hidden=false;
+
+let loadingArea = document.getElementById("loadingGif");
+
 let countryPredict= async () =>{
     let usrInpElem = document.getElementById('country')
     let usrInp = usrInpElem.value;
     let hasSpace  = usrInp.includes(" ");
-    loadingArea.classList.remove('hideLoadingGif');
+    loadingArea.hidden=false;
 
     if (usrInp.length === 0) {
-        loadingArea.classList.add('hideLoadingGif')
+        loadingArea.hidden=true;
         usrInpElem.classList.add("invalidInputWarning")
         output.innerHTML = `<p class="invalidInputWarning invalidInputWarningPtag">Kindly enter the name first!</p>`
     } else if(hasSpace){
-        loadingArea.classList.add('hideLoadingGif')
+        loadingArea.hidden=true;
         output.innerHTML = `<p class="invalidInputWarningPtag invalidInputWarning">Only First Name!</p>`
     } 
     else {
@@ -46,14 +46,14 @@ let countryPredict= async () =>{
         }
         localStorage.setItem(`${usrInp}`, JSON.stringify(dataToStore));
         if (!result.country[4]) {
-            loadingArea.classList.add('hideLoadingGif')
+            loadingArea.hidden=true;
 
             output.innerHTML = `<div id="oa">Sorry! We are unable to find data of the given name.</div>`;
 
             console.log("Name isn't in the database")
         } else {
             output.innerHTML = "";
-            loadingArea.classList.add('hideLoadingGif')
+            loadingArea.hidden=true;
             for (let i = 0; i < 5; i++) {
                 let countryCode = await result.country[i].country_id;
 
@@ -69,7 +69,7 @@ document.getElementById('country').addEventListener('keyup',  (event)=> {
 });
 
 
-const container = document.querySelector("#container");
+const container = document.getElementById("containerOuterlayer");
 const historyDisplayArea = document.getElementById("historyDisplayArea");
 const historyDisplay = document.getElementById("history");
 

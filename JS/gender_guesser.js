@@ -1,5 +1,7 @@
+
+
 let guessTheGender = async ()=> {
-    let loader = document.getElementById('hideLoadingGif');
+    let loader = document.getElementById('loadingGif');
     loader.hidden = false;
     let usrInpElem = document.getElementById('name')
     let n = usrInpElem.value;
