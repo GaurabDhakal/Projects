@@ -43,11 +43,3 @@
         margin-left: 1rem;
     }
 }
-
-
-
-@media only screen and (min-width: 1001px) and (max-width: 1075px) {
-    nav .logo,input{
-        font-size: 20px;
-    }
-}
