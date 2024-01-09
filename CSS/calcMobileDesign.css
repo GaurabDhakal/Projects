@@ -6,19 +6,20 @@
     }
     nav .logo{
         font-size: 25px;
+        
     }
     .calculator{
         margin: 5px;
     }
     #divcalculator{
         display: flex;
-        width: fit-content;
         justify-content: center;
         align-items: center;
         background-color: rgb(33, 39, 44);
         color: white;
-        margin: 12px;
-        padding: 15px;
+        margin: 5px 10px;
+        height: auto;
+        padding: 10px;
     }
     #heading{
         text-align: center;
