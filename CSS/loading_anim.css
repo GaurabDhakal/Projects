@@ -1,21 +1,33 @@
-/* CSS for the loading spinner */
+/* CSS for the loading spinner with a better design */
 .spinner-border {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    border-top: 2px solid #007bff;
-    animation: spin 1s linear infinite;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border: 5px solid transparent;
+  border-top-color: #f5f5f5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite, fadeInOut 2s ease-in-out infinite alternate;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframe animation for the spinner rotation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  /* Keyframe animation for the spinner */
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
   }
-  
+}
+
+/* Keyframe animation for the fade-in-out effect */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.9;
+  }50%{
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
