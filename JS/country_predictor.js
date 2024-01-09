@@ -72,9 +72,10 @@ document.getElementById('country').addEventListener('keyup',  (event)=> {
 const container = document.getElementById("containerOuterlayer");
 const historyDisplayArea = document.getElementById("historyDisplayArea");
 const historyDisplay = document.getElementById("history");
-
+const footer = document.getElementById("footer");
 //show history function
 function showHistory() {
+    footer.hidden=true
     container.hidden = true;
     historyDisplay.hidden = false;
     let keys = Object.keys(localStorage);
@@ -127,6 +128,7 @@ function isValidFormat(parsedValue) {
 // Go back function
 function goBack() {
     container.hidden = false;
+    footer.hidden=false;
     historyDisplay.hidden = true;
     historyDisplayArea.innerHTML = "";
     output.innerHTML = ""
