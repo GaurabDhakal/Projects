@@ -5,16 +5,20 @@ let button = document.querySelector('.calculator')
 let toggleBtn = document.querySelector('.hideShowToggle');
 let buttons = document.getElementsByClassName('hideUponClick');
 let toggle = () => {
-
+    
     if(button.hidden === false){
         button.hidden = true
     }else{
         button.hidden = false
     }
-   // For changing name of the buttons upon toggle
+   // For changing name of the buttons upon click
+   let header = document.querySelector(".selectCalcH2");
     if(toggleBtn.innerHTML === "Close"){
         toggleBtn.innerHTML = "Calculator V.2"
+        header.hidden=false
+
     }else{
+        header.hidden=true
         toggleBtn.innerHTML = "Close"
     }
 
@@ -52,7 +56,7 @@ let giveOutput = () => {
         }
     }
     else{
-        output.innerHTML = `Please enter valid numbers in both input fields.`
+        output.innerHTML = `Please enter valid numbers in both <br>input fields.`
     }
 
 }

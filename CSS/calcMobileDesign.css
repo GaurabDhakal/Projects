@@ -17,9 +17,12 @@
         align-items: center;
         background-color: rgb(33, 39, 44);
         color: white;
-        margin: 5px 10px;
+        margin: 10px 2px;
         height: auto;
-        padding: 10px;
+        padding: 10px 0;
+    }
+    input{
+        padding-left: 20px;
     }
     #heading{
         text-align: center;
@@ -29,6 +32,15 @@
         overflow: hidden;
         background-image: none;
         
+    }
+    button{
+        margin: 1rem 0;
+    }
+    button[type="reset"]{
+        margin-left: 1rem;
+    }
+    button[type="button"]{
+        margin-left: 1rem;
     }
 }
 
