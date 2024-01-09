@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
 button {
     cursor: pointer;
     margin-bottom: 7px;
@@ -8,6 +9,7 @@ button {
     border-radius: 2px 05px 2px 05px;
     background-color: rgb(230, 133, 7);
     color: white;
+    font-family: 'Signika Negative', sans-serif;
 }
 button:hover {
     background-color: black;

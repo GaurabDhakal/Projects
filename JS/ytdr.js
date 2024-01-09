@@ -2,14 +2,14 @@
 const outputArea = document.getElementById('output')
 const loader  = document.getElementById('loadingGif');
 
-function randomColorPicker(){
-    const hexNum = Math.floor(Math.random()*(256*256*256))
-    const hexCode = "#"+ hexNum.toString(16);
-    return hexCode;
-}
+// function randomColorPicker(){
+//     const hexNum = Math.floor(Math.random()*(256*256*256))
+//     const hexCode = "#"+ hexNum.toString(16);
+//     return hexCode;
+// }
 let dislikeReturn = async () => {
-    let colorBgForOutputPTag = randomColorPicker();
-    console.log(colorBgForOutputPTag)
+    // let colorBgForOutputPTag = randomColorPicker();
+    // console.log(colorBgForOutputPTag)
     outputArea.innerHTML =""
     loader.hidden = false;
     const usrValElem = document.getElementById('name')
@@ -48,7 +48,7 @@ console.log(result);
 loader.hidden = true;
 outputArea.innerHTML = `<p id="dislikeContainer" class="dislikeContainer">Total Dislikes: ${result.dislikes} </p><br>`;
 let idOfDislikeContainer = document.getElementById("dislikeContainer");
-idOfDislikeContainer.style.backgroundColor = colorBgForOutputPTag;
+// idOfDislikeContainer.style.backgroundColor = colorBgForOutputPTag;
 }
                     else{
                         loader.hidden=true;
