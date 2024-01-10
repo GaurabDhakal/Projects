@@ -9,6 +9,7 @@
         height: auto;
         padding: 10vh 0;
         width: 95%;
+        max-height: 65vh;
     }
     input{
         margin: 16px 0;
