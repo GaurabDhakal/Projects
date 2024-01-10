@@ -55,6 +55,7 @@
     }
     .historyPWrapped{
     padding: 0;
+    overflow: hidden;
     }
     .noRF{
         padding: 7px;
