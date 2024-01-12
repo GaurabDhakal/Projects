@@ -22,7 +22,7 @@ let countryPredict= async () =>{
         output.innerHTML = `<p class="invalidInputWarning invalidInputWarningPtag">Kindly enter the name first!</p>`
     } else if(hasSpace){
         loadingArea.hidden=true;
-        output.innerHTML = `<p class="invalidInputWarningPtag invalidInputWarning">Only First Name!</p>`
+        output.innerHTML = `<p class="invalidInputWarningPtag invalidInputWarning">Whitespaces are not allowed(first name only)</p>`
     } 
     else {
         if(usrInpElem.classList.contains("invalidInputWarning")){
@@ -150,7 +150,7 @@ function clearHistory() {
     else if (keysForClear.length > 0) {
         localStorage.clear(keysForClear);
         historyDisplayArea.innerHTML = "";
-        clearHistoryBtnElem.textContent = "Hiding..."
+        clearHistoryBtnElem.textContent = "Clearing.."
         setTimeout(()=>{
             clearHistoryBtnElem.textContent = "Clear History"
             clearHistoryBtnElem.hidden = true;
