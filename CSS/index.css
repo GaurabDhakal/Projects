@@ -12,7 +12,7 @@ input,#operator{
 }
 #heading{
   text-align: center;
-  margin: 10px;
+  margin:10px 0px 5px 0;
 }
 #operator{
   margin-left: 17px;
