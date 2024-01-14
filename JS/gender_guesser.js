@@ -25,11 +25,14 @@ let guessTheGender = async ()=> {
         const options = {
             method: 'GET',
         }
-
         try {
             loader.hidden = false;
             const response = await fetch(url, options);
             const result = await response.json();
+            if(!result.gender){
+                outputArea.innerHTML = `<p id="oa">Pardon! Data of the name isn't available in the database</p>`
+                loader.hidden = true;
+            }else{
             let firstL = ((result.gender).charAt(0)).toUpperCase();
             let rem = (result.gender).slice(1);
             let final  = firstL + rem;
@@ -38,6 +41,7 @@ let guessTheGender = async ()=> {
             <p id=ff align =center>Fun Fact: This name was searched for ${result.count} times in this API .</p> </p>`;
             console.log(result)
             console.log(`The probability is ${result.probability}`)
+        }
         } catch (error) {
             console.error(error)
         }
