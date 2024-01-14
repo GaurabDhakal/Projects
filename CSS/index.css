@@ -10,6 +10,10 @@ input,#operator{
     padding: 6px;
     border-radius: 3px;
 }
+#heading{
+  text-align: center;
+  margin: 10px;
+}
 #operator{
   margin-left: 17px;
   border: 1px solid gray;
