@@ -16,3 +16,8 @@
         margin: 16px 0;
     }
 }
+@media only screen and (min-width: 682px) and (max-width: 999px) {
+    #container{
+        min-height: 65vh;
+    }
+}
