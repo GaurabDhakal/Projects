@@ -32,6 +32,8 @@ li h3 {
 
 #warning {
     background-color: black;
+    padding: 4px;
+    margin: 6px;
 }
 
 label {

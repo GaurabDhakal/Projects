@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 *{
     font-family: 'Signika Negative', sans-serif;
 }
 p{
     font-family: 'Signika Negative', sans-serif;
+}
+/* YOUTUBE DISLIKE RETURN GUIDE AREA */
+
+#warning{
+    font-family: 'PT Sans', sans-serif;
 }
