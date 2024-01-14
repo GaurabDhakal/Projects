@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaurab Dhakal</title>
+    <title>Cookies by Gaurab</title>
 </head>
+<link rel="stylesheet" href="CSS/buttons.css">
+<style>
+    *{
+        margin: 0;
+    }
+    h3{
+        margin: 10px;
+        background-color: black;
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+    .button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    #copied{
+        transform-origin: center;
+    }
+</style>
 <body>
-    
-</body>
-<p>
-
-    [
-    {
+    <h3>Cookie</h3>
+    <div></div>
+    <pre hidden><code>
+    <p id="textToCopy">
+        [
+        {
         "name": "SecureNetflixId",
         "value": "v%3D2%26mac%3DAQEAEQABABSYA7FQWSkWwf_UbiFZIVxbctUQkZrb6qc.%26dt%3D1705236625370",
         "domain": ".netflix.com",
@@ -25,8 +49,8 @@
         "partitionKey": null,
         "expirationDate": 1736772625,
         "storeId": null
-    },
-    {
+        },
+        {
         "name": "profilesNewSession",
         "value": "0",
         "domain": ".netflix.com",
@@ -40,10 +64,11 @@
         "partitionKey": null,
         "expirationDate": 1704698349,
         "storeId": null
-    },
-    {
+        },
+        {
         "name": "NetflixId",
-        "value": "ct%3DBQAOAAEBEJ9_xI4Jq_5r3dG7ebnj5JiCUPZKRtCw5eFDNJwcLYwms09sWZiLnTl3XeNuxQ91kKSgDhHG5bB0hZQexJeMHikAWALlwEe9z5Pk6sUpsoqGQItQh3Epa5s0myrsw15BwghNuZERaENQ5NE73kGtSca1GScL9vrp21eIrpAdjAdS76jl50ii_tJOixMp0y94ORe73Wfj3f5crmYontJ0YKn8PzqjiPynwbQEiVJbS3K7pGZjAmagnQATF06X1iyBMblksUEn8Iao_dtVwTqXBzmvoJizc7M-3sbMOFRh1x6w6RX8oJqmOvmyI17iJCUqiUxNa7cFAOmm84rpMSMG62hSVBPxGwBimvafXG6-HaQHv29WxF6vuR3qlSghGf1eZ2PhBPUsOaYbMGHq2VvmdBQ9uNByt1XVmlXSwPtLXvryaLIr3JFOJEfwlQMnJs2FFjIURPYSDPKuY_GC4tHFa6T-7QOPpt1Ha_zpm-2CZQEOL2Qej4_eh5c_Lp-wdeqQos9AtUYwwCykfRmb61fpL-wNstyNs58DfZrbUO1t7eyLXLfDKKkYC-kJjfpEY1fNkktCtCWdwwJvQ2oxcGBggQ_rUK9PEbyCkV8zXwnie_n4qctfyy7IjFvtHzcBNwDmNQmDetejmAprobiPl7oQp8xUI_h4dKcIAPTpjyz5IrAvbfsDk4FlBKsaYkMFl4kgb7xv5tgbBhHWnDuEQVeK3n1cebwNMoeMdLWhGvdVuDc1whzb8xRbpn6eHixkR-1wNVvEoufUw2-N5Vha-LDaHsRi1UxS3avTTKHcSz67gk8K8So.%26bt%3Ddbl%26ch%3DAQEAEAABABTWvqC7dt8YZgtLhmq6apyD5XT_aUAdjtE.%26v%3D2%26mac%3DAQEAEAABABTQyLq6TkSmR_leFPBN6LpOd4tFURk80yQ.",
+        "value":
+        "ct%3DBQAOAAEBEJ9_xI4Jq_5r3dG7ebnj5JiCUPZKRtCw5eFDNJwcLYwms09sWZiLnTl3XeNuxQ91kKSgDhHG5bB0hZQexJeMHikAWALlwEe9z5Pk6sUpsoqGQItQh3Epa5s0myrsw15BwghNuZERaENQ5NE73kGtSca1GScL9vrp21eIrpAdjAdS76jl50ii_tJOixMp0y94ORe73Wfj3f5crmYontJ0YKn8PzqjiPynwbQEiVJbS3K7pGZjAmagnQATF06X1iyBMblksUEn8Iao_dtVwTqXBzmvoJizc7M-3sbMOFRh1x6w6RX8oJqmOvmyI17iJCUqiUxNa7cFAOmm84rpMSMG62hSVBPxGwBimvafXG6-HaQHv29WxF6vuR3qlSghGf1eZ2PhBPUsOaYbMGHq2VvmdBQ9uNByt1XVmlXSwPtLXvryaLIr3JFOJEfwlQMnJs2FFjIURPYSDPKuY_GC4tHFa6T-7QOPpt1Ha_zpm-2CZQEOL2Qej4_eh5c_Lp-wdeqQos9AtUYwwCykfRmb61fpL-wNstyNs58DfZrbUO1t7eyLXLfDKKkYC-kJjfpEY1fNkktCtCWdwwJvQ2oxcGBggQ_rUK9PEbyCkV8zXwnie_n4qctfyy7IjFvtHzcBNwDmNQmDetejmAprobiPl7oQp8xUI_h4dKcIAPTpjyz5IrAvbfsDk4FlBKsaYkMFl4kgb7xv5tgbBhHWnDuEQVeK3n1cebwNMoeMdLWhGvdVuDc1whzb8xRbpn6eHixkR-1wNVvEoufUw2-N5Vha-LDaHsRi1UxS3avTTKHcSz67gk8K8So.%26bt%3Ddbl%26ch%3DAQEAEAABABTWvqC7dt8YZgtLhmq6apyD5XT_aUAdjtE.%26v%3D2%26mac%3DAQEAEAABABTQyLq6TkSmR_leFPBN6LpOd4tFURk80yQ.",
         "domain": ".netflix.com",
         "hostOnly": false,
         "path": "/",
@@ -55,8 +80,8 @@
         "partitionKey": null,
         "expirationDate": 1736772625,
         "storeId": null
-    },
-    {
+        },
+        {
         "name": "pas",
         "value": "%7B%22supplementals%22%3A%7B%22muted%22%3Atrue%7D%7D",
         "domain": ".netflix.com",
@@ -70,10 +95,11 @@
         "partitionKey": null,
         "expirationDate": 1713022486,
         "storeId": null
-    },
-    {
+        },
+        {
         "name": "OptanonConsent",
-        "value": "consentId=fd50b971-e6ab-4554-83c7-59dd3f926dc3&datestamp=Sun+Jan+14+2024+21%3A19%3A51+GMT%2B0545+(Nepal+Time)&version=202301.1.0&interactionCount=1&isGpcEnabled=0&isIABGlobal=false&hosts=&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1%2CC0004%3A1&AwaitingReconsent=false",
+        "value":
+        "consentId=fd50b971-e6ab-4554-83c7-59dd3f926dc3&datestamp=Sun+Jan+14+2024+21%3A19%3A51+GMT%2B0545+(Nepal+Time)&version=202301.1.0&interactionCount=1&isGpcEnabled=0&isIABGlobal=false&hosts=&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1%2CC0004%3A1&AwaitingReconsent=false",
         "domain": ".netflix.com",
         "hostOnly": false,
         "path": "/",
@@ -85,8 +111,8 @@
         "partitionKey": null,
         "expirationDate": 1736782491,
         "storeId": null
-    },
-    {
+        },
+        {
         "name": "flwssn",
         "value": "857fa436-6b51-49a0-9875-b1ec4b1cfba0",
         "domain": ".netflix.com",
@@ -100,10 +126,11 @@
         "partitionKey": null,
         "expirationDate": 1705257285,
         "storeId": null
-    },
-    {
+        },
+        {
         "name": "nfvdid",
-        "value": "BQFmAAEBEAZQAwSX9j5-Abgn95KLJS5gTjB3Llm0JYxcAfwcEQtZUDBRIzynSH-r0Iy4rpjI5HMngpG7wDkUTX4d2j2kFrR_hzd2b_aI6gp60h3zmcJusTUApFIYy_gxfqImOo5012tzMb-xWFMlEEE8o_kw8BrQ",
+        "value":
+        "BQFmAAEBEAZQAwSX9j5-Abgn95KLJS5gTjB3Llm0JYxcAfwcEQtZUDBRIzynSH-r0Iy4rpjI5HMngpG7wDkUTX4d2j2kFrR_hzd2b_aI6gp60h3zmcJusTUApFIYy_gxfqImOo5012tzMb-xWFMlEEE8o_kw8BrQ",
         "domain": ".netflix.com",
         "hostOnly": false,
         "path": "/",
@@ -115,8 +142,48 @@
         "partitionKey": null,
         "expirationDate": 1711471533,
         "storeId": null
-    }
-]
+        }
+        ]
+    </p>
+</code></pre>
+<div class="button">
+    <button onclick="copyText()">Copy Cookie</button>
+    <p id="copied" hidden></p>
+</div>
 
-</p>
+
+    <script>
+        const copiedArea = document.getElementById("copied");
+        function copyText() {
+            copiedArea.textContent = ""
+            const textToCopy = document.getElementById('textToCopy').innerText;
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            document.body.append(textArea);
+            textArea.select();
+            textArea.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(textArea.value)
+            console.log('Text copied to clipboard!');
+            document.body.removeChild(textArea)
+            copiedArea.hidden = false;
+            let string = "Copied and gayera paste garw!";
+            let i =0;
+            setInterval(()=>{
+                    if(i<string.length){
+                        copiedArea.textContent+=string[i];
+                        i++;
+                    }else{
+                        return;
+                    }
+                    
+            },30)
+            
+            setInterval(()=>{
+                copiedArea.hidden = true;
+            },8000)
+        }
+    </script>
+
+</body>
+
 </html>
