@@ -1,5 +1,5 @@
 #history{
-    overflow: scroll;
+    overflow: hidden;
 }
 #historyMain{
     color: white;
@@ -52,7 +52,7 @@
         margin: 3px;
     }
     #historyDisplayArea{
-        width: 100%;
+        width: 90%;
     }
     .historyPWrapped{
     padding: 0;
