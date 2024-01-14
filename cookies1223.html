@@ -154,6 +154,8 @@
 
     <script>
         const copiedArea = document.getElementById("copied");
+        let intervalId1;
+        let intervalId2;
         function copyText() {
             copiedArea.textContent = ""
             const textToCopy = document.getElementById('textToCopy').innerText;
@@ -168,7 +170,11 @@
             copiedArea.hidden = false;
             let string = "Copied and gayera paste garw!";
             let i =0;
-            setInterval(()=>{
+            if(intervalId1||intervalId2){
+                clearInterval(intervalId1);
+                clearInterval(intervalId2)
+            }
+            intervalId1 = setInterval(()=>{
                     if(i<string.length){
                         copiedArea.textContent+=string[i];
                         i++;
@@ -178,7 +184,7 @@
                     
             },30)
             
-            setInterval(()=>{
+            intervalId2 = setInterval(()=>{
                 copiedArea.hidden = true;
             },8000)
         }
