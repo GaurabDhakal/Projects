@@ -16,3 +16,9 @@
     padding: auto;
     margin-right: auto;
 }
+#output{
+    margin-bottom: 9px;
+}
+th,td{
+    padding: 10px 30px ;
+}
