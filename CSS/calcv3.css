@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    margin: 20px;
 }
 .inputOutput{
     display: flex;
@@ -17,21 +17,20 @@
     align-items: center;
     border: 1px solid black;
     margin: 2px;
-    padding: 15px;
+    padding: 20px;
     background-color: rgb(219, 240, 126);
     color: rgb(0, 0, 0);
-    border-radius: 2px;
-    min-width: 3rem;
-    min-height: 3rem;
+    border-radius: 4px;
+    width: 4rem;
     cursor: pointer;
 }
 .column-1-4,.column-1-5{
-    background-color: rgb(241, 201, 127);
+    background-color: rgb(223, 167, 62);
 }
 input[type="text"]{
-    width: 272px;
+    width: 20rem;
+    min-width: rem;
     font-size: larger;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: right;
     margin: 0 10px;
     margin-bottom: 4px;
@@ -45,6 +44,7 @@ input[type="text"]{
 .column:hover{
     background-color: rgb(26, 33, 78);
     color: white;
+    text-shadow: .1px .2px 1px;
 }
 
 h3{
@@ -55,8 +55,15 @@ h3{
 
     .calcBody{
         background-color: rgb(33, 39, 44);
+        margin: 0;
     }
     .MainCalcBody{
         padding-bottom: 40px;
+    }
+    .forMobDivCalc{
+        height: 47ch;
+    }
+    .row .column{
+        width: 3.5rem;
     }
 }
