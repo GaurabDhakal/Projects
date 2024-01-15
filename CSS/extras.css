@@ -87,3 +87,7 @@ option {
         font-size: 25px;
     }
 }
+
+table tr th,td{
+    padding: .4rem;
+}

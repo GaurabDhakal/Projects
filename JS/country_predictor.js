@@ -7,9 +7,17 @@ const currentDate = new Date();
 const userTimezoneOffset = currentDate.getTimezoneOffset(); // Get the user's timezone offset in minutes
 const userTimestamp = new Date(currentDate.getTime() - userTimezoneOffset * 60000);
 
+//Checks teh type of error
+let universalResult;
+let chkError = ()=>{
+    if(universalResult.error){
+        return universalResult.error;
+    }else{
+        return "Data of name isn't available!"
+    }
+}
 
 let loadingArea = document.getElementById("loadingGif");
-
 let countryPredict= async () =>{
     let usrInpElem = document.getElementById('country')
     let usrInp = usrInpElem.value;
@@ -32,9 +40,11 @@ let countryPredict= async () =>{
         let options = {
             method: 'GET'
         }
+        try{
         let response = await fetch(`https://api.nationalize.io?name=${usrInp}`, options);
-        let result = await response.json();
+        var result = await response.json();
         console.log(result);
+        universalResult = result;
         const dataToStore = {
             data: result,
             timestamp: new Date().toISOString(), // Current timestamp in ISO format
@@ -45,21 +55,36 @@ let countryPredict= async () =>{
             dataToStore.country = result.country;
         }
         localStorage.setItem(`${usrInp}`, JSON.stringify(dataToStore));
-        if (!result.country[4]) {
-            loadingArea.hidden=true;
-
-            output.innerHTML = `<div id="oa">Sorry! We are unable to find data of the given name.</div>`;
-
-            console.log("Name isn't in the database")
-        } else {
+        if(result.country === null){
+            output.innerHTML = "Data not available";
+            console.log("test")
+        }else{
             output.innerHTML = "";
             loadingArea.hidden=true;
+            let resultElem = document.createElement("table");
+            output.append(resultElem);
+            resultElem.innerHTML = `<tr>
+            <th>S.N</td>
+            <th>Country</th>
+            <th>Probability</th>
+            </tr>`
             for (let i = 0; i < 5; i++) {
                 let countryCode = await result.country[i].country_id;
-
-                output.innerHTML += `<div id=oa>${i + 1}. ${countryName.of(countryCode)}, Probability: ${result.country[i].probability} `;
+                
+                resultElem.innerHTML += `<tr>
+                <td>${i + 1}</td> 
+                <td>${countryName.of(countryCode)}</td>
+                <td>${result.country[i].probability}</td>
+                </tr
+                >`;
             }
         }
+        
+    }catch(error){
+        loadingArea.hidden=true;
+        output.innerHTML = `<div id="oa">${chkError()}
+        </div>`;
+    }
     }
 }
 document.getElementById('country').addEventListener('keyup',  (event)=> {
@@ -105,7 +130,7 @@ function showHistory() {
                 }).replace(/\//g, '-');
                 historyWarning.hidden = true;
                 const name = key.charAt(0).toUpperCase() + key.slice(1);
-                historyDisplayArea.innerHTML += `<p id="toBeHiddenLater"> ${timestamp}: ${name} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</p><br>`;
+                historyDisplayArea.innerHTML += `<div id="toBeHiddenLater"> ${timestamp}: ${name} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</div><br>`;
             }
         } catch (error) {
             console.error("Error parsing value for key:", key, error);

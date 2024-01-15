@@ -3,12 +3,12 @@
         background-image: none;
     }
     #container{
-        margin-top: 4rem;
+        margin-top: 3rem;
         background-color: rgb(0, 0, 0);
         background-size: 100% 100%;
         background-repeat: no-repeat;
         height: auto;
-        padding: 10vh 0;
+        padding:17vh 0 16vh 0;
         width: 95%;
         max-height: 65vh;
     }
