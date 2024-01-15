@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleOperation(operation) {
         if (['+', '-', '×', '÷'].includes(currentInput.slice(-1))) {
             return; // Prevent multiple consecutive operators
+        }else if(currentInput===NULL){
+            currentInput="Enter something";
         }
         currentInput += operation;
         updateDisplay();
