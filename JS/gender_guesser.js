@@ -33,12 +33,23 @@ let guessTheGender = async ()=> {
                 outputArea.innerHTML = `<p id="oa">Pardon! Data of the name isn't available in the database</p>`
                 loader.hidden = true;
             }else{
-            let firstL = ((result.gender).charAt(0)).toUpperCase();
-            let rem = (result.gender).slice(1);
-            let final  = firstL + rem;
             loader.hidden = true;
-            outputArea.innerHTML = `<p id="oa" align="center">The name "${n}" is determined to be ${final} with a probability of ${result.probability} based on the gender prediction. <br> <br>
-            <p id=ff align =center>Fun Fact: This name was searched for ${result.count} times in this API .</p> </p>`;
+            outputArea.innerHTML = `<div>
+            <table>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Probability</th>
+                <th>Total Searches</th>
+            </tr>
+            <tr>
+                <td class="tableColumn">${(result.name).charAt(0).toUpperCase()+(result.name).slice(1)}</td>
+                <td class="tableColumn">${(result.gender).charAt(0).toUpperCase()+(result.gender).slice(1)}</td>
+                <td class="tableColumn">${result.probability}</td>
+                <td class="tableColumn">${result.count}</td>
+            </tr>
+            </table>
+            </div>`;
             console.log(result)
             console.log(`The probability is ${result.probability}`)
         }
