@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputOutput = document.querySelector('.inputOutput input');
     let currentInput = '';
     let lastResult = ''; // To store the last calculated result for 'Ans'
-
     function updateDisplay() {
         inputOutput.value = currentInput;
     }
+
 
     function handleNumber(number) {
         currentInput += number;
@@ -13,13 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleOperation(operation) {
+        try{
         if (['+', '-', '×', '÷'].includes(currentInput.slice(-1))) {
             return; // Prevent multiple consecutive operators
-        }else if(currentInput===NULL){
-            currentInput="Enter something";
         }
         currentInput += operation;
         updateDisplay();
+        }catch(error){
+            currentInput="Error bro";
+        }
     }
 
     function calculateResult() {
