@@ -1,28 +1,42 @@
-let a = () => {
-    document.getElementById('here').innerHTML = "Hello My Name is Gaurab Dhakal";
-}
-let button = document.querySelector('.calculator')
-let toggleBtn = document.querySelector('.hideShowToggle');
+
 let buttons = document.getElementsByClassName('hideUponClick');
-let toggle = () => {
-    
-    if(button.hidden === false){
-        button.hidden = true
+
+function toggle(btn,classOfElem,toHide){
+    let calculatorElem = document.querySelector(btn);
+    // console.log(calculatorElem)
+    let v1 = document.querySelector(".v1");
+    if(v1.hidden===true){
+        v1.hidden=false
     }else{
-        button.hidden = false
+        v1.hidden=true;
+    }
+    let toggleBtn = document.querySelector(classOfElem);
+    let btnToHide = document.querySelector(toHide);
+    if(btnToHide.hidden===false){
+        btnToHide.hidden = true;
+    }else{
+        btnToHide.hidden = false;
+    }
+
+    if(calculatorElem.hidden===true){
+        calculatorElem.hidden = false
+    }else{
+        calculatorElem.hidden = true
     }
    // For changing name of the buttons upon click
    let header = document.querySelector(".selectCalcH2");
-    if(toggleBtn.innerHTML === "Close"){
-        toggleBtn.innerHTML = "Calculator V.2"
-        header.hidden=false
-
-    }else{
-        header.hidden=true
-        toggleBtn.innerHTML = "Close"
-    }
+   if(header.hidden===true&&toggleBtn.innerText=="Close"){
+    header.hidden=false;
+    toggleBtn.innerText = (toggleBtn.classList.contains("hideShowToggle2"))?"Calculator V.3":"Calculator V.2";
+    
+   }else{
+    toggleBtn.innerText = "Close"
+    header.hidden=true;
+   }
 
 }
+
+
 let giveOutput = () => {
     let user_inp1 = parseFloat(document.getElementById('usrinp_1').value)
     let user_inp2 = parseFloat(document.getElementById('usrinp_2').value)
