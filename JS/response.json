@@ -1,0 +1,44 @@
+{
+    "coord": {
+        "lon": -96.7836,
+        "lat": 32.7668
+    },
+    "weather": [
+        {
+            "id": 802,
+            "main": "Clouds",
+            "description": "scattered clouds",
+            "icon": "03n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 262.17,
+        "feels_like": 255.17,
+        "temp_min": 261.09,
+        "temp_max": 263,
+        "pressure": 1033,
+        "humidity": 60
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 7.15,
+        "deg": 19,
+        "gust": 14.75
+    },
+    "clouds": {
+        "all": 40
+    },
+    "dt": 1705411670,
+    "sys": {
+        "type": 2,
+        "id": 2075302,
+        "country": "US",
+        "sunrise": 1705411762,
+        "sunset": 1705448622
+    },
+    "timezone": -21600,
+    "id": 4684904,
+    "name": "Dallas",
+    "cod": 200
+}

@@ -1,4 +1,4 @@
-#container {
+#container,.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,4 +21,8 @@
 }
 th,td{
     padding: 10px 30px ;
+}
+
+.containerWeatherPage{
+    background-image: url("../Assests/bgForWeatherPage.bmp");
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="/CSS/weatherPage.css">
+</head>
+
+<body>
+    <div id="navbar">
+        <nav>
+            <div class="logo">Gaurab Dhakal</div>
+            <input type="checkbox" id="click" />
+            <label for="click" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="CountryPredictor.html">Country Predictor</a></li>
+                <li><a href="genderGuesser.html">Gender Predictor</a></li>
+                <li><a href="youtubeDislikeReturn.html">Youtube Dislike Return</a></li>
+                <li><a href="#" class="active">Weather Checker</a></li>
+            </ul>
+        </nav>
+    </div>
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="icon" href="/Assests/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/buttons.css">
+    <link rel="stylesheet" href="CSS/tables.css">
+    <link rel="stylesheet" href="CSS/extras.css">
+    <link rel="stylesheet" href="CSS/container.css">
+    <link rel="stylesheet" href="CSS/inputs.css">
+    <link rel="stylesheet" href="CSS/historyArea.css">
+    <link rel="stylesheet" href="/CSS/containerMobile.css">
+    <link rel="stylesheet" href="./CSS/footer.css">
+    <link rel="stylesheet" href="/CSS/loading_anim.css">
+    <link rel="stylesheet" href="/CSS/universalFontFamily.css">
+
+    <div class="container containerWeatherPage">
+        <h3>Weather Checker</h3>
+        <form class="weatherForm">
+            <input type="text" class="usrInp" placeholder="Enter the city" />
+            <button type="submit" class="mainBtn">Search</button>
+        </form>
+        <div id="loadingGif" hidden>
+            <div class="spinner-border" class="" role="status">
+                <span class="sr-only"></span>
+            </div>  
+        </div>
+        <div class="resultDisplayAreaMain" hidden>
+            <div class="resultDisplayArea">
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footer" >
+            <p>Gaurab Dhakal &copy; 2024</p>
+        </div>
+        </div>
+</body>
+<script src="/JS/weather.js"></script>
+</html>
