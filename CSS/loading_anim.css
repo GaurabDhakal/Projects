@@ -9,6 +9,9 @@
   animation: spin 1s linear infinite, fadeInOut 2s ease-in-out infinite alternate;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.containerWeatherPageParent #loadingGif .spinner-border{
+  border-top-color: black;
+}
 
 /* Keyframe animation for the spinner rotation */
 @keyframes spin {
