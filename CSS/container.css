@@ -23,6 +23,13 @@ th,td{
     padding: 10px 30px ;
 }
 
-.containerWeatherPage{
+.containerWeatherPageBody{
     background-image: url("../Assests/bgForWeatherPage.bmp");
+}
+@media (max-width: 1000px) {
+    .containerWeatherPageBody{
+        width: max-content;
+        padding: 20px;
+        height: 65vh;
+    }
 }

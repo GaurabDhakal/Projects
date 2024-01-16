@@ -58,13 +58,13 @@
             display: none;
         }
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1042px) {
             nav {
                 padding: 0 40px 0 50px;
             }
         }
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1042px) {
             nav .menu-btn i {
                 display: block;
             }
@@ -116,7 +116,7 @@
 
 
 
-@media only screen and (min-width: 1001px) and (max-width: 1104px) {
+@media only screen and (min-width: 1042px) and (max-width: 1268px) {
             nav .logo,li{
                 font-size: 16px;
             }
@@ -124,3 +124,4 @@
                 font-size: 15px;
             }
         }
+
