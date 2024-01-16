@@ -1,6 +1,6 @@
 .footer {
     display: flex;
-    position: fixed;
+    position: inherit;
     bottom: 0;
     justify-content: center;
     align-items: center;
@@ -9,5 +9,6 @@
     background-color: #000000;
     color: #fff; 
     text-align: center;
+    margin-top: 10vh;
     padding: 15px;
 }

@@ -46,8 +46,13 @@ let chkStatus = ()=>{
 }
 console.log(result);
 loader.hidden = true;
-outputArea.innerHTML = `<p id="dislikeContainer" class="dislikeContainer">Total Dislikes: ${result.dislikes} </p><br>`;
-let idOfDislikeContainer = document.getElementById("dislikeContainer");
+outputArea.innerHTML = `
+                        <table>
+                        <tr><td>Total dislikes</td><td>Total Likes</td><td>Total Views</td></tr>
+                        <tr><td>${result.dislikes}</td><td>${result.likes}</td><td>${result.viewCount}</td></tr>
+                        </table>
+                        `;
+// let idOfDislikeContainer = document.getElementById("dislikeContainer");
 // idOfDislikeContainer.style.backgroundColor = colorBgForOutputPTag;
 }
                     else{

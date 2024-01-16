@@ -42,7 +42,7 @@ let countryPredict= async () =>{
         }
         try{
         let response = await fetch(`https://api.nationalize.io?name=${usrInp}`, options);
-        var result = await response.json();
+        let result = await response.json();
         console.log(result);
         universalResult = result;
         const dataToStore = {
@@ -54,10 +54,12 @@ let countryPredict= async () =>{
         if (result.country && Array.isArray(result.country) && result.country.length > 0) {
             dataToStore.country = result.country;
         }
+        if(result.count!=0){
         localStorage.setItem(`${usrInp}`, JSON.stringify(dataToStore));
+        }
         if(result.country === null){
             output.innerHTML = "Data not available";
-            console.log("test")
+            console.log("no data")
         }else{
             output.innerHTML = "";
             loadingArea.hidden=true;
@@ -122,7 +124,7 @@ function showHistory() {
         try {
             historyDisplayArea.hidden = false;
             let parsedValue = JSON.parse(value);
-            if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)) {
+            if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)&&parsedValue.data.count!=0) {
                 const timestamp = new Date(parsedValue.timestamp).toLocaleDateString('en-CA', {
                     year: 'numeric',
                     month: '2-digit',
@@ -168,7 +170,7 @@ function clearHistory() {
     const keysForClear = Object.keys(localStorage);
     historyWarning.hidden=false;
     historyDisplayArea.hidden=true;
-    console.log("clicked");
+    console.log("cleared");
     if(keysForClear.length === 0){
         historyWarning.innerHTML="History is already empty."
     }
