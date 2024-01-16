@@ -46,7 +46,8 @@ function displayWeather(weatherData){
 
         weatherTempr.innerHTML = `Temperature: ${(temp-273.15).toFixed(2)}°C`;
         weatherCity.textContent = `${city}`;
-        weatherDescription.textContent = `Description: ${description}`;
+        let finalDescription = ((description)).charAt(0).toUpperCase()+((description)).slice(1);
+        weatherDescription.textContent = `Description: ${finalDescription}`;
         weatherHumidity.textContent = `Humidity: ${humidity}%`;
         weatherEmoji.textContent = weatherEmojiDisplay(id);
         
