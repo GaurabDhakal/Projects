@@ -33,13 +33,3 @@ h3{
 .loadingGif{
     background-color: black;
 }
-
-@media (max-width: 1000px) {
-    .container,.containerWeatherPage{
-        height: 100vh;
-        width: 100%;
-    }
-    .resultDisplayArea{
-        padding: 20px;
-    }
-}
