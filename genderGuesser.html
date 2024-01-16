@@ -42,9 +42,9 @@
         <br />
         <div>
             <input type="text" id="name" placeholder="Enter the first name here! " />
-            <button type="button" onclick="guessTheGender()" class="btnTransform" onmousedown="btnSize(true)"
-            onmouseup="btnSize(false)" 
-            onmouseleave="btnSize(false)">Predict</button>
+            <button type="button" onclick="guessTheGender()" class="btnTransform" onmousedown="btnSize(true,`.btnTransform`)"
+            onmouseup="btnSize(false,`.btnTransform`)" 
+            onmouseleave="btnSize(false,`.btnTransform`)">Predict</button>
         </div>
         <div id="loadingGif" hidden>
             <div class="spinner-border" id="hideLoadingGif" role="status" hidden>

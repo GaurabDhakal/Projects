@@ -44,7 +44,9 @@
         <h3>Weather Checker</h3>
         <form class="weatherForm">
             <input type="text" class="usrInp" placeholder="Enter the city" />
-            <button type="submit" class="mainBtn">Search</button>
+            <button type="submit" class="mainBtn"  onmousedown="btnSize(true,`.mainBtn`)"
+            onmouseup="btnSize(false,`.mainBtn`)" 
+            onmouseleave="btnSize(false,`.mainBtn`)">Search</button>
         </form>
         <div id="loadingGif" hidden>
             <div class="spinner-border" class="" role="status">
@@ -64,4 +66,5 @@
         </div>
 </body>
 <script src="/JS/weather.js"></script>
+<script src="./JS/buttonTransform.js"></script>
 </html>

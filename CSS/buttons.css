@@ -2,16 +2,19 @@
 button {
     cursor: pointer;
     margin-bottom: 7px;
-    transition: all 0.51s linear;
+    transition: all 0.5s ease-in-out;
     padding: 10px 20px 10px 20px;
     border: 1px solid gray;
-    border-radius: 2px 05px 2px 05px;
-    background-color: rgb(230, 133, 7);
-    color: white;
+    border-radius: 5px 5px 8px 8px;
+    background-color: rgb(244, 248, 8);
+    color: black;
     font-family: 'Signika Negative', sans-serif;
 }
 button:hover {
-    background-color: black;
+    box-shadow: none;
+    box-shadow:inset 2px 37px  black;
+    background-color: white;
+    color: white;
 }
 
 #chkBtn{
@@ -21,7 +24,7 @@ button:hover {
     transform-origin:center;
     transition: .3s all ease-in-out;
 }
-.btnTransform.changeSize{
+.btnTransform.changeSize,.changeSize{
     transform:scale(.9);
 }
 

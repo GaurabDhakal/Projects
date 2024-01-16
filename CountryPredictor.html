@@ -53,10 +53,14 @@
         </span><br>
         <!-- Goback button -->
         <button type="button" onclick="goBack()"
-        class="goBackAndCHistory">Go Back</button>
+        class="goBackAndCHistory" onmousedown="btnSize(true,`.goBackAndCHistory`)"
+        onmouseup="btnSize(false,`.goBackAndCHistory`)" 
+        onmouseleave="btnSize(false,`.goBackAndCHistory`)">Go Back</button>
         <!-- clear history button -->
         <button type="button" onclick="clearHistory()" 
-        id="clearHistory">Clear History</button><br>
+        id="clearHistory" onmousedown="btnSize(true,`#clearHistory`)"
+        onmouseup="btnSize(false,`#clearHistory`)" 
+        onmouseleave="btnSize(false,`#clearHistory`)">Clear History</button><br>
     </div>
     </div>
 
@@ -65,9 +69,9 @@
         <h2>Country Predictor</h2>
         <div><input type="text" id="country" placeholder="Enter the first name here! " />
             <button type="button" class="btnTransform" id="predictB" 
-            onmousedown="btnSize(true)"
-            onmouseup="btnSize(false)" 
-            onmouseleave="btnSize(false)" 
+            onmousedown="btnSize(true,`.btnTransform`)"
+            onmouseup="btnSize(false,`.btnTransform`)" 
+            onmouseleave="btnSize(false,`.btnTransform`)" 
             onclick="countryPredict()">Predict</button>
         </div>
         <div id="loadingGif" hidden>
@@ -75,7 +79,9 @@
         </div>
         <div id="output"></div>
         <button type="button" id="showHB"
-        onclick="showHistory()">Show History</button>
+        onclick="showHistory()" onmousedown="btnSize(true,`#showHB`)"
+        onmouseup="btnSize(false,`#showHB`)" 
+        onmouseleave="btnSize(false,`#showHB`)">Show History</button>
     </div>
 </div>
 <div id="footer">

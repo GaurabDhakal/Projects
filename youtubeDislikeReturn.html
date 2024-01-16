@@ -43,10 +43,15 @@
         <div>
             <label for="name">Enter Video ID :</label><br>
             <input type="text" id="name" placeholder="Enter video id here!!! " />
-            <button type="button" class="btnTransform" onmousedown="btnSize(true)"
-            onmouseup="btnSize(false)" 
-            onmouseleave="btnSize(false)" onclick="dislikeReturn()">Show</button>
+            <button type="button" class="btnTransform" onmousedown="btnSize(true,`.btnTransform`)"
+            onmouseup="btnSize(false,`.btnTransform`)" 
+            onmouseleave="btnSize(false,`.btnTransform`)" onclick="dislikeReturn()">Show</button>
         </div> 
+        <div id="loadingGif" hidden>
+            <div class="spinner-border" class="" role="status">
+                <span class="sr-only"></span>
+            </div>  
+        </div>
         <p id="output"></p>
         <p align="center" id="warning">
             Guide -> ID of a video is: For example <br> "<b><a rel="noopener" href="https://www.youtube.com/watch?v=kxOuG8jMIgI" target="_blank">https://www.youtube.com/watch?v=kxOuG8jMIgI</a></b>" <br> in this
