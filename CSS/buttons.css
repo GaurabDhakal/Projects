@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
-button {
+.btnTypeA {
     cursor: pointer;
     margin-bottom: 7px;
     transition: all 0.5s ease-in-out;
@@ -10,7 +10,7 @@ button {
     color: black;
     font-family: 'Signika Negative', sans-serif;
 }
-button:hover {
+.btnTypeA:hover {
     box-shadow: none;
     box-shadow:inset 2px 37px  black;
     background-color: white;

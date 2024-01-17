@@ -8,16 +8,16 @@
     <title>Country Predictor</title>
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="icon" href="/Assests/logo.png" type="image/x-icon">
-        <link rel="stylesheet" href="CSS/buttons.css">
-    <link rel="stylesheet" href="CSS/tables.css">
-    <link rel="stylesheet" href="CSS/extras.css">
-    <link rel="stylesheet" href="CSS/container.css">
-    <link rel="stylesheet" href="CSS/inputs.css">
-    <link rel="stylesheet" href="CSS/historyArea.css">
-    <link rel="stylesheet" href="/CSS/containerMobile.css">
+        <link rel="stylesheet" href="./CSS/buttons.css">
+    <link rel="stylesheet" href="./CSS/tables.css">
+    <link rel="stylesheet" href="./CSS/extras.css">
+    <link rel="stylesheet" href="./CSS/container.css">
+    <link rel="stylesheet" href="./CSS/inputs.css">
+    <link rel="stylesheet" href="./CSS/historyArea.css">
+    <link rel="stylesheet" href="./CSS/containerMobile.css">
     <link rel="stylesheet" href="./CSS/footer.css">
-    <link rel="stylesheet" href="/CSS/loading_anim.css">
-    <link rel="stylesheet" href="/CSS/universalFontFamily.css">
+    <link rel="stylesheet" href="./CSS/loading_anim.css">
+    <link rel="stylesheet" href="./CSS/universalFontFamily.css">
     <style>
         h3{
             text-align: center;
@@ -53,12 +53,12 @@
         </span><br>
         <!-- Goback button -->
         <button type="button" onclick="goBack()"
-        class="goBackAndCHistory" onmousedown="btnSize(true,`.goBackAndCHistory`)"
+        class="goBackAndCHistory btnTypeA" onmousedown="btnSize(true,`.goBackAndCHistory`)"
         onmouseup="btnSize(false,`.goBackAndCHistory`)" 
         onmouseleave="btnSize(false,`.goBackAndCHistory`)">Go Back</button>
         <!-- clear history button -->
         <button type="button" onclick="clearHistory()" 
-        id="clearHistory" onmousedown="btnSize(true,`#clearHistory`)"
+        id="clearHistory" class="btnTypeA" onmousedown="btnSize(true,`#clearHistory`)"
         onmouseup="btnSize(false,`#clearHistory`)" 
         onmouseleave="btnSize(false,`#clearHistory`)">Clear History</button><br>
     </div>
@@ -68,7 +68,7 @@
     <div id="container" class="show">
         <h2>Country Predictor</h2>
         <div><input type="text" id="country" placeholder="Enter the first name here! " />
-            <button type="button" class="btnTransform" id="predictB" 
+            <button type="button" class="btnTransform btnTypeA" id="predictB" 
             onmousedown="btnSize(true,`.btnTransform`)"
             onmouseup="btnSize(false,`.btnTransform`)" 
             onmouseleave="btnSize(false,`.btnTransform`)" 
@@ -79,6 +79,7 @@
         </div>
         <div id="output"></div>
         <button type="button" id="showHB"
+        class="btnTypeA"
         onclick="showHistory()" onmousedown="btnSize(true,`#showHB`)"
         onmouseup="btnSize(false,`#showHB`)" 
         onmouseleave="btnSize(false,`#showHB`)">Show History</button>

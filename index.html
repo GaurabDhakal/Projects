@@ -22,7 +22,8 @@
 <link rel="stylesheet" href="./CSS/calcMobileDesign.css" />
 <link rel="stylesheet" href="./CSS/footer.css">
 <link rel="stylesheet" href="./CSS/calcv3.css">
-<link rel="stylesheet" href="/CSS/universalFontFamily.css">
+<link rel="stylesheet" href="./CSS/buttons.css">
+<link rel="stylesheet" href="./CSS/universalFontFamily.css">
 
 <body>
     <div id="navbar">
@@ -40,20 +41,20 @@
                 <li><a href="weather.html" >Weather Checker</a></li>
             </ul>
         </nav>
-    </div>
+    </div> 
     <br />
     <br />
     <div class="forMobDivCalc">
         <div id="divcalculator">
             <h2 class="selectCalcH2">Select the version!</h2>
             <div>
-                <button type="button" class="toggle v1" onclick="calc2()">
+                <button type="button" class="toggle v1 btnTypeA" onclick="calc2()">
                     Calculator V.1
                 </button>
-                <button type="button" class="toggle hideShowToggle" onclick="toggle(`.calculator`,`.hideShowToggle`,`.hideShowToggle2`)">
+                <button type="button" class="toggle btnTypeA hideShowToggle" onclick="toggle(`.calculator`,`.hideShowToggle`,`.hideShowToggle2`)">
                     Calculator V.2
                 </button>
-                <button type="button" class="toggle hideShowToggle2"
+                <button type="button" class="toggle btnTypeA hideShowToggle2"
                 onclick="toggle(`.MainCalcBody1`,`.hideShowToggle2`,`.hideShowToggle`)">
                 Calculator V.3
             </button>
@@ -76,8 +77,8 @@
                     </select>
                     <br />
                     <span class="buttonsArea">
-                        <button type="button" class="hideUponClick" onclick="giveOutput()">Calculate</button>
-                        <button type="reset" class="hideUponClick" onclick="clearOTA()">Reset</button></span>
+                        <button type="button" class="hideUponClick btnTypeA" onclick="giveOutput()">Calculate</button>
+                        <button type="reset" class="hideUponClick btnTypeA" onclick="clearOTA()">Reset</button></span>
             </form>
             <br />
             <p id="outputhere"></p>

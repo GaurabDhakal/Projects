@@ -145,7 +145,7 @@ form button:active{
 .div1{
     margin-top: 11px;
 }
-button{
+/* button{
     padding: 6px;
     margin: 5px;
     border: 1px solid rgb(255, 0, 0);
@@ -163,8 +163,7 @@ button:hover{
 button:active{
     background-color: white;
     color: red;
-    /* border-width: .1rem; */
-}
+} */
 #divcalculator{
   background-color: black;
   color: white;
