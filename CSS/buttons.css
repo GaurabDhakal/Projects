@@ -11,9 +11,9 @@
     font-family: 'Signika Negative', sans-serif;
 }
 .btnTypeA:hover {
-    box-shadow: none;
     box-shadow:inset 2px 37px  black;
     background-color: white;
+    border-radius:10px;
     color: white;
 }
 
