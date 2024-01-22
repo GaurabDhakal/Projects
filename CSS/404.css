@@ -1,62 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
 *{
     margin: 0;
-}
-.container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    transform-origin: center;
-    align-items: center;
-}
-.pMain{
-    font-size: 5rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-a{
-    text-decoration: none;
-    color: black;
-}
-.logo{
-    display: flex;
-    justify-content: center;
-    height: 13vh;
-    color: #fff;
-    font-size: 35px;
-    font-weight: 600;
-    font-family: 'Exo 2', sans-serif;
-    flex-wrap: wrap;
-    background-color: black;
-    align-items: center;
-}
-.goBack{
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: rgb(82, 227, 82);
-    border: 1px solid gray;
-    border-radius: 4px;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.goBack:hover{
-    background-color: greenyellow;
-}
-.goBack:active,a:active{
-    transform: scale(.9);
-}
-span{
-    font-family: 'Exo 2', sans-serif;
-    margin: 0 10px;
-}
-.pageNotFoundCode{
-    font-size: 6rem;
-}
-.pageNotFoundText{
-    margin: 12px 0;
-    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (max-width: 1000px) {
-    .logo{
-        height: 10vh;
+.logoNav{
+    height: 12vh;
+    background-color: black;
+    color: white;
+    font-size: clamp(3vh,2vw,4vh);
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    }    
+.container{
+    display: flex;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+}
+.subA,.subB{
+    display: inline-block;
+}
+.textTitle{
+    text-align: center;
+}
+img.logo{
+    cursor: pointer;
+    height: 15rem;
+}
+img.logo:hover{
+    filter: grayscale(100);
+}
+img.svgAbstract{
+    height: 15rem;
+    filter: blur(0px);
+}
+
+@media (max-width:1000px){
+    .subB{
+        display: none;
     }
 }
