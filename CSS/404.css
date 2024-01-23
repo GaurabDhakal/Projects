@@ -4,16 +4,49 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.logoNav{
-    height: 12vh;
+
+
+
+
+.navbarMainElem{
+    height: 10vh;
     background-color: black;
     color: white;
-    font-size: clamp(3vh,2vw,4vh);
-    cursor: pointer;
-    align-items: center;
     display: flex;
-    justify-content: center;
-    }    
+    box-shadow: 0px 0px 9px rgb(16, 41, 41);
+    align-items: center;
+}
+.navbarMainElem nav ul{
+    display: flex;
+}
+
+.navbarMainElem nav ul li{
+    list-style: none;
+    padding: 10px;
+}
+.navbarMainElem nav ul li a{
+    text-decoration: none;
+    border-radius: 3px;
+    transition: .4s all ease-in;
+    border: 1px solid gray;
+    padding: 10px;
+    color: white;
+}
+.navbarMainElem nav ul li a:hover{
+    background-color: white;
+    color: black;
+}
+.navbarMainElem nav ul li a.active{
+    background-color: white;
+    color: black;
+}
+
+
+.logoNav{
+    font-size: clamp(2vh,3vw,4vh);
+}
+
+
 .container{
     display: flex;
     height: 60vh;
@@ -31,7 +64,7 @@ img.logo{
     height: 15rem;
 }
 img.logo:hover{
-    filter: grayscale(100);
+    filter: grayscale(90);
 }
 img.svgAbstract{
     height: 15rem;
