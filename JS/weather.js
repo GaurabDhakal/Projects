@@ -43,7 +43,7 @@ function displayWeather(weatherData){
         let weatherDescription = document.createElement("p");
         let weatherHumidity = document.createElement("p");
         let weatherEmoji = document.createElement("p");
-
+        window.document.title = `${(temp-273.15).toFixed(2)}°C - ${city}`
         weatherTempr.innerHTML = `Temperature: ${(temp-273.15).toFixed(2)}°C`;
         weatherCity.textContent = `${city}`;
         let finalDescription = ((description)).charAt(0).toUpperCase()+((description)).slice(1);
