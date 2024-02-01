@@ -4,6 +4,8 @@ document.querySelector(".formMain").addEventListener("submit",(e)=>{
 })
 const usrValUni = document.getElementById("usrVal");
 let listArea = document.getElementById("listArea");
+const storageKeyPrefix = "todo_"; // Add a prefix to the storage key
+
 function clearInput(){
     usrValUni.value = "";
 }
@@ -13,9 +15,9 @@ function formatList(usrVal){
 }
 
 function delData(id){
-    localStorage.removeItem(id)
-    formatList()
-    renderLocalStorage()
+    localStorage.removeItem(storageKeyPrefix + id); // Add the prefix to the storage key
+    formatList();
+    renderLocalStorage();
 }
 
 function deleteAllLocal(){
@@ -23,51 +25,53 @@ function deleteAllLocal(){
     renderLocalStorage();
 }
 
-
 function storeInLocal(usrVal){
-    localStorage.setItem((Math.floor(Math.random()*10000)),usrVal);
+    const id = Math.floor(Math.random()*10000);
+    localStorage.setItem(storageKeyPrefix + id, usrVal); // Add the prefix to the storage key
 }
+
 function handleSubmit(){
     const usrVal = usrValUni.value;
     if(usrVal.length === 0){
         document.querySelector('.warning').textContent = "Enter something first"
-        }else{
-            document.querySelector('.warning').textContent =""
-    storeInLocal(usrVal)
-    formatList(usrVal);
-    clearInput();
-    renderLocalStorage()
+    } else {
+        document.querySelector('.warning').textContent =""
+        storeInLocal(usrVal);
+        formatList(usrVal);
+        clearInput();
+        renderLocalStorage();
     }
 }
 
 function renderLocalStorage(){
-    const keys = Object.keys(localStorage);
-    const values = Object.values(localStorage);
+    const keys = Object.keys(localStorage).filter(key => key.startsWith(storageKeyPrefix)); // Filter out items without the prefix
     let parentElem = document.querySelector(".delAllSec");
-    if(keys!=0){
-        parentElem.textContent = ""
+    if(keys.length !== 0){
+        parentElem.textContent = "";
         let btnDelAll = document.createElement("button");
-        btnDelAll.classList.add("btnDesignClear")
+        btnDelAll.classList.add("btnDesignClear");
         btnDelAll.textContent = "Delete All";
-        btnDelAll.setAttribute("onclick",`deleteAllLocal()`)
+        btnDelAll.setAttribute("onclick",`deleteAllLocal()`);
         parentElem.appendChild(btnDelAll);
-    }else if(keys.length===0){parentElem.textContent=""}
-    formatList()
-    for(let i = 0;i<keys.length;i++){
-        if(typeof values[i] === "string"){
+    } else {
+        parentElem.textContent = "";
+    }
+    formatList();
+    for(let key of keys){
+        const value = localStorage.getItem(key);
+        if(typeof value === "string"){
             let elemSpan = document.createElement("div");
             let elem = document.createElement("li");
             let btnElem = document.createElement("button");
-            btnElem.setAttribute("onclick",`delData(${keys[i]})`)
+            btnElem.setAttribute("onclick",`delData(${key.substr(storageKeyPrefix.length)})`); // Remove the prefix from the key
             btnElem.textContent = "Remove";
             elemSpan.appendChild(elem);
             elemSpan.appendChild(btnElem);
-            elem.classList.add(`${keys[i]}`)
-            elem.innerHTML = (`${values[i]} <br />`);
-            listArea.appendChild(elemSpan)
+            elem.classList.add(`${key}`);
+            elem.innerHTML = (`${value} <br />`);
+            listArea.appendChild(elemSpan);
         }
     }
 }
-
 
 renderLocalStorage();
