@@ -21,7 +21,11 @@ function delData(id){
 }
 
 function deleteAllLocal(){
-    localStorage.clear();
+    let onlyTodoKeys = Object.keys(localStorage).filter((value)=>value.startsWith(storageKeyPrefix));
+    console.log(onlyTodoKeys)
+    for(let key of onlyTodoKeys){
+        localStorage.removeItem(key);
+    }
     renderLocalStorage();
 }
 
