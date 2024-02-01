@@ -81,7 +81,7 @@
 .btnDesignClear:hover{
     background-color: rgb(199, 175, 42);
 }
-@media (max-width:1000px){
+/* @media (max-width:1000px){
     .formMain{
         margin: 10px;
     }
@@ -92,4 +92,4 @@
         padding: 10px;
         margin: 5px;
     }
-}
+} */
