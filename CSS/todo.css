@@ -46,6 +46,9 @@
     #listArea,.headTitle,.warning{
         color: white;
     }
+    #listArea {
+        width: 100%;
+    }
     .headTitle{
         font-size: xx-large;
     }
@@ -53,7 +56,6 @@
 .formMain{
     display: flex;
     scroll-behavior: smooth;
-    height: auto;
     align-items: center;
     justify-content: center;
 }
