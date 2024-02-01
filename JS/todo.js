@@ -54,7 +54,7 @@ function renderLocalStorage(){
         parentElem.textContent = "";
         let btnDelAll = document.createElement("button");
         btnDelAll.classList.add("btnDesignClear");
-        btnDelAll.textContent = "Delete All";
+        btnDelAll.textContent = "Remove All";
         btnDelAll.setAttribute("onclick",`deleteAllLocal()`);
         parentElem.appendChild(btnDelAll);
     } else {
