@@ -53,6 +53,7 @@ function displayWeather(weatherData){
         
         weatherEmoji.classList.add("weatherEmoji");
         loadingGif.hidden=true;
+
         resultDisplayAreaParent.hidden=false;
         resultDisplayArea.textContent = "";
         resultDisplayArea.appendChild(weatherCity);
