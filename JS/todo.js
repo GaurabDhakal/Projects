@@ -50,7 +50,7 @@ function handleSubmit(){
 function renderLocalStorage(){
     const keys = Object.keys(localStorage).filter(key => key.startsWith(storageKeyPrefix)); // Filter out items without the prefix
     let parentElem = document.querySelector(".delAllSec");
-    if(keys.length !== 0){
+    if(keys.length > 1){
         parentElem.textContent = "";
         let btnDelAll = document.createElement("button");
         btnDelAll.classList.add("btnDesignClear");

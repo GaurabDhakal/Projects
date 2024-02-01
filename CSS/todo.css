@@ -31,7 +31,7 @@
         border: 1px solid gray;
     }
 
-    #listArea .liDiv button{
+    #listArea .liDiv button,#btnAdd{
         border: 1px solid gray;
         padding:5px 20px;
         cursor: pointer;
@@ -40,7 +40,7 @@
         background-color: rgb(249, 249, 52);
         margin-left: 10px;
     }
-    #listArea div button:hover{
+    #listArea div button:hover,#btnAdd:hover{
         background-color: rgb(208, 161, 104);
     }
     #listArea,.headTitle,.warning{
@@ -81,15 +81,26 @@
 .btnDesignClear:hover{
     background-color: rgb(199, 175, 42);
 }
-/* @media (max-width:1000px){
-    .formMain{
-        margin: 10px;
+@media (max-width: 1000px) {
+    .formMain input {
+        padding: 5px;
+        width: 100%; /* Adjust the width as needed */
     }
-    .formMain input{
-        padding: 1vw;
+    .formMain {
+        display: flex;
+        width: 150%;
+        justify-content: space-between;
     }
-    #btnAdd{
-        padding: 10px;
+    .MainAll {
+        margin:0 10vh;
+        display: flex;
+        /* width: 70%; */
+        justify-content: center;
+        flex-direction: column; /* Add this line to stack elements vertically */
+        align-items: center; /* Center align the elements */
+    }
+    #btnAdd {
+        padding: 10px 15px;
         margin: 5px;
     }
-} */
+}
