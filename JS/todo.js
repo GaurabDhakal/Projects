@@ -66,10 +66,12 @@ function renderLocalStorage(){
         if(typeof value === "string"){
             let elemSpan = document.createElement("div");
             let elem = document.createElement("li");
+            elem.classList.add("listElem")
             let btnElem = document.createElement("button");
             btnElem.setAttribute("onclick",`delData(${key.substr(storageKeyPrefix.length)})`); // Remove the prefix from the key
             btnElem.textContent = "Remove";
             elemSpan.appendChild(elem);
+            elemSpan.classList.add("liDiv")
             elemSpan.appendChild(btnElem);
             elem.classList.add(`${key}`);
             elem.innerHTML = (`${value} <br />`);
