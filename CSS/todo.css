@@ -18,9 +18,14 @@ body,.headTitle{
     height: min-content;
     padding: 50px;
 }
+.MainAll .formMain{
+    display: flex;
+    align-items: center;
+}
 
 .MainAll .formMain #usrVal{
     padding: 15px;
+    margin-right: 4px;
     font-family: var(--defFont);
     width: clamp(20rem,30rem,40rem);
 }
