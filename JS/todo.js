@@ -4,6 +4,7 @@ document.querySelector(".formMain").addEventListener("submit",(e)=>{
 })
 const usrValUni = document.getElementById("usrVal");
 let listArea = document.getElementById("listArea");
+let warningArea = document.querySelector('.warning');
 const storageKeyPrefix = "todo_"; // Add a prefix to the storage key
 
 function clearInput(){
@@ -17,6 +18,7 @@ function formatList(usrVal){
 function delData(id){
     localStorage.removeItem(storageKeyPrefix + id); // Add the prefix to the storage key
     formatList();
+    warningArea.textContent =""
     renderLocalStorage();
 }
 
@@ -37,9 +39,9 @@ function storeInLocal(usrVal){
 function handleSubmit(){
     const usrVal = usrValUni.value;
     if(usrVal.length === 0){
-        document.querySelector('.warning').textContent = "Enter something first"
+        warningArea.textContent = "Enter something first"
     } else {
-        document.querySelector('.warning').textContent =""
+        warningArea.textContent =""
         storeInLocal(usrVal);
         formatList(usrVal);
         clearInput();
@@ -69,7 +71,7 @@ function renderLocalStorage(){
             elem.classList.add("listElem")
             let btnElem = document.createElement("button");
             btnElem.setAttribute("onclick",`delData(${key.substr(storageKeyPrefix.length)})`); // Remove the prefix from the key
-            btnElem.textContent = "Remove";
+            btnElem.textContent = "Completed";
             elemSpan.appendChild(elem);
             elemSpan.classList.add("liDiv")
             elemSpan.appendChild(btnElem);

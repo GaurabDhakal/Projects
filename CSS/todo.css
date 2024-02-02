@@ -1,108 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-*{
-    font-family: 'Signika Negative', sans-serif;
-}
-    body{
-        background-color: rgb(19, 11, 11);
-    }
-    .MainAll{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: auto 0 auto 0;
-        flex-direction: column;
-    }
-    li{
-        list-style: none;
-    }
-    #listArea .liDiv{
-        display: flex;
-        margin: 10px;
-        align-items: center;
-        padding: 10px;
-        width: 100%;
-        font-size: medium;
-        justify-content: space-between;
-        border: 1px solid gray;
-    }
-
-    #listArea .liDiv button,#btnAdd{
-        border: 1px solid gray;
-        padding:5px 20px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: .2s all ease-in-out;
-        background-color: rgb(249, 249, 52);
-        margin-left: 10px;
-    }
-    #listArea div button:hover,#btnAdd:hover{
-        background-color: rgb(208, 161, 104);
-    }
-    #listArea,.headTitle,.warning{
-        color: white;
-    }
-    #listArea {
-        /* width: 100%; */
-    }
-    .headTitle{
-        font-size: xx-large;
-    }
-
-.formMain{
-    display: flex;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body,.headTitle{
+    margin: 0;
     scroll-behavior: smooth;
-    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(37, 37, 33);
+}
+.headTitle{
+    margin: 15px;
+}
+.MainAll{
+    display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    flex-direction: column;
+    color: white;
+    height: min-content;
+    padding: 50px;
+}
+
+.MainAll .formMain #usrVal{
+    padding: 15px;
+    width: 30rem;
 }
 
 
- #btnAdd{
-    padding: 10px 20px;
+.MainAll .formMain #btnAdd,.liDiv button,.btnDesignClear{
+    padding: 15px 25px;
+    background-color: rgb(250, 247, 90);
+    border-radius: 2px;
+    border: 1px solid rgb(128, 128, 128);
+    transition: .3s all ease-in-out;
     cursor: pointer;
+}
+.MainAll .formMain #btnAdd:hover,.liDiv button:hover,.btnDesignClear:hover{
+    background-color: rgb(255, 238, 129);
+    box-shadow: 3px 3px 2px rgb(173, 157, 14);
+}
+
+li{
+    list-style: none;
+}
+
+#listArea{
     margin: 10px;
 }
-.formMain input{
-    padding: 5px;
-    width: 50vh;
-    height: 30px; /* Set the desired height here */
-}
 
-.btnDesignClear{
+#listArea .liDiv{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 100%;
+    margin: 5px;
+    color: white;
+    background-color: rgb(28, 22, 22);
     border: 1px solid gray;
+    min-width: 60vh;
+    height: auto;
+    justify-content: space-between;
     padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition:.2s all ease-in-out;
-    background-color: gold;
-}
-.btnDesignClear:hover{
-    background-color: rgb(199, 175, 42);
-}
-@media (max-width: 1000px) {
-    .formMain input {
-        padding: 5px;
-        width: 100%; /* Adjust the width as needed */
-    }
-    .formMain {
-        display: flex;
-        width: 150%;
-        justify-content: space-between;
-    }
-    .MainAll {
-        margin:0 10vh;
-        display: flex;
-        /* width: 70%; */
-        justify-content: center;
-        flex-direction: column; /* Add this line to stack elements vertically */
-        align-items: center; /* Center align the elements */
-    }
-    #btnAdd {
-        padding: 10px 15px;
-        margin: 5px;
-    }
 }

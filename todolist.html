@@ -5,10 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List - Beta</title>
     <link rel="stylesheet" href="./CSS/todo.css">
+    <link rel="stylesheet" href="./CSS/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
+    <div id="navbar">
+        <nav>
+            <div class="logo">Gaurab Dhakal</div>
+            <input type="checkbox" id="click" />
+            <label for="click" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="CountryPredictor.html">Country Predictor</a></li>
+                <li><a href="genderGuesser.html">Gender Predictor</a></li>
+                <li><a href="youtubeDislikeReturn.html">Youtube Dislike Return</a></li>
+                <li><a href="weather.html" >Weather Checker</a></li>
+                <li><a href="todolist.html" >Todo-List</a></li>
+            </ul>
+        </nav>
+    </div> 
+
+
     <div class="MainAll">
-        <h3 class="headTitle">Todo List</h3>
+        <h1 class="headTitle">Todo List</h1>
         <form class="formMain">
             <input type="text" id="usrVal" autocomplete="off" placeholder="Title" />
             <button id="btnAdd" class="add btnTypeA">Add</button>

@@ -71,17 +71,17 @@ img.logo{
 }
 img.logo:hover{
     filter: grayscale(90);
-}
-img.svgAbstract{
-    height: 15rem;
-    filter: blur(0px);
-}
- @media (max-width:1110px){
-    .navbarMainElem nav{
-        display: none;
     }
-    .logoNav {
-        width: 100%;
-        text-align: center;
+    img.svgAbstract{
+        height: 15rem;
+        filter: blur(0px);
     }
+    @media (max-width:1110px){
+        .navbarMainElem nav{
+            display: none;
+        }
+        .logoNav {
+            width: 100%;
+            text-align: center;
+        }
  }
