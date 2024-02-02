@@ -32,6 +32,10 @@ body,.headTitle{
     color: black;
     background: rgb(120, 233, 255);
 }
+.liDiv button{
+    margin: 5px;
+}
+
 .MainAll .formMain #btnAdd,.liDiv button,.btnDesignClear{
     padding: 15px 25px;
     background-color: rgb(250, 247, 90);
