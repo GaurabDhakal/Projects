@@ -21,7 +21,7 @@ body,.headTitle{
 
 .MainAll .formMain #usrVal{
     padding: 15px;
-    width: 30rem;
+    width: clamp(20rem,30rem,40rem);
 }
 
 .warning{
@@ -56,7 +56,6 @@ li{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    max-width: 100%;
     margin: 5px;
     color: white;
     background-color: rgb(28, 22, 22);
@@ -65,4 +64,37 @@ li{
     height: auto;
     justify-content: space-between;
     padding: 10px;
+}
+
+
+#navbar nav .logo{
+    font-size: clamp(1vh,2rem,3rem);
+}
+
+@media (width < 657px){
+    .MainAll{
+        width: 100%;
+    }
+    .MainAll .formMain #usrVal{
+        width: 27.4vh;
+    }
+    #listArea .liDiv{
+        min-width: 40vh;
+        max-width: 60vh;
+        flex-wrap: wrap;
+    }
+    #listArea .liDiv button{
+        justify-content: center;
+    }
+    
+}
+@media (width <400px){
+    .MainAll .formMain #usrVal{
+        width: 25vh;
+    }
+}
+@media(width <=370){
+    .MainAll .formMain #usrVal{
+        width: 24vh;
+    }
 }
