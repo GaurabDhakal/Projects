@@ -21,6 +21,7 @@ body,.headTitle{
 
 .MainAll .formMain #usrVal{
     padding: 15px;
+    font-family: var(--defFont);
     width: clamp(20rem,30rem,40rem);
 }
 
@@ -66,8 +67,12 @@ li{
     padding: 10px;
 }
 
+:root{
+    --defFont: Arial, Helvetica, sans-serif;
+}
 
 #navbar nav .logo{
+    font-family: var(--defFont);
     font-size: clamp(1vh,2rem,3rem);
 }
 
