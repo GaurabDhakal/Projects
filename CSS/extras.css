@@ -1,5 +1,6 @@
 body {
-    background-image: url('../Assests/bgImg.jpg');
+    /* background-image: url('../Assests/bgImg.jpg'); */
+    background-color: rgb(15, 23, 21);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;

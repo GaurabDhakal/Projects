@@ -10,7 +10,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .containerWeatherPageParent #loadingGif .spinner-border{
-  border-top-color: black;
+  border-top-color: white;
 }
 
 /* Keyframe animation for the spinner rotation */
