@@ -24,7 +24,13 @@ body,.headTitle{
     width: 30rem;
 }
 
-
+.warning{
+    margin: 10px 10px 0 10px;
+    border: 1px solid gray;
+    padding: 6px;
+    color: black;
+    background: rgb(120, 233, 255);
+}
 .MainAll .formMain #btnAdd,.liDiv button,.btnDesignClear{
     padding: 15px 25px;
     background-color: rgb(250, 247, 90);

@@ -18,8 +18,12 @@ function formatList(usrVal){
 function delData(id){
     localStorage.removeItem(storageKeyPrefix + id); // Add the prefix to the storage key
     formatList();
-    warningArea.textContent =""
+    hideWarning() 
     renderLocalStorage();
+}
+
+function hideWarning(){
+    warningArea.hidden = true;
 }
 
 function deleteAllLocal(){
@@ -39,9 +43,10 @@ function storeInLocal(usrVal){
 function handleSubmit(){
     const usrVal = usrValUni.value;
     if(usrVal.length === 0){
+        if(warningArea.hidden) warningArea.hidden = false;
         warningArea.textContent = "Enter something first"
     } else {
-        warningArea.textContent =""
+        hideWarning() 
         storeInLocal(usrVal);
         formatList(usrVal);
         clearInput();
