@@ -81,7 +81,7 @@ function renderLocalStorage(){
             elemSpan.classList.add("liDiv")
             elemSpan.appendChild(btnElem);
             elem.classList.add(`${key}`);
-            elem.innerHTML = (`${value} <br />`);
+            elem.innerHTML = (`TODO: ${value} <br />`);
             listArea.appendChild(elemSpan);
         }
     }
