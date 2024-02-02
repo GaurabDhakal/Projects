@@ -7,6 +7,9 @@ const currentDate = new Date();
 const userTimezoneOffset = currentDate.getTimezoneOffset(); // Get the user's timezone offset in minutes
 const userTimestamp = new Date(currentDate.getTime() - userTimezoneOffset * 60000);
 
+
+const prefixKey = "CP_";
+
 //Checks teh type of error
 let universalResult;
 let chkError = ()=>{
@@ -43,7 +46,6 @@ let countryPredict= async () =>{
         try{
         let response = await fetch(`https://api.nationalize.io?name=${usrInp}`, options);
         let result = await response.json();
-        console.log(result);
         universalResult = result;
         const dataToStore = {
             data: result,
@@ -55,7 +57,7 @@ let countryPredict= async () =>{
             dataToStore.country = result.country;
         }
         if(result.count!=0){
-        localStorage.setItem(`${usrInp}`, JSON.stringify(dataToStore));
+        localStorage.setItem(prefixKey+usrInp, JSON.stringify(dataToStore));
         }
         if(result.country === null){
             output.innerHTML = "Data not available";
@@ -106,37 +108,50 @@ function showHistory() {
     container.hidden = true;
     historyDisplay.hidden = false;
     let keys = Object.keys(localStorage);
-
-    if (keys.length === 0) {
-        historyWarning.hidden = false;
+    let countOfOthers = 0
+    let countToCheck = 0;
+    for(let key of keys){
+        if(key.startsWith("CP_")){
+            countToCheck++;
+        }else{
+            countOfOthers++;
+        }
+    }
+    if (countToCheck<=0) {
         historyWarning.innerHTML = `<p class="noRF">No record found!</p>`;
+        historyWarning.hidden = false;
         clearHistoryBtnElem.hidden = true;
-    } else if (keys.length > 0) {
+    } else if (countToCheck >= 1) {
         clearHistoryBtnElem.hidden = false;
     }
 
     keys.sort((a, b) => {
+        if(a.startsWith("CP_")&&b.startsWith("CP_")){
         return new Date(JSON.parse(localStorage.getItem(b)).timestamp) - new Date(JSON.parse(localStorage.getItem(a)).timestamp);
+    }
     });
 
     for (let key of keys) {
+        if(key.startsWith("CP_")){
         let value = localStorage.getItem(key);
         try {
             historyDisplayArea.hidden = false;
             let parsedValue = JSON.parse(value);
-            if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)&&parsedValue.data.count!=0) {
+            if (typeof parsedValue === "object" && parsedValue !== null && !Array.isArray(parsedValue)&&parsedValue.data.count!=0&&key.startsWith("CP_")) {
                 const timestamp = new Date(parsedValue.timestamp).toLocaleDateString('en-CA', {
                     year: 'numeric',
                     month: '2-digit',
                     day: '2-digit'
                 }).replace(/\//g, '-');
                 historyWarning.hidden = true;
-                const name = key.charAt(0).toUpperCase() + key.slice(1);
+                
+                const name = key.charAt(3).toUpperCase() + key.slice(4);
                 historyDisplayArea.innerHTML += `<div id="toBeHiddenLater"> ${timestamp}: ${name} ` + ": " + countryName.of(parsedValue.country[0].country_id) + `, Probability: ${parsedValue.country[0].probability}</div><br>`;
             }
         } catch (error) {
             console.error("Error parsing value for key:", key, error);
         }
+    }
     }
 }
 
@@ -175,8 +190,14 @@ function clearHistory() {
         historyWarning.innerHTML="History is already empty."
     }
     else if (keysForClear.length > 0) {
-        localStorage.clear(keysForClear);
+        let keys = Object.keys(localStorage);
+        for(let key of keys){
+            if(key.startsWith("CP_")){
+                localStorage.removeItem(key);
+            }
+        }
         historyDisplayArea.innerHTML = "";
+
         clearHistoryBtnElem.textContent = "Clearing.."
         setTimeout(()=>{
             clearHistoryBtnElem.textContent = "Clear History"
