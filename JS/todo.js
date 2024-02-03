@@ -87,5 +87,12 @@ function renderLocalStorage(){
         }
     }
 }
+//Function to remove hideWarning when user starts typing after the error of invalid submit is shown 
+usrValUni.addEventListener("input",()=>{
+    let val = usrValUni.value;
+    if(val.length>0){
+        hideWarning()
+    }
+})
 
 renderLocalStorage();
