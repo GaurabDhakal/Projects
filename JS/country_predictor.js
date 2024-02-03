@@ -6,8 +6,6 @@ let clearHistoryBtnElem = document.getElementById("clearHistory");
 const currentDate = new Date();
 const userTimezoneOffset = currentDate.getTimezoneOffset(); // Get the user's timezone offset in minutes
 const userTimestamp = new Date(currentDate.getTime() - userTimezoneOffset * 60000);
-
-
 const prefixKey = "CP_";
 
 //Checks teh type of error

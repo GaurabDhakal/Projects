@@ -57,6 +57,7 @@ body,.headTitle{
     background-color: rgb(250, 247, 90);
     border-radius: 2px;
     
+    box-shadow: 2px 2px 0px rgb(255, 231, 15);
     border: 1px solid rgb(128, 128, 128);
     transition: .3s all ease-in-out;
     cursor: pointer;
@@ -64,7 +65,7 @@ body,.headTitle{
 .MainAll .formMain #btnAdd:hover,.liDiv button:hover,.btnDesignClear:hover{
     background-color: rgb(255, 238, 129);
     border-radius: 4px;
-    box-shadow: 3px 3px 0px rgb(255, 231, 15);
+    box-shadow: none;
 }
 
 li{
