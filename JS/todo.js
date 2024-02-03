@@ -32,6 +32,7 @@ function deleteAllLocal(){
     for(let key of onlyTodoKeys){
         localStorage.removeItem(key);
     }
+    hideWarning()
     renderLocalStorage();
 }
 
