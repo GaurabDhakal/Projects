@@ -1,0 +1,57 @@
+.menuBar{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    color: white;
+    flex-wrap: wrap;
+    background-color: #1e1f20;
+    width: 36vh;
+    left: 0;
+    transition: .2s all ease-in-out;
+}
+.menuBar .navbar ul,
+.iconOfCategoryAdd{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    align-items: center;
+}
+.cateTitle{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: rgb(28, 50, 55);
+    padding: 10px;
+}
+.noCategoryMessage,.cateTitle{
+    text-align: center;
+    margin: 10px;
+}
+.material-symbols-rounded{
+    cursor: pointer;
+}
+
+.collapsedSidebar{
+    display: flex;
+    width: 9vh;
+}
+.categoryListing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#categoryListingSideBarText{
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+.collapsedSidebar.navbar.cateTitle{
+    display: flex;
+    justify-content: center;
+}
+
+.logout{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}

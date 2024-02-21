@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+*{
+    font-family: "Lato", sans-serif;
+}
+:root{
+    --defFont:  "Lato", sans-serif;
+}
+
+
+body,.headTitle{
+    margin: 0;
+    scroll-behavior: smooth;
+    background-color: #131314;
+}
+.headTitle{
+    margin: 15px;
+}
+.MainAll{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    flex-direction: column;
+    color: white;
+    height: min-content;
+    padding: 50px;
+}
+
+select{
+    width: 22vh;
+    border: 1px solid rgb(41, 38, 8);
+    padding: 4px;
+    border-radius: 5px;
+    height: 5vh;
+}
+.MainAll .formMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.afterUsrInp{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.MainAll .formMain #usrVal{
+    padding: 15px;
+    margin-right: 4px;
+    height: 2.5rem;
+    font-family: var(--defFont);
+    width: 25rem;
+}
+
+.warning{
+    margin: 10px 10px 0 10px;
+    border: 1px solid gray;
+    padding: 6px;
+    color: black;
+    border-radius: 10px;
+    background: rgb(227, 224, 0);
+}
+.liDiv button{
+    margin: 5px;
+}
+.preAddSection{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+#preAddBtn,.checkIcon{
+    margin-left: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.checkIcon:hover,.checkIcon.material-symbols-outlined:hover{
+    color: rgb(10, 227, 230);    
+}
+#preAddBtn:hover{
+    color: rgb(232, 255, 22);
+    border-radius: 100px;
+}
+
+.btnTypeB{
+    background-color: #dc4c3e;
+    padding: 10px;
+    border: 1px solid gray;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btnTypeB:hover{
+    background-color: #ae2b1f;
+}
+
+li{
+    list-style: none;
+}
+
+#listArea{
+    margin: 10px;
+}
+
+#listArea .liDiv,.iterativeDiv, .liDiv{
+    display: flex;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 5px;
+    transition: .2s all linear;
+    color: white;
+    /* background-color: rgb(28, 22, 22); */
+    border: 1px solid rgb(29, 22, 22);
+    min-width: 100vh;
+    max-width: 110vh;
+    height: auto;
+    justify-content: space-between;
+    padding: 10px;
+}
+.categoryNameShow{
+    border: 1px solid rgb(50, 54, 28);
+    padding: 5px;
+    font-size: .85rem;
+    border-radius: 8px;
+}
+#listArea .liDiv:hover,.iterativeDiv, .liDiv:hover{
+    border: 1px solid rgb(51, 47, 23);
+    cursor: pointer;
+}
+
+.listElemCate{
+    background-color: rgb(28, 22, 22);
+    display: flex;
+justify-content: center;
+margin: 10px;
+}
+
+
+/* New User Interface design */
+
+
+
+.newUsrView{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    flex-direction: column;
+    color: white;
+}
+
+.newUsrView h3{
+    margin: 10px;
+}
+.newUsrView input{
+    margin: 5px;
+    padding: 5px;
+    height: 3rem;
+    border: 1px solid gray;
+    border-radius: 4px;
+    width: 20rem;
+}
+
+.newUsrView input[type="submit"]{
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid gray;
+    color: white;
+    transition: .2s all ease-in-out;
+}
+.btnShow{
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    transition: .43s all linear;
+    background-color: rgb(255, 246, 122);
+    cursor: pointer;
+}
+.btnShow:hover{
+    background-color: rgb(217, 206, 58);
+}
+.newUsrView input[type="submit"]:hover{
+background-color: rgb(28, 27, 22);
+}
+
+
+/* new user view css ends here  */
+
+
+.totalTaskCount{
+    margin: 10px;
+}
+
+
+#btnCancel.btnTypeC{
+    margin: 3px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#btnCancel.btnTypeC:hover{
+    background-color: #f5f5f5;
+}
+.noListMessage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.material-symbols-rounded{
+    user-select: none;
+}
+.material-symbols-rounded:active{
+    transform: scaleX(.9);
+}
+
+
+@media (width < 657px){
+    .MainAll{
+        width: 100%;
+    }
+    .MainAll .formMain #usrVal{
+        width: 27.4vh;
+    }
+    #listArea .liDiv{
+        min-width: 40vh;
+        max-width: 60vh;
+        flex-wrap: wrap;
+    }
+    #listArea .liDiv button{
+        justify-content: center;
+    }
+    
+}
+@media (width <400px){
+    .MainAll .formMain #usrVal{
+        width: 25vh;
+    }
+}
+@media(width <=370){
+    .MainAll .formMain #usrVal{
+        width: 24vh;
+    }
+}
+
+.listOfCategories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+
+.categoryListing{
+    width: clamp(10rem,10rem,12rem);
+    margin: 4px;
+    transition: .4s all ease-in-out;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid #1e1f20;
+    user-select: none;
+}
+.categoryListing:hover{
+    border: 1px solid rgb(133, 131, 131);
+    background-color: #211e11;
+}
+#categoryListingSideBarText{
+    text-align: center;
+    max-width: 95px;
+    text-overflow: hidden;
+}
+.divOfCategory{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 80vh;
+    align-items: center;
+    color: white;
+}
+.AddCategoryPopUP #newCategoryForm{
+    padding: 10px;
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+}
+
+.AddCategoryPopUP {
+    position: fixed;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    color: white;
+}
+.btnsCate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cateAddBtn,#cateCancelBtn{
+    height: 6vh;
+    background-color: #ae2b1f;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 6px;
+    transition: .5s all linear;
+    color: white;
+    width: 8vh;
+
+}
+
+#cateAddBtn:hover,#cateCancelBtn:hover{
+    background-color: #4d1b16;
+}
+
+#cateAddBtn, #cateName{
+    margin: 5px;
+}
+#cateName{
+    max-width: 50vh;
+    height: 5vh;
+}
+
+
+.iterateDiv{
+    margin: 30px;
+}
+
+.dangerZone{
+    margin-top: auto;
+    margin-bottom: auto;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    position: fixed;
+    color: white;
+}
+.dangerZone button{
+    color: rgb(235, 66, 66);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+.dangerZone button:hover{
+    color: rgb(255, 0, 0);
+}
+.divOfCategory h3{
+    margin: 10px;
+    min-height: 1vh;
+}
+
+.listElem{
+    font-size: .8rem;
+}
+.miniDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

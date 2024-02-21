@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="./CSS/todo.css">
+    <link rel="stylesheet" href="./CSS/navbar.css">
+    <link rel="stylesheet" href="./CSS/sidebar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,-25" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,-25" />
+
+<body>
+    <div class="newViewExtraLayer" id="newUsrView" hidden>
+        <div class="newUsrView">
+            <form class="newUsrView newUsrForm">
+                <h3>Hello There, Are you ready to organize yourself?</h3>
+                <input type="text" autocomplete="off" placeholder="Enter your name here" class="newUsrInpuArea">
+                <input type="submit" value="Enter">
+                <p class="warningAreaN"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="oldViewExtraLayer" id="OldUsrViewDefault" hidden>
+        <div class="OldUsrViewDefault">
+            <section class="menuBar">
+                <div class="navbar">
+                    <div class="cateTitle">
+                        <div class="toBeHiddenAfterCollapse">
+                            <p>Categories</p>
+                        </div>
+                        <span class="material-symbols-rounded"> menu</span>
+                    </div>
+
+                    <div class="toBeHiddenAfterCollapse">
+                        <div class="listOfCategories"></div>
+                    </div>
+                    <div class="toBeHiddenAfterCollapse">
+                        <p class="noCategoryMessage ">No Categories Found!</p>
+                    </div>
+                    <div class="iconOfCategoryAdd">
+                        <div class="toBeHiddenAfterCollapse">
+                            <p class="">Add Category</p>
+                        </div>
+                        <span class="material-symbols-rounded" id="addMSR">
+                            add
+                        </span>
+                    </div>
+                </div>
+                <div class="toBeHiddenAfterCollapse"><div class="logout"><button class="btnTypeB" id="logoutBtn">Logout</button></div></div>
+                
+            </section>
+            <div class="CategoryShowSection"></div>
+            <div class="MainAllParent">
+                
+            <div class="MainAll">
+                <h1 class="headTitle">{head title here}</h1>
+                <div class="preAddSectionParent">
+                    <div class="preAddSection">
+                        <p>Add task</p>
+                        <button id="preAddBtn"><span class="material-symbols-outlined">
+                                add_task
+                            </span></button>
+                    </div>
+                </div>
+                <div class="formParent" hidden>
+                    <form class="formMain">
+                        <input type="text" id="usrVal" autocomplete="off" placeholder="Task Name" />
+                        <div class="afterUsrInp">
+                            <div class="categorySelectOption"></div>
+                            <div class="btnsAddTask">
+                                <button type="button" id="btnCancel" class="cancel btnTypeC">Close</button>
+                                <button id="btnAdd" type="submit" class="add btnTypeB">Add Task</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="warning" hidden></div>
+                <p class="totalTaskCount"></p>
+                <div id="listArea"></div>
+                <div class="delAllSec"></div>
+                <div id="noListMessage">
+                    <div class="noListMessage">
+                        <h3>You are all done for today!</h3>
+                        <p>Enjoy the rest of the day!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="newCateFormParentElem" hidden>
+        <div class="AddCategoryPopUP">
+            <form id="newCategoryForm">
+                <label for="cateName">Name of the category: </label>
+                <input type="text" id="cateName" autocomplete="off" placeholder="Enter name of the category" />
+                <div class="btnsCate">
+                    <input type="button" id="cateCancelBtn" value="Back" />
+                    <input type="submit" id="cateAddBtn" value="Add" />
+                </div>
+                <p class="warningCateSection"></p>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="./JS/main.js"></script>
+<script src="./JS/ListLoader.js"></script>
+<script src="./JS/newOold.js"></script>
+<script src="./JS/categoryhandle.js"></script>
+<script src="./JS/logout.js"></script>
+<script src="./JS/handleAddNewPre.js"></script>
+<script src="./JS/handleSideBarToggle.js"></script>
+
+</html>
