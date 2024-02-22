@@ -52,7 +52,6 @@ function renderCategories(){
         // Sidebar section
         listOfCategories.textContent = ``
         for(let key of keys){
-            // console.log(key)
             const div = document.createElement("div");
             const showBtn = document.createElement("button");
             const cate = document.createElement("div");
@@ -71,28 +70,17 @@ function renderCategories(){
         listOfCategories.textContent = ``
         noCategoryMessage.textContent = `No Categories found!`;
     }
-    // console.log(keys)
 }
-
-
-
 function deleteCategory(categoryName){
     localStorage.removeItem(categoryName);
     hideCategory()
     renderList();
     renderCategories();
 }
-
 function showCategory(idOfTheCategory){
-    
     let todoInCate =  localStorage.getItem(idOfTheCategory).split(' ');
     CategoryShowSection.innerHTML = ``
-
-    // let keysOfCategory = Object.keys(localStorage).filter(elem=>elem.startsWith("todo_"));
-
     if(document.querySelector(".iterativeDiv")) document.querySelector('.iterativeDiv').innerHTML = ``;
-    // console.log(typeof todoInCate);
-
     CategoryShowSection.hidden = false;
     CategoryShowSection.innerHTML = ``;
     if(!MainAll.hidden) MainAll.hidden = true;
@@ -121,7 +109,6 @@ function showCategory(idOfTheCategory){
     iterateDiv.setAttribute("class","iterateDiv")
     if(todoInCate.length==0){iterateDiv.textContent = "Nothing in this category!"}
     else{
-        // console.log("todoincate",todoInCate)
         let totalValueLength = 0;
         todoInCate.forEach(value=>{
             totalValueLength +=value.length;
@@ -136,9 +123,6 @@ function showCategory(idOfTheCategory){
                 let checkIcon = document.createElement("span");
                 checkIcon.setAttribute("class","material-symbols-outlined");
                 checkIcon.textContent = "task_alt"
-                // liA.classList.add("listElemCate")
-                // iterateDiv.classList.add("iterativeDiv")
-                // console.log("todo_"+value)
                 liA.textContent = "TODO: " + localStorage.getItem(`todo_${value}`);
                 btnElem.appendChild(checkIcon);
                 divElem.appendChild(liA);
@@ -146,7 +130,6 @@ function showCategory(idOfTheCategory){
                 iterateDiv.appendChild(divElem);
             }
         })
-        // console.log("totalValueLength",totalValueLength)
         if(totalValueLength===0)iterateDiv.textContent = "Nothing in this category!";
     }
     let btn = document.createElement("button");
@@ -164,10 +147,6 @@ function hideCategory(){
     MainAll.hidden = false;
     if(!CategoryShowSection.hidden) CategoryShowSection.hidden = true;
 }
-
-// const goBackCate = document.querySelector(".goBackCateSection");
-// goBackCate.addEventListener("click",hideCategory);
-
 renderCategories()
 backBtn.addEventListener("click",handleBackBtn);
 addMSR.addEventListener("click",newCateHandleOutSidePopUp);
