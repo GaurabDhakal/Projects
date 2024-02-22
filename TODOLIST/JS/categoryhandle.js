@@ -58,7 +58,7 @@ function renderCategories(){
             cate.setAttribute("id","categoryListingSideBarText")
             cate.textContent = `${key.slice(categoryPrefix.length)}`
             div.appendChild(cate);
-            showBtn.textContent = `View`;
+            showBtn.textContent = `Open`;
             showBtn.setAttribute("onclick",`showCategory("${key}")`)
             showBtn.setAttribute("class","btnShow")
             div.appendChild(showBtn);
@@ -116,7 +116,6 @@ function showCategory(idOfTheCategory){
                 let divElem = document.createElement("div")
                 divElem.classList.add("liDiv")
                 let liA = document.createElement('li');
-
                 let btnElem = document.createElement("button");
                 btnElem.setAttribute("class","checkIcon");
                 btnElem.setAttribute("onclick",`delData(${value},"${idOfTheCategory}")`);

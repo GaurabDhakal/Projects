@@ -129,6 +129,7 @@ li{
 }
 #listArea .liDiv:hover,.iterativeDiv, .liDiv:hover{
     border: 1px solid rgb(51, 47, 23);
+    box-shadow: 1px 1px 15px rgb(51, 47, 23);
     cursor: pointer;
 }
 
@@ -174,14 +175,15 @@ margin: 10px;
 }
 .btnShow{
     padding: 5px;
-    border: 1px solid gray;
+    border: 1px solid #8c8a07;
     border-radius: 5px;
-    transition: .43s all linear;
-    background-color: rgb(255, 246, 122);
+    transition: .2s all linear;
+    color: white;
+    background-color: rgb(46, 35, 23);
     cursor: pointer;
 }
 .btnShow:hover{
-    background-color: rgb(217, 206, 58);
+    background-color: #6e6d3c;
 }
 .newUsrView input[type="submit"]:hover{
 background-color: rgb(28, 27, 22);
@@ -285,6 +287,12 @@ background-color: rgb(28, 27, 22);
     align-items: center;
     color: white;
 }
+
+.activeCategory{
+    background-color: #8c8a07;
+}
+
+
 .AddCategoryPopUP #newCategoryForm{
     /* min-height: 40vh; */
     border: 1px solid transparent;
