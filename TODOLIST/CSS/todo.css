@@ -286,12 +286,19 @@ background-color: rgb(28, 27, 22);
     color: white;
 }
 .AddCategoryPopUP #newCategoryForm{
-    padding: 10px;
+    /* min-height: 40vh; */
+    border: 1px solid transparent;
+    padding: 6rem;
+    transition: .5s all ease-in-out;
     display: flex;
+    justify-content: center;
     margin: 10px;
     flex-direction: column;
 }
-
+.AddCategoryPopUP #newCategoryForm:hover{
+    border: 1px solid rgb(38, 44, 20);
+    cursor: pointer;
+}
 .AddCategoryPopUP {
     position: fixed;
     top: 50%;
@@ -306,33 +313,51 @@ background-color: rgb(28, 27, 22);
     backdrop-filter: blur(5px);
     color: white;
 }
+#newCategoryForm label{
+    text-align: center;
+}
+#cateAddBtn, #cateCancelBtn,#cateName{
+    margin: 10px;
+}
+
 .btnsCate{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+#cateAddBtn{
+    background-color: #212102;
+}
+#cateAddBtn:hover{
+    background-color: #012c57;
+}
+#cateCancelBtn{
+    background-color: #012320;
+}
 #cateAddBtn,#cateCancelBtn{
-    height: 6vh;
-    background-color: #ae2b1f;
+    height: 7vh;
     cursor: pointer;
     border: 1px solid gray;
     border-radius: 6px;
     transition: .5s all linear;
     color: white;
-    width: 8vh;
+    width: 12vh;
 
 }
 
-#cateAddBtn:hover,#cateCancelBtn:hover{
-    background-color: #4d1b16;
+#cateCancelBtn:hover{
+    background-color: #300d03;
 }
 
 #cateAddBtn, #cateName{
     margin: 5px;
 }
+
+
 #cateName{
-    max-width: 50vh;
-    height: 5vh;
+    padding: .4rem;
+    min-width: 17rem;
+    min-height: 7vh;
 }
 
 
