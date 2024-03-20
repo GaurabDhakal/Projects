@@ -153,24 +153,31 @@ margin: 10px;
     flex-direction: column;
     color: white;
 }
-
 .newUsrView h3{
     margin: 10px;
-}
-.newUsrView input{
-    margin: 5px;
-    padding: 5px;
-    height: 3rem;
-    border: 1px solid gray;
-    border-radius: 4px;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
     width: 20rem;
 }
-
-.newUsrView input[type="submit"]{
+.newUsrView .inputsNew input[type="text"]{
+    margin: 5px;
+    padding: 5px;
+    height: 3em;
+    border-radius: 4px;
+    width: 15rem;
+}
+.infoOfStorage{
+    width: 20em;
+}
+.newUsrView .inputsNew input[type="submit"]{
+    height: 3em;
+    width: 4em;
+    margin: 10px;
     cursor: pointer;
-    background-color: black;
-    border: 1px solid gray;
-    color: white;
+    border-radius: 5px;
+    background-color: rgb(255, 246, 126);
+    border: none;
     transition: .2s all ease-in-out;
 }
 .btnShow{
@@ -185,8 +192,8 @@ margin: 10px;
 .btnShow:hover{
     background-color: #6e6d3c;
 }
-.newUsrView input[type="submit"]:hover{
-background-color: rgb(28, 27, 22);
+.newUsrView .inputsNew input[type="submit"]:hover{
+background-color: rgb(220, 200, 96);
 }
 
 
@@ -281,10 +288,6 @@ background-color: rgb(28, 27, 22);
     margin: 10px;
     flex-direction: column;
 }
-.AddCategoryPopUP #newCategoryForm:hover{
-    border: 1px solid rgb(38, 44, 20);
-    cursor: pointer;
-}
 .AddCategoryPopUP {
     position: fixed;
     top: 50%;
@@ -312,27 +315,29 @@ background-color: rgb(28, 27, 22);
     align-items: center;
 }
 #cateAddBtn{
-    background-color: #212102;
+    background-color: #f5f560;
 }
 #cateAddBtn:hover{
-    background-color: #012c57;
+    background-color: #a2930e;
+    color: #FFCC66;
 }
 #cateCancelBtn{
-    background-color: #012320;
+    background-color: #dbff70;
 }
 #cateAddBtn,#cateCancelBtn{
-    height: 7vh;
+    height: 3em;
     cursor: pointer;
-    border: 1px solid gray;
+    border: none;
     border-radius: 6px;
-    transition: .5s all linear;
-    color: white;
+    transition: .2s all linear;
+    color: black;
     width: 12vh;
 
 }
 
 #cateCancelBtn:hover{
-    background-color: #300d03;
+    background-color: #9e9a30;
+    color: #FFCC66;
 }
 
 #cateAddBtn, #cateName{
@@ -343,7 +348,7 @@ background-color: rgb(28, 27, 22);
 #cateName{
     padding: .4rem;
     min-width: 17rem;
-    min-height: 7vh;
+    min-height: 6vh;
 }
 
 

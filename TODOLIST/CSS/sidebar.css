@@ -30,9 +30,7 @@
     align-items: center;
 }
 .iconOfCategoryAdd{
-    /* display: flex; */
     justify-content: space-between;
-    /* align-items: center; */
     margin: 3vw;
     padding: .4rem;
     border: 1px solid rgb(197, 200, 112);
