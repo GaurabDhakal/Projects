@@ -50,7 +50,6 @@
     user-select: none;
 }
 .categoryListing:hover{
-    border-color:rgb(133, 131, 131);
     background-color: #004a77;
 }
 #categoryListingSideBarText{
