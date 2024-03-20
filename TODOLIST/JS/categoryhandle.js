@@ -120,7 +120,8 @@ function showCategory(idOfTheCategory, categoryClassName){
     childDiv.setAttribute("class","divOfCategory");
 
     let title = document.createElement("h3"); // TITLE
-    title.textContent ="Category: "+ idOfTheCategory.slice(categoryPrefix.length)
+    title.classList.add("hTagForTitleOfCategory")
+    title.textContent =randomEmoji()+" "+idOfTheCategory.slice(categoryPrefix.length)
     let iterateDiv = document.createElement("div");
     iterateDiv.setAttribute("class","iterateDiv")
     if(todoInCate.length==0){

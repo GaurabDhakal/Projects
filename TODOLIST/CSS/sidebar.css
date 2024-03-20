@@ -29,6 +29,24 @@
     margin: 10px;
     align-items: center;
 }
+.iconOfCategoryAdd{
+    /* display: flex; */
+    justify-content: space-between;
+    /* align-items: center; */
+    margin: 3vw;
+    padding: .4rem;
+    border: 1px solid rgb(197, 200, 112);
+    border-radius: 8px;
+}
+
+#addMSR:hover{
+    color: rgb(255, 249, 88);
+}
+.hTagForTitleOfCategory{
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+}
 .cateTitle{
     display: flex;
     justify-content: space-between;
