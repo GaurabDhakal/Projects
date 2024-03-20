@@ -163,6 +163,7 @@ margin: 10px;
 .newUsrView .inputsNew input[type="text"]{
     margin: 5px;
     padding: 5px;
+    
     height: 3em;
     border-radius: 4px;
     width: 15rem;
