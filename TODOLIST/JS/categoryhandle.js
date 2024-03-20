@@ -123,7 +123,9 @@ function showCategory(idOfTheCategory, categoryClassName){
     title.textContent ="Category: "+ idOfTheCategory.slice(categoryPrefix.length)
     let iterateDiv = document.createElement("div");
     iterateDiv.setAttribute("class","iterateDiv")
-    if(todoInCate.length==0){iterateDiv.textContent = "Nothing in this category!"}
+    if(todoInCate.length==0){
+        iterateDiv.textContent = "Nothing in this category!";
+    }
     else{
         let totalValueLength = 0;
         todoInCate.forEach(value=>{
