@@ -114,7 +114,6 @@ li{
     margin: 5px;
     transition: .2s all linear;
     color: white;
-    /* background-color: rgb(28, 22, 22); */
     border: 1px solid rgb(29, 22, 22);
     min-width: 100vh;
     max-width: 110vh;
@@ -354,19 +353,27 @@ background-color: rgb(28, 27, 22);
 }
 
 .dangerZone{
-    margin-top: auto;
-    margin-bottom: auto;
     bottom: 0;
-    left: 0;
+    right: 0;
+    margin: 5vw;
+    cursor: default;
     display: flex;
+    border-radius: 1vw;
+    justify-content: space-between;
+    width: minmax(10vw,20vw);
+    border: 1px solid rgb(20, 138, 124);
+    padding: 10px;
     position: fixed;
     color: white;
 }
-.dangerZone button{
+.dangerZone > button{
     color: rgb(235, 66, 66);
     cursor: pointer;
     border: none;
     background-color: transparent;
+}
+.dangerZone > h4{
+    text-align: center;
 }
 .dangerZone button:hover{
     color: rgb(255, 0, 0);

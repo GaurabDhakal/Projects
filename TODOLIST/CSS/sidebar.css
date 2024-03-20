@@ -1,13 +1,26 @@
-.menuBar{
+.menuBarContainer{
     height: 100vh;
-    position: fixed;
-    top: 0;
+    width: 18%;
+    position: absolute;
+}
+.menuBar{
+    height: 100%;
+    position: absolute;
     color: white;
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     background-color: #1e1f20;
-    width: 36vh;
-    left: 0;
+    width: 100%;
     transition: .2s all ease-in-out;
+}
+/* .navbar{
+    flex-grow: 1;
+} */
+.logoutMain{
+    margin-top: auto;
+    margin-bottom: 2rem;
+
 }
 .menuBar .navbar ul,
 .iconOfCategoryAdd{
@@ -37,7 +50,7 @@
 }
 
 .categoryListing{
-    width: clamp(10rem,10rem,12rem);
+    width: clamp(11rem,12rem,13rem);
     margin: 4px;
     transition: .1s all ease-in-out;
     padding: 10px;
@@ -74,4 +87,10 @@
 .activeCategoryInSideBar{
     color: #a9d3ee;
     background-color: #004a77;
+}
+.categoryDelBtn:hover{
+    color:rgb(214, 83, 23);
+}
+.categoryDelBtn:active{
+    transform: scale(.9);
 }

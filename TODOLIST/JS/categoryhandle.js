@@ -53,6 +53,10 @@ let randClasGen = ()=>{
     return rand;
 }
 
+const randomEmoji = () =>{
+    const emojis = "😊,😁,😀,😃,😄,😍,🤗,🤔,😸".split(",")
+    return emojis[Math.floor(Math.random()*emojis.length)||0]
+}
 
 function renderCategories(){
     let keys = Object.keys(localStorage).filter(elem=>elem.startsWith(categoryPrefix))
@@ -61,19 +65,16 @@ function renderCategories(){
         noCategoryMessage.textContent = ``;
         // Sidebar section
         listOfCategories.textContent = ``
-        let i = 1;
         for(let key of keys){
             const div = document.createElement("div");
             const cate = document.createElement("div");
             cate.setAttribute("id","categoryListingSideBarText")
             let className = randClasGen()
-            console.log(className)
-            cate.textContent = `${i}. ${key.slice(categoryPrefix.length)}`
+            cate.textContent = `${randomEmoji()} ${key.slice(categoryPrefix.length)}`
             div.setAttribute("onclick",`showCategory("${key}","${className}")`)
             div.appendChild(cate);
             div.setAttribute('class',`categoryListing ${className}`)
-            listOfCategories.appendChild(div)
-            i++;
+            listOfCategories.appendChild(div);
         }
         // Sidebar section Ends
     }else{
@@ -103,12 +104,12 @@ function showCategory(idOfTheCategory, categoryClassName){
     let dangerZone = document.createElement("div");
     dangerZone.classList.add("dangerZone")
     let h4ODZ = document.createElement("h4")
-    h4ODZ.innerHTML = "Warning: Delete Category"
+    h4ODZ.innerHTML = "Warning : Delete Category: "
 
     let dangerZoneDangerBtn = document.createElement("button");
     dangerZoneDangerBtn.setAttribute("onclick",`deleteCategory("${idOfTheCategory}")`)
     let spanDel = document.createElement("span")
-    spanDel.setAttribute("class","material-symbols-outlined")
+    spanDel.setAttribute("class","material-symbols-outlined categoryDelBtn")
     spanDel.textContent = `delete_forever`
     dangerZone.appendChild(h4ODZ);
     dangerZoneDangerBtn.appendChild(spanDel);
