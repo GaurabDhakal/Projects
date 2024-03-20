@@ -259,27 +259,6 @@ background-color: rgb(28, 27, 22);
     /* flex-wrap: wrap; */
 }
 
-.categoryListing{
-    width: clamp(10rem,10rem,12rem);
-    margin: 4px;
-    transition: .4s all ease-in-out;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-radius: 30px;
-    border: 1px solid #1e1f20;
-    user-select: none;
-}
-.categoryListing:hover{
-    border: 1px solid rgb(133, 131, 131);
-    background-color: #211e11;
-}
-#categoryListingSideBarText{
-    text-align: center;
-    max-width: 95px;
-    text-overflow: hidden;
-}
 .divOfCategory{
     display: flex;
     justify-content: center;

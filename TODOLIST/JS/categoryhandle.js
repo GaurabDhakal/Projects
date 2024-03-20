@@ -43,6 +43,16 @@ function handleNewCateSubmission(){
     }
 }
 
+let randClasGen = ()=>{
+    let alphas = 'abcdefghijklmnopqrstuvwxyz'
+    let alphasArr = alphas.split('')
+    let rand="";
+    for(let i = 0;i<=6;i++){
+        rand += alphasArr[Math.floor(Math.random()*6)]
+    }
+    return rand;
+}
+
 
 function renderCategories(){
     let keys = Object.keys(localStorage).filter(elem=>elem.startsWith(categoryPrefix))
@@ -51,19 +61,19 @@ function renderCategories(){
         noCategoryMessage.textContent = ``;
         // Sidebar section
         listOfCategories.textContent = ``
+        let i = 1;
         for(let key of keys){
             const div = document.createElement("div");
-            const showBtn = document.createElement("button");
             const cate = document.createElement("div");
             cate.setAttribute("id","categoryListingSideBarText")
-            cate.textContent = `${key.slice(categoryPrefix.length)}`
+            let className = randClasGen()
+            console.log(className)
+            cate.textContent = `${i}. ${key.slice(categoryPrefix.length)}`
+            div.setAttribute("onclick",`showCategory("${key}","${className}")`)
             div.appendChild(cate);
-            showBtn.textContent = `Open`;
-            showBtn.setAttribute("onclick",`showCategory("${key}")`)
-            showBtn.setAttribute("class","btnShow")
-            div.appendChild(showBtn);
-            div.setAttribute('class','categoryListing')
+            div.setAttribute('class',`categoryListing ${className}`)
             listOfCategories.appendChild(div)
+            i++;
         }
         // Sidebar section Ends
     }else{
@@ -78,7 +88,11 @@ function deleteCategory(categoryName){
     renderLocalStorage();
     renderCategories();
 }
-function showCategory(idOfTheCategory){
+function showCategory(idOfTheCategory, categoryClassName){
+    removeActiveCategoryInSideBar()
+    let toBeHighLighted = document.querySelector(`.${categoryClassName}`);
+    toBeHighLighted.classList.add("activeCategoryInSideBar")
+
     let todoInCate =  localStorage.getItem(idOfTheCategory).split(' ');
     CategoryShowSection.innerHTML = ``
     if(document.querySelector(".iterativeDiv")) document.querySelector('.iterativeDiv').innerHTML = ``;
@@ -143,7 +157,18 @@ function showCategory(idOfTheCategory){
     CategoryShowSection.appendChild(childDiv);
 }
 
+
+function removeActiveCategoryInSideBar(){
+    let allCategory = document.querySelectorAll('.categoryListing');
+    allCategory.forEach(elem=>{
+        if(elem.classList.contains("activeCategoryInSideBar")){
+            elem.classList.remove("activeCategoryInSideBar")
+        }
+    })
+}
+
 function hideCategory(){
+    removeActiveCategoryInSideBar()
     MainAll.hidden = false;
     if(!CategoryShowSection.hidden) CategoryShowSection.hidden = true;
 }
