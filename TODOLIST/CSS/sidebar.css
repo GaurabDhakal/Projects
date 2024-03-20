@@ -66,12 +66,10 @@
     background-color: #004a77;
 }
 #categoryListingSideBarText{
-    text-align: center;
-    max-width: 95px;
-    text-overflow: hidden;
-    display: flex;
     overflow: hidden;
-    flex-wrap: wrap;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 200px;
 }
 .collapsedSidebar.navbar.cateTitle{
     display: flex;

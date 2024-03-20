@@ -88,7 +88,7 @@ select{
 .btnTypeB{
     background-color: #dc4c3e;
     padding: 10px;
-    border: 1px solid gray;
+    border: none;
     color: white;
     border-radius: 6px;
     cursor: pointer;
@@ -199,7 +199,7 @@ background-color: rgb(28, 27, 22);
 
 
 #btnCancel.btnTypeC{
-    margin: 3px;
+    margin: 7px;
     padding: 10px;
     background-color: #ffffff;
     border: none;
@@ -272,8 +272,7 @@ background-color: rgb(28, 27, 22);
 }
 
 
-.AddCategoryPopUP #newCategoryForm{
-    /* min-height: 40vh; */
+.AddCategoryPopUP #newCategoryForm{ 
     border: 1px solid transparent;
     padding: 6rem;
     transition: .5s all ease-in-out;
@@ -349,7 +348,10 @@ background-color: rgb(28, 27, 22);
 
 
 .iterateDiv{
-    margin: 30px;
+    border: 1px solid gray;
+    padding: 1em 5em;
+    border-radius: .6rem;
+    margin: 2vw;
 }
 
 .dangerZone{
