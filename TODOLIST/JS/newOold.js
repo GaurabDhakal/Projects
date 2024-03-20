@@ -2,24 +2,34 @@
 let warningAreaN = document.querySelector(".warningAreaN");
 const newUsrSection = document.getElementById("newUsrView")
 let todoTitles = [
-    " Tasks for Today",
-    " What's Next on the Agenda?",
-    " Your Daily Goals",
-    " Let's Get Things Done",
-    " Plan Your Day",
-    " Your Task List Awaits",
-    " Productivity Plan",
-    " Action Items",
-    " Things to Accomplish",
-    " Daily Duties",
-    " Your Task Journey",
-    " Agenda for the Day",
-    " Tasks at Hand",
-    " To-Do List Magic",
-    " Mission for Today",
-    " Your Daily Task Adventure"
-
-];
+        "Tasks for Today",
+        "What's Next on the Agenda?",
+        "Your Daily Goals",
+        "Let's Get Things Done",
+        "Plan Your Day",
+        "Your Task List Awaits",
+        "Productivity Plan",
+        "Action Items",
+        "Things to Accomplish",
+        "Daily Duties",
+        "Your Task Journey",
+        "Agenda for the Day",
+        "Tasks at Hand",
+        "To-Do List Magic",
+        "Mission for Today",
+        "Your Daily Task Adventure",
+        "Tackle Your Tasks",
+        "Today's Objectives",
+        "Goals for the Day",
+        "Focus and Achieve",
+        "Your Action Plan",
+        "Master Your To-Dos", 
+        "Time to Get Productive",
+        "Check It Off the List",
+        "Your Productivity Checklist",
+        "Crush Your To-Do List" 
+    ];
+    
 const oldUsrSection = document.getElementById("OldUsrViewDefault");
 function oldUsrView(){
     console.log("Old usr")
@@ -28,7 +38,7 @@ function oldUsrView(){
     nameOfUsr = nameOfUsr.split(" ")
     let test = "Gaurab".split(" ")
     console.log(test,test[0])
-    headTitle.textContent = `Hello ${nameOfUsr[0].charAt(0).toUpperCase()+nameOfUsr[0].slice(1)}, ${todoTitles[Math.floor(Math.random()*9)]}`;
+    headTitle.textContent = `Hello ${nameOfUsr[0].charAt(0).toUpperCase()+nameOfUsr[0].slice(1)}, ${todoTitles[Math.floor(Math.random()*todoTitles.length)]}`;
     if(newUsrSection.hidden===false) newUsrSection.hidden = true;
     oldUsrSection.hidden = false;
     console.log(newUsrSection,oldUsrSection)
