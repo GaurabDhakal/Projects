@@ -2,6 +2,9 @@
 *{
     font-family: "Lato", sans-serif;
     scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
 }
 :root{
     --defFont:  "Lato", sans-serif;
@@ -163,7 +166,7 @@ margin: 10px;
 .newUsrView .inputsNew input[type="text"]{
     margin: 5px;
     padding: 5px;
-    
+
     height: 3em;
     border-radius: 4px;
     width: 15rem;
@@ -231,39 +234,11 @@ background-color: rgb(220, 200, 96);
 }
 
 
-@media (width < 657px){
-    .MainAll{
-        width: 100%;
-    }
-    .MainAll .formMain #usrVal{
-        width: 27.4vh;
-    }
-    #listArea .liDiv{
-        min-width: 40vh;
-        max-width: 60vh;
-        flex-wrap: wrap;
-    }
-    #listArea .liDiv button{
-        justify-content: center;
-    }
-    
-}
-@media (width <400px){
-    .MainAll .formMain #usrVal{
-        width: 25vh;
-    }
-}
-@media(width <=370){
-    .MainAll .formMain #usrVal{
-        width: 24vh;
-    }
-}
-
 .listOfCategories{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* flex-wrap: wrap; */
+
 }
 
 .divOfCategory{
@@ -396,3 +371,5 @@ background-color: rgb(220, 200, 96);
     align-items: center;
     justify-content: center;
 }
+
+

@@ -7,7 +7,7 @@ let warningCateSection = document.querySelector(".warningCateSection");
 let noCategoryMessage = document.querySelector(".noCategoryMessage");
 let listOfCategories = document.querySelector(".listOfCategories");
 let MainAll = document.querySelector(".MainAllParent");
-let CategoryShowSection = document.querySelector(".CategoryShowSection");
+let CategoryShowSection = document.querySelector(".categoryShowSection");
 
 const categoryPrefix = "CATE_"
 

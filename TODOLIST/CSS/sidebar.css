@@ -1,5 +1,5 @@
 .menuBarContainer{
-    height: 100vh;
+    height: 100%;
     width: 18%;
     position: absolute;
 }
@@ -14,9 +14,6 @@
     width: 100%;
     transition: .2s all ease-in-out;
 }
-/* .navbar{
-    flex-grow: 1;
-} */
 .logoutMain{
     margin-top: auto;
     margin-bottom: 2rem;
