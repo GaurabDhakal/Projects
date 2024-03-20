@@ -75,6 +75,7 @@ function deleteCategory(categoryName){
     localStorage.removeItem(categoryName);
     hideCategory()
     renderList();
+    renderLocalStorage();
     renderCategories();
 }
 function showCategory(idOfTheCategory){
