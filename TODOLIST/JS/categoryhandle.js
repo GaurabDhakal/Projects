@@ -54,34 +54,34 @@ let randClasGen = ()=>{
 }
 
 const randomEmoji = () =>{
-    const emojis = "😊,😁,😀,😃,😄,🤗,🤔,😸,🚀,🔥".split(",")
+    const emojis = "😊,😁,😀,😃,😄,🤗,🤩,😸,🚀,🔥".split(",")
     return emojis[Math.floor(Math.random()*emojis.length)||0]
 }
 
-function popupToggle(className,optionalClassName){
+function popupToggle(className,optionalClassName,e){
     let allPopup = document.querySelector(`.${className}`);
-    /*
-    @param optionalClass: This is for the popup that is to be hidden when the main popup is active
-    */
-
-    // let optionalClass = document.querySelector(`.${optionalClassName}`); 
     if(allPopup.classList.contains("activePopup")){
-        // if(optionalClass) optionalClass.classList.add("activePopupMin");
         allPopup.classList.remove("activePopup")
     }else{
         allPopup.classList.add("activePopup")
     }
-    // if(optionalClass&&optionalClass.classList.contains("activePopupMin"))optionalClass.hidden = true;
     allPopup.hidden = !allPopup.hidden;
-
+    if(optionalClassName){
+        let allPopup = document.querySelector(`.${optionalClassName}`);
+        if(allPopup){
+            allPopup.hidden = true;
+        }
+    }
 }
 
 function hideTheContainer(className){ 
+    console.log(className)
     let allPopup = document.querySelector(`.${className}`);
     if(allPopup){
         allPopup.hidden = true;
     }
 }
+
 
 
 function renderCategories(){
@@ -101,10 +101,9 @@ function renderCategories(){
             popupContainer.setAttribute("class","popup-container")
             popupContainerParent.setAttribute("class","popup-container-parent")
             const popupContainerSpan = document.createElement("span");
-            popupContainerSpan.setAttribute("class","material-symbols-outlined")
+            popupContainerSpan.setAttribute("class","material-symbols-outlined three-dot-icon")
             popupContainerSpan.textContent = "more_vert";
             let classNamePCMin = randClasGen()
-            // popupContainerParent.setAttribute("onmouseout",`hideTheContainer("${classNamePCMin}",)`)
             const popupContainerMinContainer = document.createElement("div");
             const popupContainerMinContainerParent = document.createElement("div");
             popupContainerMinContainerParent.setAttribute("class",`popup-container-parent-min-content ${classNamePCMin}`);
@@ -133,7 +132,7 @@ function renderCategories(){
             let className = randClasGen()
             cate.textContent = `${randomEmoji()} ${key.slice(categoryPrefix.length)}`
             div.setAttribute("onmouseover",`popupToggle("${popupContainerClassName}")`)
-            div.setAttribute("onmouseout",`popupToggle("${popupContainerClassName}","${classNamePCMin}");`)
+            div.setAttribute("onmouseout",`popupToggle("${popupContainerClassName}")`)
             cate.setAttribute("onclick",`showCategory("${key}","${className}")`)
             div.appendChild(cate);
             div.setAttribute('class',`categoryListing ${className}`)
