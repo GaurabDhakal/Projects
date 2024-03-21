@@ -1,8 +1,9 @@
-@media screen and (max-width: 768px){
+@media screen and (max-width: 900px){
     body{
         font-size: 14px;
     }
     .MainAll{
+        display: flex;
         padding: 20px;
         flex-direction: column;
     }

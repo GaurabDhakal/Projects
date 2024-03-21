@@ -69,11 +69,18 @@
     padding: 10px;
     cursor: pointer;
     font-weight: 500;
+    height: 3.1em;
     display: flex;
     align-items: center;
     border-radius: 10px;
     border: 1px solid #3a3b3c;
-    user-select: none;
+}
+.activePopup> .material-symbols-outlined{
+    margin-top: 5px;
+}
+.activePopup>.material-symbols-outlined:hover{
+    color: #eaff47;
+
 }
 .categoryListing:hover{
     background-color: #004a77;
@@ -104,4 +111,42 @@
 }
 .categoryDelBtn:active{
     transform: scale(.9);
+}
+.popup-container{
+    display: flex;
+}
+.popup-container-parent {
+    user-select: none;
+}
+.popup-container-parent-min-content{
+    position: fixed;
+    border: none;
+    cursor: default;
+    height: 30vh;
+    margin-left: 2em;
+}
+.popup-container-min{
+    cursor: pointer;
+    height: 2rem;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: 200ms ease-in-out all;
+    background-color: #1e1f20;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.popup-container-min:active{
+    background-color: #515151;
+}
+.popup-container-spacer{
+    cursor: default;
+    position: fixed;
+    margin-left: 20px;
+    height: 20vh;
+    padding-right: 90px;
+    border: none;
 }

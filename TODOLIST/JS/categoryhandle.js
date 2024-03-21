@@ -54,9 +54,35 @@ let randClasGen = ()=>{
 }
 
 const randomEmoji = () =>{
-    const emojis = "😊,😁,😀,😃,😄,😍,🤗,🤔,😸".split(",")
+    const emojis = "😊,😁,😀,😃,😄,🤗,🤔,😸,🚀,🔥".split(",")
     return emojis[Math.floor(Math.random()*emojis.length)||0]
 }
+
+function popupToggle(className,optionalClassName){
+    let allPopup = document.querySelector(`.${className}`);
+    /*
+    @param optionalClass: This is for the popup that is to be hidden when the main popup is active
+    */
+
+    // let optionalClass = document.querySelector(`.${optionalClassName}`); 
+    if(allPopup.classList.contains("activePopup")){
+        // if(optionalClass) optionalClass.classList.add("activePopupMin");
+        allPopup.classList.remove("activePopup")
+    }else{
+        allPopup.classList.add("activePopup")
+    }
+    // if(optionalClass&&optionalClass.classList.contains("activePopupMin"))optionalClass.hidden = true;
+    allPopup.hidden = !allPopup.hidden;
+
+}
+
+function hideTheContainer(className){ 
+    let allPopup = document.querySelector(`.${className}`);
+    if(allPopup){
+        allPopup.hidden = true;
+    }
+}
+
 
 function renderCategories(){
     let keys = Object.keys(localStorage).filter(elem=>elem.startsWith(categoryPrefix))
@@ -68,13 +94,54 @@ function renderCategories(){
         for(let key of keys){
             const div = document.createElement("div");
             const cate = document.createElement("div");
-            cate.setAttribute("id","categoryListingSideBarText")
+            const popupContainer = document.createElement("div");
+            const popupContainerSpacer = document.createElement("div");
+            popupContainerSpacer.classList.add("popup-container-spacer")
+            const popupContainerParent = document.createElement("div");
+            popupContainer.setAttribute("class","popup-container")
+            popupContainerParent.setAttribute("class","popup-container-parent")
+            const popupContainerSpan = document.createElement("span");
+            popupContainerSpan.setAttribute("class","material-symbols-outlined")
+            popupContainerSpan.textContent = "more_vert";
+            let classNamePCMin = randClasGen()
+            // popupContainerParent.setAttribute("onmouseout",`hideTheContainer("${classNamePCMin}",)`)
+            const popupContainerMinContainer = document.createElement("div");
+            const popupContainerMinContainerParent = document.createElement("div");
+            popupContainerMinContainerParent.setAttribute("class",`popup-container-parent-min-content ${classNamePCMin}`);
+            popupContainerMinContainerParent.hidden = true;
+            const popupContainerMinP = document.createElement("p");
+            popupContainerMinP.textContent = "Delete Category";
+
+            popupContainerMinContainer.setAttribute("class",`popup-container-min`)
+            popupContainerMinContainer.setAttribute("onclick",`deleteCategory("${key}")`)
+            popupContainerSpan.setAttribute("onclick",`popupToggle("${classNamePCMin}")`)
+            popupContainerMinContainer.hidden=true;
+            const popupContainerMinContainerSpan = document.createElement("span");
+            popupContainerMinContainerSpan.setAttribute("class","material-symbols-outlined")
+            popupContainerMinContainerSpan.textContent = "delete";
+            popupContainerMinContainer.appendChild(popupContainerMinContainerSpan)
+            popupContainerMinContainer.appendChild(popupContainerMinP)
+            popupContainerMinContainerParent.appendChild(popupContainerMinContainer)
+            
+            popupContainer.appendChild(popupContainerSpan)
+            popupContainer.appendChild(popupContainerSpacer)
+
+            cate.setAttribute("id","categoryListingSideBarText");
+            let popupContainerClassName = randClasGen();
+            popupContainerParent.classList.add(popupContainerClassName)
+            popupContainerParent.hidden=true;
             let className = randClasGen()
             cate.textContent = `${randomEmoji()} ${key.slice(categoryPrefix.length)}`
-            div.setAttribute("onclick",`showCategory("${key}","${className}")`)
+            div.setAttribute("onmouseover",`popupToggle("${popupContainerClassName}")`)
+            div.setAttribute("onmouseout",`popupToggle("${popupContainerClassName}","${classNamePCMin}");`)
+            cate.setAttribute("onclick",`showCategory("${key}","${className}")`)
             div.appendChild(cate);
             div.setAttribute('class',`categoryListing ${className}`)
             listOfCategories.appendChild(div);
+            popupContainer.appendChild(popupContainerMinContainerParent)
+            popupContainerParent.appendChild(popupContainer)
+            div.appendChild(popupContainerParent)
+
         }
         // Sidebar section Ends
     }else{
@@ -101,21 +168,6 @@ function showCategory(idOfTheCategory, categoryClassName){
     CategoryShowSection.innerHTML = ``;
     if(!MainAll.hidden) MainAll.hidden = true;
 
-    let dangerZone = document.createElement("div");
-    dangerZone.classList.add("dangerZone")
-    let h4ODZ = document.createElement("h4")
-    h4ODZ.innerHTML = "Warning : Delete Category: "
-
-    let dangerZoneDangerBtn = document.createElement("button");
-    dangerZoneDangerBtn.setAttribute("onclick",`deleteCategory("${idOfTheCategory}")`)
-    let spanDel = document.createElement("span")
-    spanDel.setAttribute("class","material-symbols-outlined categoryDelBtn")
-    spanDel.textContent = `delete_forever`
-    dangerZone.appendChild(h4ODZ);
-    dangerZoneDangerBtn.appendChild(spanDel);
-    dangerZone.appendChild(dangerZoneDangerBtn);
-
-    CategoryShowSection.appendChild(dangerZone);
     let childDiv = document.createElement("div"); // <DIV>
     childDiv.setAttribute("class","divOfCategory");
 
