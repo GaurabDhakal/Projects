@@ -10,7 +10,6 @@ function renderList(){
     defaultOption.innerHTML = `Select Category`;
     selectElem.appendChild(defaultOption);
     let keys = Object.keys(localStorage).filter(key=>key.startsWith("CATE_"));
-    console.log("keys",keys.length)
     if(keys.length==0){
         let OptionNoCate = document.createElement("option");
         OptionNoCate.textContent = "No categories found!"

@@ -14,5 +14,4 @@ let elemOfWishes = document.querySelector(".noListMessage");
 
 let randomWish = wellWishes[Math.floor(Math.random()*wellWishes.length)];
 let randomWishSplit = randomWish.split("!");
-console.log(randomWishSplit)
 elemOfWishes.innerHTML = `<h3>${randomWishSplit[0]}!</h3><p>${randomWishSplit[1]}</p>`;

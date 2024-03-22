@@ -32,23 +32,18 @@ let todoTitles = [
     
 const oldUsrSection = document.getElementById("OldUsrViewDefault");
 function oldUsrView(){
-    console.log("Old usr")
     let nameOfUsr = localStorage.getItem(Object.keys(localStorage).filter(key => key=="nameOfUsr"));
     let headTitle = document.querySelector(".headTitle");
     nameOfUsr = nameOfUsr.split(" ")
     let test = "Gaurab".split(" ")
-    console.log(test,test[0])
     headTitle.textContent = `Hello ${nameOfUsr[0].charAt(0).toUpperCase()+nameOfUsr[0].slice(1)}, ${todoTitles[Math.floor(Math.random()*todoTitles.length)]}`;
     if(newUsrSection.hidden===false) newUsrSection.hidden = true;
     oldUsrSection.hidden = false;
-    console.log(newUsrSection,oldUsrSection)
 }
 
 function newUsrView(){
-    console.log("New usr");
     if(newUsrSection.hidden===true) newUsrSection.hidden = false;
     oldUsrSection.hidden = true;
-    console.log(newUsrSection,oldUsrSection)
 }
 
 function newOrOldCheck(){

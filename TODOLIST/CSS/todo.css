@@ -208,7 +208,9 @@ background-color: rgb(220, 200, 96);
 .totalTaskCount{
     margin: 10px;
 }
-
+.titleOfNewCategory{
+    text-align: center;
+}
 
 #btnCancel.btnTypeC{
     margin: 7px;

@@ -23,7 +23,6 @@ function delData(id,noCompulsion){
     let oldCateData = localStorage.getItem(cateLocalKey);
     localStorage.setItem(cateLocalKey,oldCateData.replace(id,""));
     }
-    console.log(noCompulsion);
     // if(!noCompulsion) showCategory(noCompulsion);
     if(noCompulsion) showCategory(noCompulsion);
     hideWarning();
@@ -87,7 +86,7 @@ function renderLocalStorage(){
     formatList();
     let totalTaskCount = document.querySelector('.totalTaskCount')
     totalTaskCount.textContent = `Total tasks: ${keys.length}`
-    console.log("keys length"+keys.length)
+    
     if(keys.length>0){
         for(let key of keys){
             if(!noListMessage.hidden) noListMessage.hidden = true;
@@ -114,7 +113,6 @@ function renderLocalStorage(){
                 ).filter(elem=>
                     localStorage.getItem(elem).includes(key.substring(storageKeyPrefix.length))
                 )
-                console.log("type of  "+typeof categoryExactName,"length " , categoryExactName.length)
                 if(categoryExactName.length>0){
                     categoryNameShow.textContent = "Category: "+categoryExactName[0].slice("CATE_".length);
                 }else{
@@ -150,3 +148,5 @@ document.querySelector(".formMain").addEventListener("submit",(e)=>{
     e.preventDefault();
     handleSubmit();
 })
+
+console.info("CONSOLE is not for beginners, rest!😎")

@@ -8,13 +8,11 @@ let noCategoryMessage = document.querySelector(".noCategoryMessage");
 let listOfCategories = document.querySelector(".listOfCategories");
 let MainAll = document.querySelector(".MainAllParent");
 let CategoryShowSection = document.querySelector(".categoryShowSection");
-
+let titleOfNewCategory  = document.querySelector(".titleOfNewCategory")
+let usrInpElemNewCate = document.getElementById("cateName");
 const categoryPrefix = "CATE_"
 
-newCategoryForm.addEventListener("submit",(e)=>{
-    e.preventDefault();
-    handleNewCateSubmission()
-})
+// newCategoryForm.addEventListener("submit",handleNewCateSubmission)
 
 function newCateHandleOutSidePopUp(){
     renderList();
@@ -22,13 +20,40 @@ function newCateHandleOutSidePopUp(){
 }
 
 function handleBackBtn(){
+    usrInpElemNewCate.placeholder = "Enter name of the category"
+    titleOfNewCategory.textContent = "Add Category";
     if(!AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = true;
 }
 
+//supporting callback function for rename
+function renameCategory(categoryName){
+    newCategoryForm.removeAttribute("onsubmit")
+    AddCategoryPopUP.hidden = false;
+    usrInpElemNewCate.placeholder = `Enter new name of the category-> ${categoryName.slice(categoryPrefix.length)}`
+    titleOfNewCategory.textContent = "Rename Category";
+    newCategoryForm.setAttribute("onsubmit",`handleRenameCategory("${categoryName}",event)`);
 
+}
 
+//main rename function
 
-function handleNewCateSubmission(){
+function handleRenameCategory(categoryName,event){
+    event.preventDefault()
+    let usrInp = document.getElementById("cateName");
+    if(usrInp.value.length === 0){
+        warningCateSection.textContent = `Oh oh, Seems like you forgot something!`
+    }else{
+        let temp = localStorage.getItem(categoryName)
+        localStorage.removeItem(categoryName)
+        localStorage.setItem(`${categoryPrefix}${usrInp.value}`,temp)
+        renderLocalStorage();
+        renderCategories();
+        handleBackBtn();
+    }
+}
+
+function handleNewCateSubmission(event){
+    event.preventDefault();
     let usrInp = document.getElementById("cateName").value;
     if(usrInp.length === 0){
         warningCateSection.textContent = `Oh oh, Seems like you forgot something!`
@@ -74,8 +99,11 @@ function popupToggle(className,optionalClassName,e){
     }
 }
 
-function hideTheContainer(className){ 
-    console.log(className)
+
+
+
+
+function hideTheContainer(className){
     let allPopup = document.querySelector(`.${className}`);
     if(allPopup){
         allPopup.hidden = true;
@@ -83,10 +111,19 @@ function hideTheContainer(className){
 }
 
 
+const makeMaterialIcon = (iconName,funcName,args) =>{
+    const icon = document.createElement("span");
+    icon.setAttribute("class","material-symbols-outlined")
+    if(funcName&&args){
+        icon.setAttribute("onclick",`${funcName}(${args})`)
+    }
+    icon.textContent = iconName;
+    return icon;
+}
+
 
 function renderCategories(){
     let keys = Object.keys(localStorage).filter(elem=>elem.startsWith(categoryPrefix))
-    console.log(keys)
     if(keys.length>0){
         noCategoryMessage.textContent = ``;
         // Sidebar section
@@ -94,6 +131,14 @@ function renderCategories(){
         for(let key of keys){
             const div = document.createElement("div");
             const cate = document.createElement("div");
+            const minDivRenameSection = document.createElement("div");
+            minDivRenameSection.setAttribute("class","popup-container-min-rename-section")
+            const p = document.createElement("p");
+            p.setAttribute("class","popup-container-min-rename-section-p")
+            p.textContent = "Rename Category";
+            minDivRenameSection.setAttribute("onclick",`renameCategory("${key}")`)
+            minDivRenameSection.appendChild(makeMaterialIcon("edit"));
+            minDivRenameSection.appendChild(p);
             const popupContainer = document.createElement("div");
             const popupContainerSpacer = document.createElement("div");
             popupContainerSpacer.classList.add("popup-container-spacer")
@@ -106,6 +151,7 @@ function renderCategories(){
             let classNamePCMin = randClasGen()
             const popupContainerMinContainer = document.createElement("div");
             const popupContainerMinContainerParent = document.createElement("div");
+            popupContainerMinContainerParent.appendChild(minDivRenameSection)
             popupContainerMinContainerParent.setAttribute("class",`popup-container-parent-min-content ${classNamePCMin}`);
             popupContainerMinContainerParent.hidden = true;
             const popupContainerMinP = document.createElement("p");
@@ -137,6 +183,7 @@ function renderCategories(){
             div.appendChild(cate);
             div.setAttribute('class',`categoryListing ${className}`)
             listOfCategories.appendChild(div);
+            
             popupContainer.appendChild(popupContainerMinContainerParent)
             popupContainerParent.appendChild(popupContainer)
             div.appendChild(popupContainerParent)

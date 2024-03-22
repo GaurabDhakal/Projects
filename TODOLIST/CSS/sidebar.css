@@ -135,11 +135,11 @@
     height: 30vh;
     margin-left: 2em;
 }
-.popup-container-min{
+.popup-container-min,.popup-container-min-rename-section{
     cursor: pointer;
     height: 2rem;
     display: flex;
-    padding: 10px;
+    padding: 1.1em;
     justify-content: center;
     align-items: center;
     transition: 200ms ease-in-out all;
@@ -149,7 +149,15 @@
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
 }
-.popup-container-min:active{
+.popup-container-min-rename-section{
+    margin-bottom: .3rem;
+}
+
+.popup-container-min:hover,.popup-container-min-rename-section:hover{
+    background: #2a2a2a;
+}
+
+.popup-container-min:active,.popup-container-min-rename-section:active{
     background-color: #515151;
 }
 .popup-container-spacer{
@@ -159,4 +167,4 @@
     height: 20vh;
     padding-right: 90px;
     border: none;
-}
+} 
