@@ -49,6 +49,7 @@ function handleRenameCategory(categoryName,event){
         renderLocalStorage();
         renderCategories();
         handleBackBtn();
+        renderList()
     }
 }
 
