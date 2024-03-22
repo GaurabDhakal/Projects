@@ -49,7 +49,17 @@
     background-color: rgb(28, 50, 55);
     padding: 10px;
 }
-.noCategoryMessage,.cateTitle{
+.noCategoryMessage {
+    text-align: center;
+    margin: 1.5em;
+    transition: 200ms all linear;
+    cursor: default;
+    user-select: none;
+}
+.noCategoryMessage:hover{
+    text-shadow:1px 1px 30px #eaff47;
+}
+.cateTitle{
     text-align: center;
     margin: 10px;
 }
