@@ -29,8 +29,8 @@ function handleBackBtn(){
 function renameCategory(categoryName){
     newCategoryForm.removeAttribute("onsubmit")
     AddCategoryPopUP.hidden = false;
-    usrInpElemNewCate.placeholder = `Enter new name of the category-> ${categoryName.slice(categoryPrefix.length)}`
-    titleOfNewCategory.textContent = "Rename Category";
+    usrInpElemNewCate.placeholder = `Enter new name of the category`
+    titleOfNewCategory.textContent = `Rename ${categoryName.slice(categoryPrefix.length)}`;
     newCategoryForm.setAttribute("onsubmit",`handleRenameCategory("${categoryName}",event)`);
 
 }
