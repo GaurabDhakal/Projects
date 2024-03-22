@@ -12,6 +12,7 @@ let titleOfNewCategory  = document.querySelector(".titleOfNewCategory")
 let usrInpElemNewCate = document.getElementById("cateName");
 const categoryPrefix = "CATE_"
 
+let defaultAttributeOfForm = newCategoryForm.getAttribute("onsubmit");
 // newCategoryForm.addEventListener("submit",handleNewCateSubmission)
 
 function newCateHandleOutSidePopUp(){
@@ -21,6 +22,8 @@ function newCateHandleOutSidePopUp(){
 
 function handleBackBtn(){
     usrInpElemNewCate.value = ``;
+    newCategoryForm.removeAttribute("onsubmit")
+    newCategoryForm.setAttribute("onsubmit",defaultAttributeOfForm)
     usrInpElemNewCate.placeholder = "Enter name of the category"
     titleOfNewCategory.textContent = "Add Category";
     if(!AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = true;
@@ -30,6 +33,7 @@ function handleBackBtn(){
 function renameCategory(categoryName){
     newCategoryForm.removeAttribute("onsubmit")
     AddCategoryPopUP.hidden = false;
+    usrInpElemNewCate.value = `${categoryName.slice(categoryPrefix.length)}`
     usrInpElemNewCate.placeholder = `Enter new name of the category`
     titleOfNewCategory.textContent = `Rename ${categoryName.slice(categoryPrefix.length)}`;
     newCategoryForm.setAttribute("onsubmit",`handleRenameCategory("${categoryName}",event)`);
