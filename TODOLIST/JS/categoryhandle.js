@@ -20,6 +20,7 @@ function newCateHandleOutSidePopUp(){
 }
 
 function handleBackBtn(){
+    usrInpElemNewCate.value = ``;
     usrInpElemNewCate.placeholder = "Enter name of the category"
     titleOfNewCategory.textContent = "Add Category";
     if(!AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = true;
