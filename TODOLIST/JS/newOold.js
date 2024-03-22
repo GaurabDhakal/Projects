@@ -30,13 +30,15 @@ let todoTitles = [
         "Crush Your To-Do List" 
     ];
     
-const oldUsrSection = document.getElementById("OldUsrViewDefault");
-function oldUsrView(){
+function syncName() {
     let nameOfUsr = localStorage.getItem(Object.keys(localStorage).filter(key => key=="nameOfUsr"));
     let headTitle = document.querySelector(".headTitle");
     nameOfUsr = nameOfUsr.split(" ")
-    let test = "Gaurab".split(" ")
     headTitle.textContent = `Hello ${nameOfUsr[0].charAt(0).toUpperCase()+nameOfUsr[0].slice(1)}, ${todoTitles[Math.floor(Math.random()*todoTitles.length)]}`;
+}
+const oldUsrSection = document.getElementById("OldUsrViewDefault");
+function oldUsrView(){
+    syncName();
     if(newUsrSection.hidden===false) newUsrSection.hidden = true;
     oldUsrSection.hidden = false;
 }

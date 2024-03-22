@@ -57,8 +57,28 @@
                             </span>
                         </div>
                     </div>
-                    <div class="toBeHiddenAfterCollapse logoutMain"><div class="logout"><button class="btnTypeB" id="logoutBtn">Logout</button></div></div>
-                    
+                    <div class="toBeHiddenAfterCollapse logoutMain settingsUpperLayerParent">
+                        <div class="logout settingsUpperLayer">
+                            <div class="toBeHiddenAfterCollapse settingMenu">
+                                <span class="material-symbols-outlined settingsIcon">settings</span>
+                                <p class="settingMenuName">Settings</p>
+                            </div>
+                            <div class="settingOptionPopupWrapper" hidden>
+                                <div class="settingOptionPopup">
+                                    <div class="changeNameSettings" onclick="changeName()">
+                                        <div class="iconOfEditSetting">
+                                            <span class="material-symbols-outlined">
+                                                edit
+                                            </span>
+                                        </div>
+                                        <div class="nameOfSetting"><p class="nameOfSettingP">Change name</p></div>
+                                    </div>
+                            </div>
+                            </div>
+                            <button class="btnTypeB" id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="categoryShowSection"></div>

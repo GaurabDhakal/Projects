@@ -20,6 +20,7 @@ function newCateHandleOutSidePopUp(){
     if(AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = false;
 }
 
+
 function handleBackBtn(){
     usrInpElemNewCate.value = ``;
     newCategoryForm.removeAttribute("onsubmit")
@@ -29,6 +30,33 @@ function handleBackBtn(){
     if(!AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = true;
 }
 
+
+let cateAddBtn = document.getElementById("cateAddBtn");
+function changeName(){
+    newCategoryForm.removeAttribute("onsubmit");
+    AddCategoryPopUP.hidden = false;
+    titleOfNewCategory.textContent = "Change Name: ";
+    usrInpElemNewCate.placeholder = "Enter the name here";
+    cateAddBtn.value="Change"
+    newCategoryForm.setAttribute("onsubmit",`handleChangeName(event)`);
+}
+function handleChangeName(event){
+    event.preventDefault();
+    let usrInp = document.getElementById("cateName").value;
+    if(usrInp.length === 0){
+        warningCateSection.textContent = `Oh oh, Seems like you forgot something!`;
+    }else{
+        if(localStorage.getItem("nameOfUsr")==usrInp){
+            warningCateSection.textContent = `Name is already ${usrInp}!`
+        }else{
+            localStorage.setItem("nameOfUsr",usrInp);
+            syncName();
+            handleBackBtn();
+            toggleSettingsMenu()
+        }
+        cateAddBtn.textContent = "Add";
+    }
+}
 //supporting callback function for rename
 function renameCategory(categoryName){
     newCategoryForm.removeAttribute("onsubmit")
@@ -120,11 +148,11 @@ function hideTheContainer(className){
 }
 
 
-const makeMaterialIcon = (iconName,funcName,args) =>{
+const makeMaterialIcon = (iconName,TextContent) =>{
     const icon = document.createElement("span");
     icon.setAttribute("class","material-symbols-outlined")
-    if(funcName&&args){
-        icon.setAttribute("onclick",`${funcName}(${args})`)
+    if(TextContent){
+        icon.textContent = TextContent;
     }
     icon.textContent = iconName;
     return icon;

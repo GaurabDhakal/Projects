@@ -2,6 +2,8 @@ let usrValUni = document.getElementById("usrVal");
 let listArea = document.getElementById("listArea");
 let warningArea = document.querySelector('.warning');
 let noListMessage = document.querySelector("#noListMessage");
+let settingMenu = document.querySelector(".settingMenu");
+let iconSettings = document.querySelector(".settingsIcon");
 const storageKeyPrefix = "todo_"; // Add a prefix to the storage key
 
 
@@ -150,3 +152,17 @@ document.querySelector(".formMain").addEventListener("submit",(e)=>{
 })
 
 console.info("CONSOLE is not for beginners, rest!😎")
+
+
+settingMenu.addEventListener("mousedown",()=>{
+    iconSettings.classList.toggle("settingsIconActive");
+})
+
+settingMenu.addEventListener("click",()=>{
+    toggleSettingsMenu();
+})
+function toggleSettingsMenu(){
+    let settingsMenu = document.querySelector(".settingOptionPopupWrapper");
+    settingsMenu.hidden = !settingsMenu.hidden;
+}
+
