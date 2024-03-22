@@ -51,6 +51,9 @@ function handleRenameCategory(categoryName,event){
         let temp = localStorage.getItem(categoryName)
         localStorage.removeItem(categoryName)
         localStorage.setItem(`${categoryPrefix}${usrInp.value}`,temp)
+        if(document.querySelector(".hTagForTitleOfCategory")){
+            document.querySelector(".hTagForTitleOfCategory").textContent = randomEmoji()+" "+usrInp.value;
+        }
         renderLocalStorage();
         renderCategories();
         handleBackBtn();
