@@ -6,16 +6,23 @@ let iconOfCategoryAdd = document.querySelector(".iconOfCategoryAdd")
 
 let nameOfClass = "collapsedSidebar";
 let widthOfWindows = window.screen.width;
+if(!localStorage.getItem("nameOfUsr")){
+    console.log("i am here at the top")
+    localStorage.setItem("sideBar","nonCollapsedSidebar");
+}
 
-let handleToggleSidebar = ()=>{
+if(localStorage.getItem("sideBar")=="collapsedSidebar"){
+    handleToggleSidebar();
+}
+
+function handleToggleSidebar(){
     let cateTitle = document.querySelector(".cateTitle")
     if(!sidebarSection.classList.contains(nameOfClass)){
-        
         iconOfCategoryAdd.style.justifyContent = "center";
         iconOfCategoryAdd.style.margin = "10px"
         cateTitle.style.justifyContent = "center"
         sidebarSection.classList.add(nameOfClass);
-        tbhac.forEach(elem=>elem.hidden=true)
+        tbhac.forEach(elem=>elem.hidden=true);
     }else{
         iconOfCategoryAdd.style.justifyContent = "space-between";
         cateTitle.style.justifyContent = "space-between"
@@ -23,6 +30,13 @@ let handleToggleSidebar = ()=>{
         tbhac.forEach(elem=>elem.hidden=false)
         sidebarSection.classList.remove(nameOfClass)
     }
+    if(sidebarSection.classList.contains(nameOfClass)){
+        console.log('i am here')
+        localStorage.setItem("sideBar","collapsedSidebar");
+    }else{
+        localStorage.setItem("sideBar","nonCollapsedSidebar");
+    }
+    
 }
 if(widthOfWindows<916){
     handleToggleSidebar()
