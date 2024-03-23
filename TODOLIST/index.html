@@ -66,7 +66,7 @@
                             </div>
                             <div class="settingOptionPopupWrapper" hidden>
                                 <div class="settingOptionPopup">
-                                    <div class="changeNameSettings" onclick="changeName()">
+                                    <div class="changeNameSettings" onclick="callBackCN()">
                                         <div class="iconOfEditSetting">
                                             <span class="material-symbols-outlined">
                                                 edit
@@ -97,7 +97,7 @@
                 </div>
                 <div class="formParent" hidden>
                     <form class="formMain">
-                        <input type="text" id="usrVal" autocomplete="off" placeholder="Task Name" maxlength="500"/>
+                        <input type="text" id="usrVal" autocomplete="off" placeholder="Task Name" maxlength="80"/>
                         <div class="afterUsrInp">
                             <div class="categorySelectOption"></div>
                             <div class="btnsAddTask">
@@ -142,8 +142,8 @@
                 </div>
                 <div class="categorySelectPopUpArea"></div>
                 <div class="subBtnArea">
-                    <button type="button" onclick="backHandleEArea()" class="subBtnCancel">Back</button>
-                    <button type="Submit" class="subBtnMain">Update</button>
+                    <button type="button" onclick="backHandleEArea()" class="subBtnCancel">Cancel</button>
+                    <button type="Submit" class="subBtnMain">Save</button>
                 </div>
                 <div class="warningAreaOTE"></div>
             </form>

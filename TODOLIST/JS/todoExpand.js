@@ -1,5 +1,6 @@
 const mainExpandedForm  = document.querySelector(".mainExpandedForm")
 const todoExpandedWrapper  = document.querySelector(".todoExpandedWrapper")
+const todoExpanded  = document.querySelector(".todoExpanded")
 const todoContentInInput = document.querySelector(".todoContentInInput");
 const editTypeBorderColor = document.querySelector(".editTypeBorderColor");    
 const subBtnMain = document.querySelector(".subBtnMain"); 
@@ -12,6 +13,7 @@ function hCOnC(){
     let textOfIcon = editTypeBorderColor.textContent;
     console.log(textOfIcon)
     if(textOfIcon=="border_color"){
+        todoContentInInput.select()
         editTypeBorderColor.textContent="cancel"
     }else{
         editTypeBorderColor.textContent="border_color"
@@ -22,9 +24,24 @@ function hCOnC(){
 
 editTypeBorderColor.addEventListener("click",hCOnC)
 
+window.addEventListener("click",(e)=>{
+    if(e.target == todoExpanded){
+        backHandleEArea();
+    }
+})
+
+function handleKeys(e){
+        if(e.key=="Escape") backHandleEArea();
+        if(e.key=="Tab"){
+            e.preventDefault()
+            todoContentInInput.focus();
+        }
+}
+
 function backHandleEArea(){
     todoExpandedWrapper.hidden=true;
     todoContentInInput.value="";
+    window.removeEventListener("keydown",handleKeys)
     warningAreaOTE.textContent="";
     renderLocalStorage();
 }
@@ -34,6 +51,7 @@ function todoCPT(todoId,prevCategory){
     todoIdGlobal = todoId;
     prevVal = localStorage.getItem(todoId);
     todoContentInInput.value = prevVal;
+    window.addEventListener("keydown",handleKeys)
     todoExpandedWrapper.hidden=false;
     renderList("categorySelectPopUpArea","todoPopUpSel",prevCategory)
     prevSelVal = prevCategory;

@@ -163,8 +163,11 @@ settingMenu.addEventListener("mousedown",()=>{
 settingMenu.addEventListener("click",()=>{
     toggleSettingsMenu();
 })
-function toggleSettingsMenu(){
+function toggleSettingsMenu(param){
     let settingsMenu = document.querySelector(".settingOptionPopupWrapper");
     settingsMenu.hidden = !settingsMenu.hidden;
+    if(param&&param=="just_close"){
+        settingsMenu.hidden = true;
+    }
 }
 

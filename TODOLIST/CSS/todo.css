@@ -107,6 +107,7 @@ li{
 }
 
 #listArea{
+    overflow-x: hidden;
     margin: 10px;
 }
 
@@ -209,6 +210,8 @@ background-color: rgb(220, 200, 96);
     margin: 10px;
 }
 .titleOfNewCategory{
+    font-size: 1.5em;
+    margin-bottom: 7px;
     text-align: center;
 }
 
@@ -261,12 +264,13 @@ background-color: rgb(220, 200, 96);
 
 
 .AddCategoryPopUP #newCategoryForm{ 
-    border: 1px solid transparent;
-    padding: 6rem;
-    transition: .5s all ease-in-out;
+    border: 1px solid rgb(46, 39, 17);
+    background-color: rgb(10, 21, 20);
+    height: 15rem;
+    width: 25rem;
+    border-radius: 1.7em;
     display: flex;
     justify-content: center;
-    margin: 10px;
     flex-direction: column;
 }
 .AddCategoryPopUP {
@@ -292,43 +296,27 @@ background-color: rgb(220, 200, 96);
 
 .btnsCate{
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
-#cateAddBtn{
-    background-color: #f5f560;
-}
-#cateAddBtn:hover{
-    background-color: #a2930e;
-    color: #FFCC66;
-}
-#cateCancelBtn{
-    background-color: #dbff70;
+#cateAddBtn:hover,#cateCancelBtn:hover{
+    background-color: #0056b3;
+    transition: background-color .5s cubic-bezier(0.4, 0, 1, 1.5);
 }
 #cateAddBtn,#cateCancelBtn{
+    background: #007bff;
+    color: white;
     height: 3em;
     cursor: pointer;
     border: none;
     border-radius: 6px;
     transition: .2s all linear;
-    color: black;
     width: 12vh;
-
 }
-
-#cateCancelBtn:hover{
-    background-color: #9e9a30;
-    color: #FFCC66;
-}
-
-#cateAddBtn, #cateName{
-    margin: 5px;
-}
-
-
 #cateName{
-    padding: .4rem;
-    min-width: 17rem;
+    font-size: 1rem;
+    padding: .7rem;
+    min-width: 20rem;
     min-height: 6vh;
 }
 
@@ -369,7 +357,6 @@ background-color: rgb(220, 200, 96);
 }
 .listElem{
     font-size: .99rem;
-    text-overflow: ellipsis;
 }
 .listElem:hover{
     color: rgb(255, 251, 169);

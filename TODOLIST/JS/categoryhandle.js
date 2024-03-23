@@ -4,6 +4,7 @@ let backBtn = document.getElementById("cateCancelBtn");
 let addBtnInsidePopUp = document.getElementById("cateCancelBtn");
 let newCategoryForm = document.getElementById("newCategoryForm");
 let warningCateSection = document.querySelector(".warningCateSection");
+let AddCategoryPopUPParent = document.querySelector(".AddCategoryPopUP");
 let noCategoryMessage = document.querySelector(".noCategoryMessage");
 let listOfCategories = document.querySelector(".listOfCategories");
 let MainAll = document.querySelector(".MainAllParent");
@@ -14,15 +15,21 @@ const categoryPrefix = "CATE_"
 
 let defaultAttributeOfForm = newCategoryForm.getAttribute("onsubmit");
 // newCategoryForm.addEventListener("submit",handleNewCateSubmission)
-
+function handleKeysTwo(e){
+    if(e.key=="Escape") handleBackBtn();
+    if(e.target==AddCategoryPopUPParent){handleBackBtn()}
+}
 function newCateHandleOutSidePopUp(){
+    console.log("i was clicked")
+    
     renderList("categorySelectOption");
     if(AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = false;
 }
 
-
 function handleBackBtn(){
+    window.removeEventListener("click",handleKeysTwo)
     usrInpElemNewCate.value = ``;
+    warningCateSection.textContent = ``;
     newCategoryForm.removeAttribute("onsubmit")
     newCategoryForm.setAttribute("onsubmit",defaultAttributeOfForm)
     usrInpElemNewCate.placeholder = "Enter name of the category"
@@ -35,8 +42,10 @@ let cateAddBtn = document.getElementById("cateAddBtn");
 function changeName(){
     newCategoryForm.removeAttribute("onsubmit");
     AddCategoryPopUP.hidden = false;
-    titleOfNewCategory.textContent = "Change Name: ";
+    window.addEventListener("click",handleKeysTwo)
+    titleOfNewCategory.textContent = "Change name ";
     usrInpElemNewCate.placeholder = "Enter the name here";
+    usrInpElemNewCate.value = localStorage.getItem("nameOfUsr");
     cateAddBtn.value="Change"
     newCategoryForm.setAttribute("onsubmit",`handleChangeName(event)`);
 }
@@ -46,19 +55,26 @@ function handleChangeName(event){
     if(usrInp.length === 0){
         warningCateSection.textContent = `Oh oh, Seems like you forgot something!`;
     }else{
-        if(localStorage.getItem("nameOfUsr")==usrInp){
+        if(localStorage.getItem("nameOfUsr").toLowerCase()==usrInp.toLowerCase()){
             warningCateSection.textContent = `Name is already ${usrInp}!`
         }else{
             localStorage.setItem("nameOfUsr",usrInp);
             syncName();
             handleBackBtn();
-            toggleSettingsMenu()
+            toggleSettingsMenu("just_close")
         }
         cateAddBtn.textContent = "Add";
     }
 }
+
+function callBackCN(){
+    toggleSettingsMenu("just_in");
+    changeName()
+}
+
 //supporting callback function for rename
 function renameCategory(categoryName){
+    window.addEventListener("click",handleKeysTwo)
     newCategoryForm.removeAttribute("onsubmit")
     AddCategoryPopUP.hidden = false;
     usrInpElemNewCate.value = `${categoryName.slice(categoryPrefix.length)}`
