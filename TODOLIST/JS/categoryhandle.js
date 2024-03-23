@@ -16,7 +16,7 @@ let defaultAttributeOfForm = newCategoryForm.getAttribute("onsubmit");
 // newCategoryForm.addEventListener("submit",handleNewCateSubmission)
 
 function newCateHandleOutSidePopUp(){
-    renderList();
+    renderList("categorySelectOption");
     if(AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = false;
 }
 
@@ -85,7 +85,7 @@ function handleRenameCategory(categoryName,event){
         renderLocalStorage();
         renderCategories();
         handleBackBtn();
-        renderList()
+        renderList("categorySelectOption")
     }
 }
 
@@ -101,7 +101,7 @@ function handleNewCateSubmission(event){
         handleBackBtn();
         warningCateSection.textContent = ``;
         renderCategories()
-        renderList();
+        renderList("categorySelectOption");
     }
 }
 
@@ -235,7 +235,7 @@ function renderCategories(){
 function deleteCategory(categoryName){
     localStorage.removeItem(categoryName);
     hideCategory()
-    renderList();
+    renderList("categorySelectOption");
     renderLocalStorage();
     renderCategories();
 }
@@ -267,6 +267,7 @@ function showCategory(idOfTheCategory, categoryClassName){
         todoInCate.forEach(value=>{
             totalValueLength +=value.length;
             if(value.length!=0){
+                console.log("value",value)
                 let divElem = document.createElement("div")
                 divElem.classList.add("liDiv")
                 let liA = document.createElement('li');

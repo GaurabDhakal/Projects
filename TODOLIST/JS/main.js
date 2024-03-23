@@ -99,6 +99,7 @@ function renderLocalStorage(){
                 let elemDiv = document.createElement("div");
                 let elem = document.createElement("li");
                 elem.classList.add("listElem")
+                
 
 
                 let miniDiv = document.createElement("div");
@@ -115,6 +116,7 @@ function renderLocalStorage(){
                 ).filter(elem=>
                     localStorage.getItem(elem).includes(key.substring(storageKeyPrefix.length))
                 )
+                elem.setAttribute("onclick",`todoCPT("${key}","${categoryExactName}"||"def")`);
                 if(categoryExactName.length>0){
                     categoryNameShow.textContent = "Category: "+categoryExactName[0].slice("CATE_".length);
                 }else{

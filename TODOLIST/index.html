@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./CSS/todo.css">
     <link rel="stylesheet" href="./CSS/customSelect.css">
     <link rel="stylesheet" href="./CSS/mobileui.css">
+    <link rel="stylesheet" href="./CSS/todoExpand.css">
     <link rel="stylesheet" href="./CSS/sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet"
@@ -131,7 +132,25 @@
             </form>
         </div>
     </div>
+    <div class="todoExpandedWrapper" hidden>
+        <div class="todoExpanded">
+            <form class="mainExpandedForm">
+                <div class="titleMainEF">Edit Todo</div>
+                <div class="mainInpArea">
+                    <input type="text" class="todoContentInInput whenReadOnly" value="this is a dd" readonly/>
+                    <span class="material-symbols-outlined editTypeBorderColor">border_color</span>
+                </div>
+                <div class="categorySelectPopUpArea"></div>
+                <div class="subBtnArea">
+                    <button type="button" onclick="backHandleEArea()" class="subBtnCancel">Back</button>
+                    <button type="Submit" class="subBtnMain">Update</button>
+                </div>
+                <div class="warningAreaOTE"></div>
+            </form>
+        </div>
+    </div>
 </body>
+<script src="./JS/todoExpand.js"></script>
 <script src="./JS/main.js"></script>
 <script src="./JS/ListLoader.js"></script>
 <script src="./JS/newOold.js"></script>

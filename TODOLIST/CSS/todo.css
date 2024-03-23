@@ -367,10 +367,12 @@ background-color: rgb(220, 200, 96);
     margin: 10px;
     min-height: 1vh;
 }
-
 .listElem{
-    font-size: .9rem;
+    font-size: .99rem;
     text-overflow: ellipsis;
+}
+.listElem:hover{
+    color: rgb(255, 251, 169);
 }
 .miniDiv{
     display: flex;

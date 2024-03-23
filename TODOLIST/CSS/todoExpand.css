@@ -1,0 +1,76 @@
+.todoExpanded{
+    position: fixed;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    color: white;
+}
+.titleMainEF,.warningAreaOTE{
+    text-align: center;
+}
+.todoExpanded form{
+   border: 1px solid rgb(61, 60, 29);
+   background-color: #202124;
+   box-shadow: 0px 3px 100px rgb(52, 28, 28);
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   height: 70vh;
+   padding: 7em;
+}
+.mainExpandedForm > div{
+    margin: 1em;
+}
+
+.todoContentInInput{
+    height: 2.6em;
+    border-radius: 5px;
+    width: 20em;
+    padding:4px;
+    border: 1px solid #202124;
+}
+.whenReadOnly{
+    height: 2.6em;
+    padding:4px;
+    background-color: inherit;
+    color: white;
+}
+body{
+    background-color: #131314;
+}
+.mainInpArea{
+    display: flex;
+    align-items: center;
+}
+.subBtnArea{
+    display: flex;
+    justify-content: center;
+}
+.subBtnArea > button{
+    padding: 10px;
+    width: 5em;
+    margin: 5px;
+    border: none;
+    background: #f0d83d;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.categorySelectPopUpArea select{
+    text-align: center;
+    width: 18em;
+    height: +2.2em;
+}
+.editTypeBorderColor{
+    margin: .2em;
+    cursor: pointer;
+    user-select: none;
+    color: white;
+}

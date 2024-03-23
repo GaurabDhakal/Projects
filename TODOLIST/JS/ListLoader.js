@@ -1,9 +1,10 @@
-let categorySelectOption = document.querySelector(".categorySelectOption");
 
 let selectElem = document.createElement("select");
 selectElem.setAttribute("id","cateSelect")
 
-function renderList(){
+function renderList(className,optional){
+    let categorySelectOption = document.querySelector(`.${className}`);
+    if(optional) selectElem.setAttribute("class",`${optional}`)
     selectElem.innerHTML =``
     let defaultOption = document.createElement("option");
     defaultOption.value = "def"
@@ -25,6 +26,7 @@ function renderList(){
             })
     }
     categorySelectOption.appendChild(selectElem)
+    // categorySelectPopUpArea.appendChild(selectElem)
 }
 
-renderList()
+renderList("categorySelectOption")

@@ -4,7 +4,7 @@ let preAddBtn = document.querySelector('#preAddBtn');
 let btnCancel = document.querySelector('#btnCancel')
 
 function handleAddNewPre(){
-        renderList()
+        renderList("categorySelectOption")
         if(formParent.hidden) {
             formParent.hidden = false;
         };
@@ -16,6 +16,6 @@ preAddBtn.addEventListener("click",handleAddNewPre)
 btnCancel.addEventListener("click",()=>{
     hideWarning(); // from main.js file
     if(!formParent.hidden) {formParent.hidden = true;}
-    renderList()
+    renderList("categorySelectOption")
     if(preAddSection.hidden) preAddSection.hidden = false;
 })
