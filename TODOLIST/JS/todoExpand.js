@@ -50,6 +50,7 @@ mainExpandedForm.addEventListener("submit",(e)=>{
         warningAreaOTE.textContent = "No changes!"
     }else{
         if(prevSelVal!==category){
+            console.log(prevSelVal)
             let dataInsideIt = localStorage.getItem(prevSelVal);
             let newArrForm = (dataInsideIt.split(" "));
             let index = 0;

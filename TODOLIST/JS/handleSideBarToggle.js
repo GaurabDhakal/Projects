@@ -30,12 +30,7 @@ function handleToggleSidebar(){
         tbhac.forEach(elem=>elem.hidden=false)
         sidebarSection.classList.remove(nameOfClass)
     }
-    if(sidebarSection.classList.contains(nameOfClass)){
-        console.log('i am here')
-        localStorage.setItem("sideBar","collapsedSidebar");
-    }else{
-        localStorage.setItem("sideBar","nonCollapsedSidebar");
-    }
+    localStorage.setItem("sideBar",sidebarSection.classList.contains(nameOfClass)?"collapsedSidebar":"nonCollapsedSidebar");
     
 }
 if(widthOfWindows<916){
