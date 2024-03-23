@@ -2,7 +2,7 @@
 let selectElem = document.createElement("select");
 selectElem.setAttribute("id","cateSelect")
 
-function renderList(className,optional,preSelected){
+function renderList(className,optional,preSelectVal){
     let categorySelectOption = document.querySelector(`.${className}`);
     if(optional) selectElem.setAttribute("class",`${optional}`)
     selectElem.innerHTML =``
@@ -22,11 +22,11 @@ function renderList(className,optional,preSelected){
             let Option = document.createElement("option");
             Option.setAttribute("value",elem)
             Option.textContent = elem.slice(5);
+            if (preSelectVal && Option.value === preSelectVal) {
+                Option.selected = true; 
+            }
             selectElem.appendChild(Option);
             })
-    }
-    if(preSelected){
-        selectElem.value = preSelected;
     }
     categorySelectOption.appendChild(selectElem)
     // categorySelectPopUpArea.appendChild(selectElem)
