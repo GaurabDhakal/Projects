@@ -17,7 +17,13 @@ let defaultAttributeOfForm = newCategoryForm.getAttribute("onsubmit");
 // newCategoryForm.addEventListener("submit",handleNewCateSubmission)
 function handleKeysTwo(e){
     if(e.key=="Escape") handleBackBtn();
-    if(e.target==AddCategoryPopUPParent){handleBackBtn()}
+    if(e.target==AddCategoryPopUPParent){
+        handleBackBtn()
+    }
+    if(e.key=="Tab"){
+        e.preventDefault()
+        // todoContentInInput.focus();
+    }
 }
 function newCateHandleOutSidePopUp(){
     console.log("i was clicked")

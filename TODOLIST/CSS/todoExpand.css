@@ -8,7 +8,7 @@
     transform: translate(-50%, -50%);
     height: 100vh;
     width: 100%;
-    backdrop-filter: blur(5px);
+    background-color: #0d0d0e78; 
     color: white;
 }
 .titleMainEF,.warningAreaOTE{
@@ -21,9 +21,8 @@
 
 }
 .todoExpanded form{
-   border: 1px solid rgb(35, 35, 25);
+   border: 1px solid rgb(17, 29, 32);
    background-color: #071312 ;
-   box-shadow: 0px 3px 50px rgb(40, 40, 27);
    border-radius: 2em;
    display: flex;
    align-items: center;
