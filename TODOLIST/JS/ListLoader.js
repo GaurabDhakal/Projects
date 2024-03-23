@@ -2,7 +2,7 @@
 let selectElem = document.createElement("select");
 selectElem.setAttribute("id","cateSelect")
 
-function renderList(className,optional){
+function renderList(className,optional,preSelected){
     let categorySelectOption = document.querySelector(`.${className}`);
     if(optional) selectElem.setAttribute("class",`${optional}`)
     selectElem.innerHTML =``
@@ -24,6 +24,9 @@ function renderList(className,optional){
             Option.textContent = elem.slice(5);
             selectElem.appendChild(Option);
             })
+    }
+    if(preSelected){
+        selectElem.value = preSelected;
     }
     categorySelectOption.appendChild(selectElem)
     // categorySelectPopUpArea.appendChild(selectElem)

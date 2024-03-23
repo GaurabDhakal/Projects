@@ -35,7 +35,7 @@ function todoCPT(todoId,prevCategory){
     prevVal = localStorage.getItem(todoId);
     todoContentInInput.value = prevVal;
     todoExpandedWrapper.hidden=false;
-    renderList("categorySelectPopUpArea","todoPopUpSel")
+    renderList("categorySelectPopUpArea","todoPopUpSel",prevCategory)
     prevSelVal = prevCategory;
 }
 
