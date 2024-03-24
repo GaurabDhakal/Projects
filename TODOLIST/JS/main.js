@@ -6,9 +6,9 @@ let settingMenu = document.querySelector(".settingMenu");
 let iconSettings = document.querySelector(".settingsIcon");
 const storageKeyPrefix = "todo_"; // Add a prefix to the storage key
 
-function playSound(soundFile) {
+async function playSound(soundFile) {
     const audio = new Audio(soundFile);
-    audio.play();
+    await audio.play();
   }
 function clearInput(){
     usrValUni.value = "";
