@@ -1,0 +1,42 @@
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .toast {
+    background-color: #444;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    min-width: 250px;
+    margin-bottom: 10px; /* Remove for top positioning */
+    opacity: 0;
+    transition: opacity 0.3s ease, top 0.3s ease; /* Transition top for entrance */
+  }
+  
+  .toast.show {
+    opacity: 1;
+    top: 20px; /* Slide in from the top */
+  }
+  
+  .toast.hide { 
+    opacity: 0;
+    top: -50px; /* Slide out */
+  }
+  
+  .success {
+    background-color: #5cb85c;
+  }
+  
+  .error {
+    background-color: #d9534f;
+  }
+  
+  .progress-bar {
+    width: 100%; 
+    height: 5px;
+    transition: width 0.3s ease;
+  }
+  

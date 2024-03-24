@@ -88,6 +88,7 @@ mainExpandedForm.addEventListener("submit",(e)=>{
             let TempArrAfter = TempArr.join(" ");
             localStorage.setItem(category,TempArrAfter);
         }
+        createToast("success","Changes saved!");
         localStorage.setItem(todoIdGlobal,val);
         backHandleEArea();
         

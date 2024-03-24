@@ -17,6 +17,7 @@ function formatList(){
 function delData(id,noCompulsion,optional){
     localStorage.removeItem(storageKeyPrefix + id); // Add the prefix to the storage key
     formatList();
+    createToast("success","Item checked off the list.");
     let cateLocalKey = Object.keys(localStorage).filter(elem => 
         elem.startsWith(categoryPrefix) &&
         localStorage.getItem(elem).includes(id)
@@ -64,6 +65,7 @@ function handleSubmit(){
     } else {
         hideWarning() 
         storeInLocal(usrVal);
+        createToast("success","Task added successfully");
         formatList();
         clearInput();
         renderLocalStorage();

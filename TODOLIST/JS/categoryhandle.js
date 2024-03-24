@@ -73,6 +73,7 @@ function handleChangeName(event) {
             warningCateSection.textContent = `Name is already ${usrInp}!`
         } else {
             localStorage.setItem("nameOfUsr", usrInp);
+            createToast("success", `Name changed to ${usrInp}!`)
             syncName();
             handleBackBtn();
             toggleSettingsMenu("just_close")
@@ -120,6 +121,7 @@ function handleRenameCategory(categoryName, event) {
         if (document.querySelector(".hTagForTitleOfCategory")) {
             document.querySelector(".hTagForTitleOfCategory").textContent = randomEmoji() + " " + usrInp.value;
         }
+        createToast("success", `Category "${categoryName.slice(categoryPrefix.length)}" renamed to "${usrInp.value}"!`)
         renderLocalStorage();
         renderCategories();
         handleBackBtn();
@@ -137,6 +139,7 @@ function handleNewCateSubmission(event) {
         warningCateSection.textContent = `Wait category already exists`
     }
     else {
+        createToast("success", `Category "${usrInp}" added!`)
         let CN = categoryPrefix + usrInp.toLowerCase()
         localStorage.setItem(CN, '')
         warningCateSection.textContent = `Added`
@@ -319,7 +322,7 @@ function deleteCategory(categoryName) {
     hideCategory()
     miniPopupMenuToggle(popUp)
     renderList("categorySelectOption");
-    
+    createToast("success", `Category "${categoryName.slice(categoryPrefix.length)}" deleted!`)
     renderLocalStorage();
     renderCategories();
 }
