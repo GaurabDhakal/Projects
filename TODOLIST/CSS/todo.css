@@ -51,11 +51,15 @@ select{
 }
 
 .MainAll .formMain #usrVal{
-    padding: 15px;
-    margin-right: 4px;
-    height: 2.5rem;
-    font-family: var(--defFont);
-    width: 25rem;
+    padding: 1em;
+    height: 2.6rem;
+    font-size: 1.12em;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    width: 28rem;
+}
+#usrVal:focus{
+    outline: none;
 }
 
 .warning{
@@ -129,7 +133,7 @@ li{
 .categoryNameShow{
     border: 1px solid rgb(50, 54, 28);
     padding: 5px;
-    font-size: .8rem;
+    font-size: .9rem;
     border-radius: 8px;
 }
 #listArea .liDiv:hover,.iterativeDiv, .liDiv:hover{

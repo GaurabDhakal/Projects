@@ -14,7 +14,7 @@ function formatList(){
     listArea.innerHTML = ""
 }
 
-function delData(id,noCompulsion){
+function delData(id,noCompulsion,optional){
     localStorage.removeItem(storageKeyPrefix + id); // Add the prefix to the storage key
     formatList();
     let cateLocalKey = Object.keys(localStorage).filter(elem => 
@@ -26,7 +26,8 @@ function delData(id,noCompulsion){
     localStorage.setItem(cateLocalKey,oldCateData.replace(id,""));
     }
     // if(!noCompulsion) showCategory(noCompulsion);
-    if(noCompulsion) showCategory(noCompulsion);
+    console.log(cateLocalKey)
+    if(noCompulsion) showCategory(noCompulsion,classGenNFind(cateLocalKey[0]));
     hideWarning();
     renderLocalStorage();
 }

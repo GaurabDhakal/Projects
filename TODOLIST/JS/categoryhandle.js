@@ -12,6 +12,8 @@ let CategoryShowSection = document.querySelector(".categoryShowSection");
 let titleOfNewCategory = document.querySelector(".titleOfNewCategory")
 let usrInpElemNewCate = document.getElementById("cateName");
 const categoryPrefix = "CATE_"
+const classNamesMap = {};
+
 
 let popUp = document.querySelector(".popup-container-parent");
 let popUpRename = document.querySelector(".popup-container-min-rename-section");
@@ -250,7 +252,26 @@ const makeMaterialIcon = (iconName, TextContent) => {
 }
 
 
-
+function classGenNFind(categoryName) {
+if(categoryName.startsWith(categoryPrefix)){
+    if (classNamesMap.hasOwnProperty(categoryName)) {
+        return classNamesMap[categoryName];
+    } else {
+        // Generate a random string of characters
+        const randomString = Math.random().toString(36).substring(2, 8); // Adjust length as needed
+        
+        // Combine category name and random string to create a unique class name
+        const className = `${categoryName}_${randomString}`;
+        
+        // Store the generated class name in the mapping
+        classNamesMap[categoryName] = className;
+        
+        return className;
+    }
+}else{
+    console.log("invalid format")
+}
+}
 
 function renderCategories() {
     let keys = Object.keys(localStorage).filter(elem => elem.startsWith(categoryPrefix))
@@ -266,7 +287,7 @@ function renderCategories() {
             cate.setAttribute("id", "categoryListingSideBarText");
             cate.textContent = `${randomEmoji()} ${key.slice(categoryPrefix.length)}`
             cate.setAttribute("onclick", `showCategory("${key}","${className}")`)
-            div.setAttribute('class', `categoryListing ${className}`)
+            div.setAttribute('class', `categoryListing ${className} ${classGenNFind(key)}`)
             let forIconDiv = randClasGen();
 
             // three dot icon area
@@ -298,13 +319,16 @@ function deleteCategory(categoryName) {
     hideCategory()
     miniPopupMenuToggle(popUp)
     renderList("categorySelectOption");
+    
     renderLocalStorage();
     renderCategories();
 }
 function showCategory(idOfTheCategory, categoryClassName) {
     removeActiveCategoryInSideBar()
-    let toBeHighLighted = document.querySelector(`.${categoryClassName}`);
-    toBeHighLighted.classList.add("activeCategoryInSideBar")
+    if(categoryClassName){
+        let toBeHighLighted = document.querySelector(`.${categoryClassName}`);
+        toBeHighLighted.classList.add("activeCategoryInSideBar")
+    }
 
     let todoInCate = localStorage.getItem(idOfTheCategory).split(' ');
     CategoryShowSection.innerHTML = ``
@@ -325,6 +349,7 @@ function showCategory(idOfTheCategory, categoryClassName) {
         iterateDiv.textContent = "Nothing in this category!";
     }
     else {
+
         let totalValueLength = 0;
         todoInCate.forEach(value => {
             totalValueLength += value.length;

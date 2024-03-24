@@ -43,6 +43,7 @@ function backHandleEArea(){
     todoContentInInput.value="";
     window.removeEventListener("keydown",handleKeys)
     warningAreaOTE.textContent="";
+    renderList("categorySelectOption")
 }
 
 //todoCPT = todoContentPopupToggle
@@ -89,6 +90,8 @@ mainExpandedForm.addEventListener("submit",(e)=>{
         }
         localStorage.setItem(todoIdGlobal,val);
         backHandleEArea();
+        
+        renderList("categorySelectOption")
         renderLocalStorage();
     }
 })
