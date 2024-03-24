@@ -6,7 +6,10 @@ let settingMenu = document.querySelector(".settingMenu");
 let iconSettings = document.querySelector(".settingsIcon");
 const storageKeyPrefix = "todo_"; // Add a prefix to the storage key
 
-
+function playSound(soundFile) {
+    const audio = new Audio(soundFile);
+    audio.play();
+  }
 function clearInput(){
     usrValUni.value = "";
 }
@@ -18,6 +21,7 @@ function delData(id,noCompulsion,optional){
     localStorage.removeItem(storageKeyPrefix + id); // Add the prefix to the storage key
     formatList();
     createToast("success","Item checked off the list.");
+    playSound("./click.wav");
     let cateLocalKey = Object.keys(localStorage).filter(elem => 
         elem.startsWith(categoryPrefix) &&
         localStorage.getItem(elem).includes(id)
