@@ -20,6 +20,7 @@ let delElem = document.querySelector(".popup-container-min");
 let defaultAttributeOfForm = newCategoryForm.getAttribute("onsubmit");
 // newCategoryForm.addEventListener("submit",handleNewCateSubmission)
 function handleKeysTwo(e) {
+    console.log(e.target)
     if (e.target == AddCategoryPopUPParent) {
         handleBackBtn()
     }
@@ -51,9 +52,9 @@ function handleBackBtn() {
 let cateAddBtn = document.getElementById("cateAddBtn");
 function changeName() {
     newCategoryForm.removeAttribute("onsubmit");
-    AddCategoryPopUP.hidden = false;
     window.addEventListener("click", handleKeysTwo)
     window.addEventListener("keydown", handleKeysOne)
+    AddCategoryPopUP.hidden = false;
     titleOfNewCategory.textContent = "Change name ";
     usrInpElemNewCate.placeholder = "Enter the name here";
     usrInpElemNewCate.value = localStorage.getItem("nameOfUsr");
@@ -85,8 +86,8 @@ function callBackCN() {
 
 //supporting callback function for rename
 function renameCategory(categoryName) {
-    window.addEventListener("click", handleKeysTwo)
     window.addEventListener("keydown", handleKeysOne)
+    window.addEventListener("click", handleKeysTwo)
     miniPopupMenuToggle(popUp)
     AddCategoryPopUP.hidden = false;
     usrInpElemNewCate.value = `${categoryName.slice(categoryPrefix.length)}`
