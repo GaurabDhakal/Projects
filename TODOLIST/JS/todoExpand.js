@@ -43,7 +43,6 @@ function backHandleEArea(){
     todoContentInInput.value="";
     window.removeEventListener("keydown",handleKeys)
     warningAreaOTE.textContent="";
-    renderLocalStorage();
 }
 
 //todoCPT = todoContentPopupToggle

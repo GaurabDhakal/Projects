@@ -242,12 +242,6 @@ background-color: rgb(220, 200, 96);
 }
 
 
-.listOfCategories{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
 
 .divOfCategory{
     display: flex;
@@ -356,6 +350,7 @@ background-color: rgb(220, 200, 96);
     min-height: 1vh;
 }
 .listElem{
+    padding: 3px;
     font-size: .99rem;
 }
 .listElem:hover{

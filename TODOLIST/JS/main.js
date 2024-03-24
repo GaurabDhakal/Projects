@@ -33,7 +33,6 @@ function delData(id,noCompulsion){
 function hideWarning(){
     warningArea.hidden = true;
 }
-
 function deleteAllLocal(){
     let onlyTodoKeys = Object.keys(localStorage).filter((value)=>value.startsWith(storageKeyPrefix));
     for(let key of onlyTodoKeys){

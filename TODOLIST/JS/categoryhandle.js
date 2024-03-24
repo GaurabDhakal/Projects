@@ -9,62 +9,67 @@ let noCategoryMessage = document.querySelector(".noCategoryMessage");
 let listOfCategories = document.querySelector(".listOfCategories");
 let MainAll = document.querySelector(".MainAllParent");
 let CategoryShowSection = document.querySelector(".categoryShowSection");
-let titleOfNewCategory  = document.querySelector(".titleOfNewCategory")
+let titleOfNewCategory = document.querySelector(".titleOfNewCategory")
 let usrInpElemNewCate = document.getElementById("cateName");
 const categoryPrefix = "CATE_"
 
+let popUp = document.querySelector(".popup-container-parent");
+let popUpRename = document.querySelector(".popup-container-min-rename-section");
+let delElem = document.querySelector(".popup-container-min");
+
 let defaultAttributeOfForm = newCategoryForm.getAttribute("onsubmit");
 // newCategoryForm.addEventListener("submit",handleNewCateSubmission)
-function handleKeysTwo(e){
-    if(e.key=="Escape") handleBackBtn();
-    if(e.target==AddCategoryPopUPParent){
+function handleKeysTwo(e) {
+    if (e.target == AddCategoryPopUPParent) {
         handleBackBtn()
     }
-    if(e.key=="Tab"){
+}
+function handleKeysOne(e) {
+    if (e.key == "Escape") handleBackBtn();
+    if (e.key == "Tab") {
         e.preventDefault()
-        // todoContentInInput.focus();
     }
 }
-function newCateHandleOutSidePopUp(){
-    console.log("i was clicked")
-    
+function newCateHandleOutSidePopUp() {
     renderList("categorySelectOption");
-    if(AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = false;
+    if (AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = false;
 }
 
-function handleBackBtn(){
-    window.removeEventListener("click",handleKeysTwo)
+function handleBackBtn() {
+    window.removeEventListener("click", handleKeysTwo)
+    window.removeEventListener("keydown", handleKeysOne)
     usrInpElemNewCate.value = ``;
     warningCateSection.textContent = ``;
     newCategoryForm.removeAttribute("onsubmit")
-    newCategoryForm.setAttribute("onsubmit",defaultAttributeOfForm)
+    newCategoryForm.setAttribute("onsubmit", defaultAttributeOfForm)
     usrInpElemNewCate.placeholder = "Enter name of the category"
     titleOfNewCategory.textContent = "Add Category";
-    if(!AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = true;
+    if (!AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = true;
 }
 
 
 let cateAddBtn = document.getElementById("cateAddBtn");
-function changeName(){
+function changeName() {
     newCategoryForm.removeAttribute("onsubmit");
     AddCategoryPopUP.hidden = false;
-    window.addEventListener("click",handleKeysTwo)
+    window.addEventListener("click", handleKeysTwo)
+    window.addEventListener("keydown", handleKeysOne)
     titleOfNewCategory.textContent = "Change name ";
     usrInpElemNewCate.placeholder = "Enter the name here";
     usrInpElemNewCate.value = localStorage.getItem("nameOfUsr");
-    cateAddBtn.value="Change"
-    newCategoryForm.setAttribute("onsubmit",`handleChangeName(event)`);
+    cateAddBtn.value = "Change"
+    newCategoryForm.setAttribute("onsubmit", `handleChangeName(event)`);
 }
-function handleChangeName(event){
+function handleChangeName(event) {
     event.preventDefault();
     let usrInp = document.getElementById("cateName").value;
-    if(usrInp.length === 0){
+    if (usrInp.length === 0) {
         warningCateSection.textContent = `Oh oh, Seems like you forgot something!`;
-    }else{
-        if(localStorage.getItem("nameOfUsr").toLowerCase()==usrInp.toLowerCase()){
+    } else {
+        if (localStorage.getItem("nameOfUsr").toLowerCase() == usrInp.toLowerCase()) {
             warningCateSection.textContent = `Name is already ${usrInp}!`
-        }else{
-            localStorage.setItem("nameOfUsr",usrInp);
+        } else {
+            localStorage.setItem("nameOfUsr", usrInp);
             syncName();
             handleBackBtn();
             toggleSettingsMenu("just_close")
@@ -73,36 +78,44 @@ function handleChangeName(event){
     }
 }
 
-function callBackCN(){
+function callBackCN() {
     toggleSettingsMenu("just_in");
     changeName()
 }
 
 //supporting callback function for rename
-function renameCategory(categoryName){
-    window.addEventListener("click",handleKeysTwo)
-    newCategoryForm.removeAttribute("onsubmit")
+function renameCategory(categoryName) {
+    window.addEventListener("click", handleKeysTwo)
+    window.addEventListener("keydown", handleKeysOne)
+    miniPopupMenuToggle(popUp)
     AddCategoryPopUP.hidden = false;
     usrInpElemNewCate.value = `${categoryName.slice(categoryPrefix.length)}`
     usrInpElemNewCate.placeholder = `Enter new name of the category`
     titleOfNewCategory.textContent = `Rename ${categoryName.slice(categoryPrefix.length)}`;
-    newCategoryForm.setAttribute("onsubmit",`handleRenameCategory("${categoryName}",event)`);
+    newCategoryForm.setAttribute("onsubmit", `handleRenameCategory("${categoryName}",event)`);
 
 }
 
 //main rename function
 
-function handleRenameCategory(categoryName,event){
+function handleRenameCategory(categoryName, event) {
     event.preventDefault()
     let usrInp = document.getElementById("cateName");
-    if(usrInp.value.length === 0){
+    if (usrInp.value.length === 0) {
         warningCateSection.textContent = `Oh oh, Seems like you forgot something!`
-    }else{
+    }
+    else if (categoryName == `${categoryPrefix}${usrInp.value}`) {
+        warningCateSection.textContent = `No changes!`
+    }
+    else if (typeof localStorage.getItem(categoryPrefix + usrInp.value) == "string") {
+        warningCateSection.textContent = `Choose a unique category name.`
+    }
+    else {
         let temp = localStorage.getItem(categoryName)
         localStorage.removeItem(categoryName)
-        localStorage.setItem(`${categoryPrefix}${usrInp.value}`,temp)
-        if(document.querySelector(".hTagForTitleOfCategory")){
-            document.querySelector(".hTagForTitleOfCategory").textContent = randomEmoji()+" "+usrInp.value;
+        localStorage.setItem(`${categoryPrefix}${usrInp.value}`, temp)
+        if (document.querySelector(".hTagForTitleOfCategory")) {
+            document.querySelector(".hTagForTitleOfCategory").textContent = randomEmoji() + " " + usrInp.value;
         }
         renderLocalStorage();
         renderCategories();
@@ -111,13 +124,18 @@ function handleRenameCategory(categoryName,event){
     }
 }
 
-function handleNewCateSubmission(event){
+function handleNewCateSubmission(event) {
     event.preventDefault();
     let usrInp = document.getElementById("cateName").value;
-    if(usrInp.length === 0){
+    if (usrInp.length === 0) {
         warningCateSection.textContent = `Oh oh, Seems like you forgot something!`
-    }else{
-        localStorage.setItem(`${categoryPrefix}${usrInp}`,'')
+    }
+    else if (typeof localStorage.getItem(categoryPrefix + usrInp) == "string") {
+        warningCateSection.textContent = `Wait category already exists`
+    }
+    else {
+        let CN = categoryPrefix + usrInp.toLowerCase()
+        localStorage.setItem(CN, '')
         warningCateSection.textContent = `Added`
         document.getElementById("cateName").value = ``
         handleBackBtn();
@@ -127,53 +145,103 @@ function handleNewCateSubmission(event){
     }
 }
 
-let randClasGen = ()=>{
+let randClasGen = () => {
     let alphas = 'abcdefghijklmnopqrstuvwxyz'
     let alphasArr = alphas.split('')
-    let rand="";
-    for(let i = 0;i<=6;i++){
-        rand += alphasArr[Math.floor(Math.random()*6)]
+    let rand = "";
+    for (let i = 0; i <= 6; i++) {
+        rand += alphasArr[Math.floor(Math.random() * 6)]
     }
     return rand;
 }
 
-const randomEmoji = () =>{
+function randomEmoji() {
     const emojis = "😊,😁,😀,😃,😄,🤗,🤩,😸,🚀,🔥".split(",")
-    return emojis[Math.floor(Math.random()*emojis.length)||0]
+    return emojis[Math.floor(Math.random() * emojis.length) || 0]
 }
 
-function popupToggle(className,optionalClassName,e){
+let ocnGlobal;
+function positionHandler(event) {
+    // ... your existing popup content modification code ...
+    // Positioning Logic
+    const button = document.querySelector(`.${ocnGlobal}`);
+    const popup = document.querySelector('.popup-container');
+    const iconRect = button.getBoundingClientRect();
+    const popupLeft = iconRect.right + 20;
+    const popupTop = iconRect.top - 10;
+
+    popup.style.left = `${popupLeft}px`;
+    popup.style.top = `${popupTop}px`;
+}
+
+
+function popupToggle(className, optionalClassName, event) {
     let allPopup = document.querySelector(`.${className}`);
-    if(allPopup.classList.contains("activePopup")){
+    if (allPopup.classList.contains("activePopup")) {
         allPopup.classList.remove("activePopup")
-    }else{
+    } else {
         allPopup.classList.add("activePopup")
     }
     allPopup.hidden = !allPopup.hidden;
-    if(optionalClassName){
-        let allPopup = document.querySelector(`.${optionalClassName}`);
-        if(allPopup){
-            allPopup.hidden = true;
-        }
-    }
+    ocnGlobal = optionalClassName;
+    let elem = document.querySelector(`.${ocnGlobal}`);
+    elem.addEventListener('click', positionHandler)
 }
 
-
-
-
-
-function hideTheContainer(className){
+function hideTheContainer(className) {
     let allPopup = document.querySelector(`.${className}`);
-    if(allPopup){
+    if (allPopup) {
         allPopup.hidden = true;
     }
 }
+const handleHideToggleMenu = (e) => {
+    if (e.target == popUp) {
+        miniPopupMenuToggle(popUp)
+    }
+}
+
+function miniPopupMenuToggle(...elem) {
+    elem[0].hidden = !elem[0].hidden
+    let i = 0;
+    elem.forEach(elem => {
+        if (i != 0) {
+            elem.innerHTML = ``;
+        }
+        i++;
+    })
+    window.removeEventListener("click", handleHideToggleMenu)
+}
+
+function openModal(categoryName) {
+    miniPopupMenuToggle(popUp);
+    popUpRename.innerHTML = ``;
+    delElem.innerHTML = ``;
+    const popupContainerMinContainerSpan = document.createElement("span");
+    popupContainerMinContainerSpan.setAttribute("class", "material-symbols-outlined")
+    popupContainerMinContainerSpan.textContent = "delete";
+    const popupContainerMinP = document.createElement("p");
+    popupContainerMinP.textContent = "Delete Category";
+    delElem.appendChild(popupContainerMinContainerSpan)
+    delElem.appendChild(popupContainerMinP)
+    delElem.setAttribute("onclick", `deleteCategory("${categoryName}")`)
+
+    window.addEventListener("click", handleHideToggleMenu)
+    const minDivRenameSection = document.createElement("div");
+    minDivRenameSection.setAttribute("class", "popup-container-min-rename-section-inside")
+    const p = document.createElement("p");
+    p.setAttribute("class", "popup-container-min-rename-section-p")
+    p.textContent = "Rename Category";
+    minDivRenameSection.setAttribute("onclick", `renameCategory("${categoryName}")`)
+    minDivRenameSection.appendChild(makeMaterialIcon("edit"));
+    minDivRenameSection.appendChild(p);
+    popUpRename.appendChild(minDivRenameSection)
+}
 
 
-const makeMaterialIcon = (iconName,TextContent) =>{
+const makeMaterialIcon = (iconName, TextContent) => {
     const icon = document.createElement("span");
-    icon.setAttribute("class","material-symbols-outlined")
-    if(TextContent){
+    icon.setAttribute("class", "material-symbols-outlined")
+    if (TextContent) {
         icon.textContent = TextContent;
     }
     icon.textContent = iconName;
@@ -181,123 +249,94 @@ const makeMaterialIcon = (iconName,TextContent) =>{
 }
 
 
-function renderCategories(){
-    let keys = Object.keys(localStorage).filter(elem=>elem.startsWith(categoryPrefix))
-    if(keys.length>0){
+
+
+function renderCategories() {
+    let keys = Object.keys(localStorage).filter(elem => elem.startsWith(categoryPrefix))
+    if (keys.length > 0) {
         noCategoryMessage.textContent = ``;
         // Sidebar section
         listOfCategories.textContent = ``
-        for(let key of keys){
+        for (let key of keys) {
             const div = document.createElement("div");
             const cate = document.createElement("div");
-            const minDivRenameSection = document.createElement("div");
-            minDivRenameSection.setAttribute("class","popup-container-min-rename-section")
-            const p = document.createElement("p");
-            p.setAttribute("class","popup-container-min-rename-section-p")
-            p.textContent = "Rename Category";
-            minDivRenameSection.setAttribute("onclick",`renameCategory("${key}")`)
-            minDivRenameSection.appendChild(makeMaterialIcon("edit"));
-            minDivRenameSection.appendChild(p);
-            const popupContainer = document.createElement("div");
-            const popupContainerSpacer = document.createElement("div");
-            popupContainerSpacer.classList.add("popup-container-spacer")
-            const popupContainerParent = document.createElement("div");
-            popupContainer.setAttribute("class","popup-container")
-            popupContainerParent.setAttribute("class","popup-container-parent")
-            const popupContainerSpan = document.createElement("span");
-            popupContainerSpan.setAttribute("class","material-symbols-outlined three-dot-icon")
-            popupContainerSpan.textContent = "more_vert";
-            let classNamePCMin = randClasGen()
-            const popupContainerMinContainer = document.createElement("div");
-            const popupContainerMinContainerParent = document.createElement("div");
-            popupContainerMinContainerParent.appendChild(minDivRenameSection)
-            popupContainerMinContainerParent.setAttribute("class",`popup-container-parent-min-content ${classNamePCMin}`);
-            popupContainerMinContainerParent.hidden = true;
-            const popupContainerMinP = document.createElement("p");
-            popupContainerMinP.textContent = "Delete Category";
-
-            popupContainerMinContainer.setAttribute("class",`popup-container-min`)
-            popupContainerMinContainer.setAttribute("onclick",`deleteCategory("${key}")`)
-            popupContainerSpan.setAttribute("onclick",`popupToggle("${classNamePCMin}")`)
-            popupContainerMinContainer.hidden=true;
-            const popupContainerMinContainerSpan = document.createElement("span");
-            popupContainerMinContainerSpan.setAttribute("class","material-symbols-outlined")
-            popupContainerMinContainerSpan.textContent = "delete";
-            popupContainerMinContainer.appendChild(popupContainerMinContainerSpan)
-            popupContainerMinContainer.appendChild(popupContainerMinP)
-            popupContainerMinContainerParent.appendChild(popupContainerMinContainer)
-            
-            popupContainer.appendChild(popupContainerSpan)
-            popupContainer.appendChild(popupContainerSpacer)
-
-            cate.setAttribute("id","categoryListingSideBarText");
-            let popupContainerClassName = randClasGen();
-            popupContainerParent.classList.add(popupContainerClassName)
-            popupContainerParent.hidden=true;
-            let className = randClasGen()
+            const iconDiv = document.createElement("div");
+            let className = randClasGen();
+            cate.setAttribute("id", "categoryListingSideBarText");
             cate.textContent = `${randomEmoji()} ${key.slice(categoryPrefix.length)}`
-            div.setAttribute("onmouseover",`popupToggle("${popupContainerClassName}")`)
-            div.setAttribute("onmouseout",`popupToggle("${popupContainerClassName}")`)
-            cate.setAttribute("onclick",`showCategory("${key}","${className}")`)
+            cate.setAttribute("onclick", `showCategory("${key}","${className}")`)
+            div.setAttribute('class', `categoryListing ${className}`)
+            let forIconDiv = randClasGen();
+
+            // three dot icon area
+            const popupContainerSpan = document.createElement("span");
+            let ocn = randClasGen()
+            popupContainerSpan.setAttribute("class", `material-symbols-outlined three-dot-icon ${ocn}`)
+            popupContainerSpan.textContent = "more_vert";
+            iconDiv.appendChild(popupContainerSpan)
+            iconDiv.setAttribute("class", `iconDiv ${forIconDiv}`)
+            iconDiv.setAttribute("onclick", `openModal("${key}")`)
+            iconDiv.hidden = true
+            //three dot icon code ends
+            div.setAttribute("onmouseover", `popupToggle("${forIconDiv}","${ocn}",event)`)
+            div.setAttribute("onmouseout", `popupToggle("${forIconDiv}","${ocn}",event)`)
+            //"${popupContainerClassName}"
             div.appendChild(cate);
-            div.setAttribute('class',`categoryListing ${className}`)
+            div.appendChild(iconDiv);
             listOfCategories.appendChild(div);
-            
-            popupContainer.appendChild(popupContainerMinContainerParent)
-            popupContainerParent.appendChild(popupContainer)
-            div.appendChild(popupContainerParent)
 
         }
         // Sidebar section Ends
-    }else{
+    } else {
         listOfCategories.textContent = ``
         noCategoryMessage.textContent = `No Categories found!`;
     }
 }
-function deleteCategory(categoryName){
+function deleteCategory(categoryName) {
     localStorage.removeItem(categoryName);
     hideCategory()
+    miniPopupMenuToggle(popUp)
     renderList("categorySelectOption");
     renderLocalStorage();
     renderCategories();
 }
-function showCategory(idOfTheCategory, categoryClassName){
+function showCategory(idOfTheCategory, categoryClassName) {
     removeActiveCategoryInSideBar()
     let toBeHighLighted = document.querySelector(`.${categoryClassName}`);
     toBeHighLighted.classList.add("activeCategoryInSideBar")
 
-    let todoInCate =  localStorage.getItem(idOfTheCategory).split(' ');
+    let todoInCate = localStorage.getItem(idOfTheCategory).split(' ');
     CategoryShowSection.innerHTML = ``
-    if(document.querySelector(".iterativeDiv")) document.querySelector('.iterativeDiv').innerHTML = ``;
+    if (document.querySelector(".iterativeDiv")) document.querySelector('.iterativeDiv').innerHTML = ``;
     CategoryShowSection.hidden = false;
     CategoryShowSection.innerHTML = ``;
-    if(!MainAll.hidden) MainAll.hidden = true;
+    if (!MainAll.hidden) MainAll.hidden = true;
 
     let childDiv = document.createElement("div"); // <DIV>
-    childDiv.setAttribute("class","divOfCategory");
+    childDiv.setAttribute("class", "divOfCategory");
 
     let title = document.createElement("h3"); // TITLE
     title.classList.add("hTagForTitleOfCategory")
-    title.textContent =randomEmoji()+" "+idOfTheCategory.slice(categoryPrefix.length)
+    title.textContent = randomEmoji() + " " + idOfTheCategory.slice(categoryPrefix.length)
     let iterateDiv = document.createElement("div");
-    iterateDiv.setAttribute("class","iterateDiv")
-    if(todoInCate.length==0){
+    iterateDiv.setAttribute("class", "iterateDiv")
+    if (todoInCate.length == 0) {
         iterateDiv.textContent = "Nothing in this category!";
     }
-    else{
+    else {
         let totalValueLength = 0;
-        todoInCate.forEach(value=>{
-            totalValueLength +=value.length;
-            if(value.length!=0){
-                console.log("value",value)
+        todoInCate.forEach(value => {
+            totalValueLength += value.length;
+            if (value.length != 0) {
+                console.log("value", value)
                 let divElem = document.createElement("div")
                 divElem.classList.add("liDiv")
                 let liA = document.createElement('li');
                 let btnElem = document.createElement("button");
-                btnElem.setAttribute("class","checkIcon");
-                btnElem.setAttribute("onclick",`delData(${value},"${idOfTheCategory}")`);
+                btnElem.setAttribute("class", "checkIcon");
+                btnElem.setAttribute("onclick", `delData(${value},"${idOfTheCategory}")`);
                 let checkIcon = document.createElement("span");
-                checkIcon.setAttribute("class","material-symbols-outlined");
+                checkIcon.setAttribute("class", "material-symbols-outlined");
                 checkIcon.textContent = "task_alt"
                 liA.textContent = "TODO: " + localStorage.getItem(`todo_${value}`);
                 btnElem.appendChild(checkIcon);
@@ -306,12 +345,12 @@ function showCategory(idOfTheCategory, categoryClassName){
                 iterateDiv.appendChild(divElem);
             }
         })
-        if(totalValueLength===0)iterateDiv.textContent = "Nothing in this category!";
+        if (totalValueLength === 0) iterateDiv.textContent = "Nothing in this category!";
     }
     let btn = document.createElement("button");
-    btn.setAttribute("class","btnTypeB")
+    btn.setAttribute("class", "btnTypeB")
     btn.classList.add('goBackCateSection')
-    btn.setAttribute("onclick","hideCategory()")
+    btn.setAttribute("onclick", "hideCategory()")
     btn.textContent = 'Go Back'
     childDiv.appendChild(title);
     childDiv.appendChild(iterateDiv)
@@ -320,20 +359,20 @@ function showCategory(idOfTheCategory, categoryClassName){
 }
 
 
-function removeActiveCategoryInSideBar(){
+function removeActiveCategoryInSideBar() {
     let allCategory = document.querySelectorAll('.categoryListing');
-    allCategory.forEach(elem=>{
-        if(elem.classList.contains("activeCategoryInSideBar")){
+    allCategory.forEach(elem => {
+        if (elem.classList.contains("activeCategoryInSideBar")) {
             elem.classList.remove("activeCategoryInSideBar")
         }
     })
 }
 
-function hideCategory(){
+function hideCategory() {
     removeActiveCategoryInSideBar()
     MainAll.hidden = false;
-    if(!CategoryShowSection.hidden) CategoryShowSection.hidden = true;
+    if (!CategoryShowSection.hidden) CategoryShowSection.hidden = true;
 }
 renderCategories()
-backBtn.addEventListener("click",handleBackBtn);
-addMSR.addEventListener("click",newCateHandleOutSidePopUp);
+backBtn.addEventListener("click", handleBackBtn);
+addMSR.addEventListener("click", newCateHandleOutSidePopUp);

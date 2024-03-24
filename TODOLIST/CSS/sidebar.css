@@ -1,7 +1,8 @@
 .menuBarContainer{
     height: 100%;
     width: 18%;
-    position: absolute;
+    position: fixed;
+    display: flex;
 }
 .menuBar{
     height: 100%;
@@ -13,6 +14,17 @@
     background-color: #1e1f20;
     width: 100%;
     transition: .2s all ease-in-out;
+}
+.toAreaOFCL{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.listOfCategories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 .logoutMain{
     margin-top: auto;
@@ -26,6 +38,7 @@
 .settingsIconActive{
     rotate: 90deg;
 }
+
 .settingMenuName{
     user-select: none;
     margin: .2em;
@@ -152,36 +165,43 @@
 }
 .categoryDelBtn:active{
     transform: scale(.9);
+} 
+.listOfCategoriesParent{
+    position: relative;
+    scrollbar-width: none;
+    max-height: 50vh;
+    overflow-x: auto;
 }
+
 .popup-container{
-    display: flex;
+    position: absolute;
+}
+.popup-container-min{
+    position: relative;
 }
 .popup-container-parent {
-    user-select: none;
-}
-.popup-container-parent-min-content{
     position: fixed;
-    border: none;
-    cursor: default;
-    height: 30vh;
-    margin-left: 2em;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    top: 0;
+    left: 0;
+}
+.popup-container-min-rename-section-inside{
+    display: flex;
 }
 .popup-container-min,.popup-container-min-rename-section{
     cursor: pointer;
     height: 2rem;
+    margin: 5px 10px ;
     display: flex;
-    padding: 1.1em;
-    justify-content: center;
+    width: 11.9em;
+    padding: 1em;
     align-items: center;
     transition: 200ms ease-in-out all;
     background-color: #1e1f20;
-    margin-left: 3rem;
-    margin-bottom: 2rem;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
-}
-.popup-container-min-rename-section{
-    margin-bottom: .3rem;
 }
 
 .popup-container-min:hover,.popup-container-min-rename-section:hover{
@@ -191,18 +211,29 @@
 .popup-container-min:active,.popup-container-min-rename-section:active{
     background-color: #515151;
 }
-.popup-container-spacer{
+/* .popup-container-spacer{
     cursor: default;
     position: fixed;
     margin-left: 20px;
     height: 20vh;
     padding-right: 90px;
     border: none;
-} 
+}  */
 
+.iconDiv{
+    user-select: none;
+}
+.popup-container-min-rename-section-inside > .material-symbols-outlined{
+    height: 1px;
+    user-select: none;
+}
 .settingOptionPopupWrapper{
     position: absolute;
     margin-left: 26.6rem;
+}
+
+.listOfCategoriesParent::-webkit-scrollbar{
+    display: none;
 }
 
 .settingOptionPopup{
