@@ -8,6 +8,7 @@ const storageKeyPrefix = "todo_"; // Add a prefix to the storage key
 const audio = new Audio("./click.wav");
 audio.load();
 function playSound(soundFile) {
+    if(soundFile) audio.src = soundFile;
     audio.play();
 }
 function clearInput(){
