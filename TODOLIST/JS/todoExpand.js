@@ -7,6 +7,9 @@ const subBtnMain = document.querySelector(".subBtnMain");
 let warningAreaOTE = document.querySelector(".warningAreaOTE");
 let prevVal,todoIdGlobal,prevSelVal;
 
+let checkIcon = document.querySelector(".theIcon");
+let checkIconParent = document.querySelector(".checkIcon");
+
 
 function toggleIcons(temp){
     let textOfIcon = editTypeBorderColor.textContent;
@@ -52,10 +55,7 @@ function backHandleEArea(){
 
 //todoCPT = todoContentPopupToggle
 function todoCPT(event,todoId,prevCategory){
-    let checkIconParent = event.target.parentElement;
-    let checkIcon = document.querySelector(".theIcon");
-    console.log(event.target)
-    if(checkIcon&&event.target!==checkIcon&&event.target!=checkIconParent){
+    if(!((event.target.classList.contains("theIcon"))||(event.target.classList.contains("checkIcon")))){
     positionHandler(null,"todoContentInInput","editTypeBorderColor")
     todoIdGlobal = todoId;
     prevVal = localStorage.getItem(todoId);
