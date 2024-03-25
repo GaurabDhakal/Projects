@@ -84,6 +84,7 @@ select{
     background-color: transparent;
     color: white;
     border: none;
+    padding:5px 12px;
     cursor: pointer;
 }
 
