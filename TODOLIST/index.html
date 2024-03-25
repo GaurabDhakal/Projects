@@ -80,7 +80,10 @@
                             <button class="btnTypeB" id="logoutBtn">Logout</button>
                         </div>
                     </div>
-
+                    <div class="lbiwrapper" hidden>
+                        <div class="logoutBtnIcon">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="categoryShowSection"></div>
@@ -98,7 +101,7 @@
                 </div>
                 <div class="formParent" hidden>
                     <form class="formMain">
-                        <input type="text" id="usrVal" autocomplete="off" placeholder="Task Name" maxlength="80"/>
+                        <input type="text" id="usrVal" autocomplete="off" placeholder="Add a task..." maxlength="80"/>
                         <div class="afterUsrInp">
                             <div class="categorySelectOption"></div>
                             <div class="btnsAddTask">
@@ -139,16 +142,19 @@
                 <div class="titleMainEF">Edit Todo</div>
                 <div class="mainInpArea">
                     <input type="text" class="todoContentInInput whenReadOnly" value="this is a dd" readonly/>
-                    <span class="material-symbols-outlined editTypeBorderColor">border_color</span>
+                    <span class="material-symbols-outlined editTypeBorderColor">edit</span>
                 </div>
-                <div class="categorySelectPopUpArea"></div>
-                <div class="subBtnArea">
-                    <button type="button" onclick="backHandleEArea()" class="subBtnCancel">Cancel</button>
-                    <button type="Submit" class="subBtnMain">Save</button>
+                <div class="tECEBandSelect">
+                    <div class="categorySelectPopUpArea"></div>
+                    <div class="subBtnArea">
+                        <button type="button" onclick="backHandleEArea()" class="subBtnCancel">Cancel</button>
+                        <button type="Submit" class="subBtnMain">Save</button>
+                    </div>
                 </div>
                 <div class="warningAreaOTE"></div>
             </form>
         </div>
+        
     </div>
     <div class="popup-container-parent mainModal" hidden>
         <div class="popup-container">
@@ -161,6 +167,7 @@
         </div>
     </div>
     <div id="toast-container"></div>
+    <div class="versionInfo"></div>
 </body>
 <script src="./JS/todoExpand.js"></script>
 <script src="./JS/main.js"></script>
@@ -170,6 +177,7 @@
 <script src="./JS/categoryhandle.js"></script>
 <script src="./JS/logout.js"></script>
 <script src="./JS/handleAddNewPre.js"></script>
+<script src="./JS/versionSync.js"></script>
 <script src="./JS/handleNoListMsg.js"></script>
 <script src="./JS/handleSideBarToggle.js"></script>
 

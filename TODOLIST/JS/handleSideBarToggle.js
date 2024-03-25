@@ -2,7 +2,8 @@ let iconSidebar = document.querySelector(".material-symbols-rounded");
 let sidebarSection = document.querySelector(".menuBar");
 let tbhac = document.querySelectorAll(".toBeHiddenAfterCollapse");
 let iconOfCategoryAdd = document.querySelector(".iconOfCategoryAdd")
-
+let lbiwrapper = document.querySelector(".lbiwrapper")
+let logoutBtnIconElem = document.querySelector(".logoutBtnIcon")
 
 let nameOfClass = "collapsedSidebar";
 let widthOfWindows = window.screen.width;
@@ -12,10 +13,20 @@ if(!localStorage.getItem("nameOfUsr")){
 }
 
 if(localStorage.getItem("sideBar")=="collapsedSidebar"){
+    logoutBtnIconToggler(true);
     handleToggleSidebar();
 }
 
+function logoutBtnIconToggler(condition){
+    logoutBtnIconElem.innerHTML = "";
+    if(condition) lbiwrapper.hidden = false;
+    lbiwrapper.hidden = !lbiwrapper.hidden;
+    logoutBtnIconElem.appendChild(makeMaterialIcon("logout","logout()","logoutBtnIcon"));
+}
+
+
 function handleToggleSidebar(){
+    logoutBtnIconToggler()
     let cateTitle = document.querySelector(".cateTitle")
     if(!sidebarSection.classList.contains(nameOfClass)){
         iconOfCategoryAdd.style.justifyContent = "center";

@@ -72,17 +72,33 @@
     justify-content: space-between;
     margin: 3vw;
     padding: .4rem;
-    border: 1px solid rgb(197, 200, 112);
+    border: 1px solid #2c2c2c;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
 }
+.toBeHiddenAfterCollapse[hidden=""] ~ .iconOfCategoryAdd{
+    border-radius: 100%;
+    cursor: pointer;
+    padding: 10px;
+}
 
+.toBeHiddenAfterCollapse[hidden=""] ~ .iconOfCategoryAdd:hover{
+    background-color: #323232;
+    transition: .3s all ease-in-out;
+}
+
+.toBeHiddenAfterCollapse[hidden=""] ~ .iconOfCategoryAdd > #addMSR:hover{
+    background-color:initial;
+}
 #addMSR:hover{
-    color: rgb(255, 249, 88);
+    transition: all ease-in-out 400ms;
+    border-radius: 100%;
+    background-color: rgb(54, 54, 54);
 }
 .hTagForTitleOfCategory{
-    border: 1px solid gray;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(255, 95, 95);
     padding: 10px;
-    border-radius: 5px;
 }
 .cateTitle{
     display: flex;
@@ -90,6 +106,8 @@
     border-radius: 10px;
     background-color: rgb(28, 50, 55);
     padding: 10px;
+    text-align: center;
+    margin: 10px;
 }
 .noCategoryMessage {
     text-align: center;
@@ -100,10 +118,6 @@
 }
 .noCategoryMessage:hover{
     text-shadow:1px 1px 30px #eaff47;
-}
-.cateTitle{
-    text-align: center;
-    margin: 10px;
 }
 .material-symbols-rounded{
     cursor: pointer;
@@ -210,15 +224,19 @@
 .popup-container-min:active,.popup-container-min-rename-section:active{
     background-color: #515151;
 }
-/* .popup-container-spacer{
-    cursor: default;
-    position: fixed;
-    margin-left: 20px;
-    height: 20vh;
-    padding-right: 90px;
-    border: none;
-}  */
-
+.arrow-back{
+    margin: .3em;
+    transform: scale(1.3);
+    user-select: none;
+    transition: ease-in-out all 200ms;
+    cursor: pointer;
+}
+.arrow-back:hover{
+    color: aliceblue;
+}
+.arrow-back:active{
+    transform: scale(1.2);
+}
 .iconDiv{
     user-select: none;
 }
@@ -264,4 +282,16 @@
 
 .iconOfEditSetting{
     margin-top: 5px;
+}
+.logoutBtnIcon{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    margin-right: .5em;
+    user-select: none;
+    margin-bottom: .3em;
+    bottom: 0;
+}
+.logoutBtnIcon:hover{
+    color: #d3d6b8;
 }

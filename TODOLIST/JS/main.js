@@ -7,6 +7,25 @@ let iconSettings = document.querySelector(".settingsIcon");
 const storageKeyPrefix = "todo_"; // Add a prefix to the storage key
 const audio = new Audio("./click.wav");
 audio.load();
+
+const errorMessages = [
+    "Please enter a task before submitting.",
+    "Tasks cannot be left blank. Please add a description.",
+    "Oops! Looks like you forgot to enter your task.",
+    "Your to-do list item cannot be empty. Please add a task.",
+    "Empty tasks are not allowed. Please provide a description.",
+    "It seems like you haven't entered a task. Please try again.",
+    "To-do items cannot be blank. Please enter a task.",
+    "Empty to-dos are not permitted. Please provide a task description.",
+    "You must enter a task before adding it to your to-do list.",
+    "Please add a description to your task before submitting.",
+    "Task completion requires initiative.", 
+    "Remember, action drives results.",
+    "Proactive task management leads to success.", 
+    "Don't let your to-do list languish.",
+    "Tasks await your attention.", 
+    "The first step is the hardest - let's get started!"
+];
 function playSound(soundFile) {
     if(soundFile) audio.src = soundFile;
     audio.play();
@@ -62,11 +81,16 @@ function storeInLocal(usrVal){
     localStorage.setItem(storageKeyPrefix + id, usrVal); // Add the prefix to the storage key
 }
 
+
+function randomWarning(){
+    return errorMessages[Math.floor(Math.random()*errorMessages.length)];
+}
+
 function handleSubmit(){
     const usrVal = usrValUni.value;
     if(usrVal.length === 0){
         if(warningArea.hidden) warningArea.hidden = false;
-        warningArea.textContent = "Tasks don't write themselves, you know 😉"
+        warningArea.textContent = randomWarning();
     } else {
         hideWarning() 
         storeInLocal(usrVal);
@@ -114,6 +138,7 @@ function renderLocalStorage(){
 
                 let checkIcon = document.createElement("span");
                 checkIcon.setAttribute("class","material-symbols-outlined");
+                checkIcon.classList.add("theIcon")
                 checkIcon.textContent = "task_alt"
     
                 let categoryNameShow = document.createElement("p");
@@ -123,7 +148,7 @@ function renderLocalStorage(){
                 ).filter(elem=>
                     localStorage.getItem(elem).includes(key.substring(storageKeyPrefix.length))
                 )
-                elem.setAttribute("onclick",`todoCPT("${key}","${categoryExactName}"||"def")`);
+                elemDiv.setAttribute("onclick",`todoCPT(event,"${key}","${categoryExactName}"||"def")`);
                 if(categoryExactName.length>0){
                     categoryNameShow.textContent = "Category: "+categoryExactName[0].slice("CATE_".length);
                 }else{

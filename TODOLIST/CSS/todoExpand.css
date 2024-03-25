@@ -17,18 +17,18 @@
 .titleMainEF{
     font-size: 1.1em;
     padding: 5px;
-    border-bottom: 1px solid rgb(80, 79, 53);
+    border-bottom: 1px solid rgb(187, 184, 76);
 
 }
 .todoExpanded form{
-   border: 1px solid rgb(17, 29, 32);
-   background-color: #071312 ;
-   border-radius: 2em;
-   display: flex;
-   align-items: center;
-   width: 40%;
-   flex-direction: column;
-   padding: 7em;
+    border: 1px solid rgb(17, 29, 32);
+    background-color: #1e1e1e;
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    min-width: 40%;
+    flex-direction: column;
+    padding: 7em;
 }
 .mainExpandedForm > div{
     margin: 1em;
@@ -38,16 +38,16 @@
     height: 2.6em;
     font-size: 1.1em;
     border-radius: 5px;
-    width: 16em;
+    min-width: 23rem;
+    padding: 4px;
     max-width: 19em;
-    border: 1px solid #131d19;
+    border:1px solid #2c2c2c;
 }
 .todoContentInInput:focus{
     outline: none;
 }
 .whenReadOnly{
     height: 2.6em;
-    padding:4px;
     background-color: inherit;
     color: white;
 }
@@ -57,30 +57,44 @@
 }
 .subBtnArea{
     display: flex;
-    justify-content: center;
+    margin-left: .3em;
 }
 .subBtnArea > button{
     padding: 10px;
     width: 5em;
     margin: 5px;
     border: none;
-    background: #007bff ;
+    background: #312f2f ;
     cursor: pointer;
     color: #ffffff ;
     border-radius: 5px;
 }
+
+.tECEBandSelect{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .subBtnArea > button:hover{
-    transition: background-color .5s cubic-bezier(0.4, 0, 1, 1.5);
-    background: #0056b3;
+    transition: background-color .3s cubic-bezier(0.4, 0, 1, 1.5);
+    background: #494040;
 }
 .categorySelectPopUpArea select{
-    background-color: #111d18;
+    -webkit-appearance: none;  /* Remove default styling (cross-browser) */
+    -moz-appearance: none;
+    appearance: none;
+    padding: 6px;
+    background: #454545;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
     color: white;
     width: 15em;
 }
 .editTypeBorderColor{
     cursor: pointer;
-    position: absolute;
-    margin-left: 11.9em;
+    scale: 1.2;
+    margin: 10px;
     user-select: none;
 }

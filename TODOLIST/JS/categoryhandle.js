@@ -22,7 +22,6 @@ let delElem = document.querySelector(".popup-container-min");
 let defaultAttributeOfForm = newCategoryForm.getAttribute("onsubmit");
 // newCategoryForm.addEventListener("submit",handleNewCateSubmission)
 function handleKeysTwo(e) {
-    console.log(e.target)
     if (e.target == AddCategoryPopUPParent) {
         handleBackBtn()
     }
@@ -36,6 +35,7 @@ function handleKeysOne(e) {
 function newCateHandleOutSidePopUp() {
     renderList("categorySelectOption");
     if (AddCategoryPopUP.hidden) AddCategoryPopUP.hidden = false;
+    window.addEventListener("click", handleKeysTwo);
 }
 
 function handleBackBtn() {
@@ -88,44 +88,55 @@ function callBackCN() {
 }
 
 //supporting callback function for rename
-function renameCategory(categoryName) {
+function renameCategory(categoryName,...optional) {
     window.addEventListener("keydown", handleKeysOne)
     window.addEventListener("click", handleKeysTwo)
-    miniPopupMenuToggle(popUp)
+
     AddCategoryPopUP.hidden = false;
     usrInpElemNewCate.value = `${categoryName.slice(categoryPrefix.length)}`
     usrInpElemNewCate.placeholder = `Enter new name of the category`
     titleOfNewCategory.textContent = `Rename ${categoryName.slice(categoryPrefix.length)}`;
-    newCategoryForm.setAttribute("onsubmit", `handleRenameCategory("${categoryName}",event)`);
+    if(!optional[0]){
+        miniPopupMenuToggle(popUp);
+        newCategoryForm.setAttribute("onsubmit", `handleRenameCategory("${categoryName}",event,false)`);
+    }else{
+        newCategoryForm.setAttribute("onsubmit", `handleRenameCategory("${categoryName}",event,true)`);
+    }
 
 }
 
 //main rename function
 
-function handleRenameCategory(categoryName, event) {
+function handleRenameCategory(categoryName, event,optional) {
     event.preventDefault()
     let usrInp = document.getElementById("cateName");
     if (usrInp.value.length === 0) {
         warningCateSection.textContent = `Oh oh, Seems like you forgot something!`
     }
-    else if (categoryName == `${categoryPrefix}${usrInp.value}`) {
+    else if (categoryName.toLowerCase() == `${categoryPrefix}${usrInp.value}`.toLowerCase()) {
         warningCateSection.textContent = `No changes!`
     }
     else if (typeof localStorage.getItem(categoryPrefix + usrInp.value) == "string") {
         warningCateSection.textContent = `Choose a unique category name.`
     }
     else {
-        let temp = localStorage.getItem(categoryName)
-        localStorage.removeItem(categoryName)
-        localStorage.setItem(`${categoryPrefix}${usrInp.value}`, temp)
-        if (document.querySelector(".hTagForTitleOfCategory")) {
-            document.querySelector(".hTagForTitleOfCategory").textContent = randomEmoji() + " " + usrInp.value;
-        }
-        createToast("success", `Category "${categoryName.slice(categoryPrefix.length)}" renamed to "${usrInp.value}"!`)
-        renderLocalStorage();
-        renderCategories();
-        handleBackBtn();
-        renderList("categorySelectOption")
+        console.log(optional)
+            if(optional){
+                syncCateTitle(document.querySelector(".hTagForTitleOfCategory"),categoryPrefix+usrInp.value);
+            }
+            let temp = localStorage.getItem(categoryName)
+            localStorage.removeItem(categoryName);
+            let tempName = categoryPrefix + (usrInp.value).charAt(0).toUpperCase() + usrInp.value.slice(1);
+            localStorage.setItem(tempName, temp)
+            let hTagForTitleOfCategory = document.querySelector(".hTagForTitleOfCategory");
+            if (hTagForTitleOfCategory) {
+                hTagForTitleOfCategory.textContent = usrInp.value;
+            }
+            createToast("success", `Category "${categoryName.slice(categoryPrefix.length)}" renamed to "${usrInp.value}"!`)
+            renderLocalStorage();
+            renderCategories();
+            handleBackBtn();
+            renderList("categorySelectOption");
     }
 }
 
@@ -140,7 +151,8 @@ function handleNewCateSubmission(event) {
     }
     else {
         createToast("success", `Category "${usrInp}" added!`)
-        let CN = categoryPrefix + usrInp.toLowerCase()
+        let temp = usrInp.charAt(0).toUpperCase() + usrInp.slice(1);
+        let CN = categoryPrefix + temp;
         localStorage.setItem(CN, '')
         warningCateSection.textContent = `Added`
         document.getElementById("cateName").value = ``
@@ -152,13 +164,8 @@ function handleNewCateSubmission(event) {
 }
 
 let randClasGen = () => {
-    let alphas = 'abcdefghijklmnopqrstuvwxyz'
-    let alphasArr = alphas.split('')
-    let rand = "";
-    for (let i = 0; i <= 6; i++) {
-        rand += alphasArr[Math.floor(Math.random() * 6)]
-    }
-    return rand;
+    let rand =  Math.random().toString(36).substring(2, 8);
+    return "gd_"+rand;
 }
 
 function randomEmoji() {
@@ -167,11 +174,19 @@ function randomEmoji() {
 }
 
 let ocnGlobal;
-function positionHandler(event) {
+function positionHandler(event,...className) {
     // ... your existing popup content modification code ...
     // Positioning Logic
-    const button = document.querySelector(`.${ocnGlobal}`);
-    const popup = document.querySelector('.popup-container');
+    let button;
+    let popup ;
+    if(className.length>0){
+        button = document.querySelector(`.${className[0]}`);
+        popup= document.querySelector(`.${className[1]}`)
+    }
+    else{
+        button = document.querySelector(`.${ocnGlobal}`);
+        popup= document.querySelector('.popup-container')
+    }
     const iconRect = button.getBoundingClientRect();
     const popupLeft = iconRect.right + 20;
     const popupTop = iconRect.top - 10;
@@ -244,12 +259,11 @@ function openModal(categoryName) {
 }
 
 
-const makeMaterialIcon = (iconName, TextContent) => {
+const makeMaterialIcon = (iconName, onClickEvent,...classNames) => {
     const icon = document.createElement("span");
     icon.setAttribute("class", "material-symbols-outlined")
-    if (TextContent) {
-        icon.textContent = TextContent;
-    }
+    if (onClickEvent)icon.setAttribute("onclick", onClickEvent);
+    if(classNames.length>0)classNames.forEach(classN=>icon.classList.add(classN))
     icon.textContent = iconName;
     return icon;
 }
@@ -326,6 +340,17 @@ function deleteCategory(categoryName) {
     renderLocalStorage();
     renderCategories();
 }
+
+function syncCateTitle(cateElem,cateName){
+    
+    cateElem.removeAttribute("onclick");
+    cateElem.setAttribute("onclick", `renameCategory("${cateName}",true)`)
+    if(cateElem){
+        cateElem.textContent = cateName.slice(categoryPrefix.length);
+    }
+}
+
+
 function showCategory(idOfTheCategory, categoryClassName) {
     removeActiveCategoryInSideBar()
     if(categoryClassName){
@@ -345,17 +370,20 @@ function showCategory(idOfTheCategory, categoryClassName) {
 
     let title = document.createElement("h3"); // TITLE
     title.classList.add("hTagForTitleOfCategory")
-    title.textContent = randomEmoji() + " " + idOfTheCategory.slice(categoryPrefix.length)
+    syncCateTitle(title,idOfTheCategory);
+    // title.textContent = idOfTheCategory.slice(categoryPrefix.length)
+    // title.setAttribute("onclick", `renameCategory("${idOfTheCategory}",true)`)
     let iterateDiv = document.createElement("div");
     iterateDiv.setAttribute("class", "iterateDiv")
-    if (todoInCate.length == 0) {
-        iterateDiv.textContent = "Nothing in this category!";
+    let todoInCategory = todoInCate.filter(elem => elem.length != 0)
+    if (todoInCategory.length == 0) {
+        let warningArea = document.createElement("div");
+        warningArea.setAttribute("class", `${randClasGen()} noCateWarningArea`)
+        iterateDiv.appendChild(warningArea);
+        warningArea.textContent = "No tasks found in this category!";
     }
     else {
-
-        let totalValueLength = 0;
-        todoInCate.forEach(value => {
-            totalValueLength += value.length;
+        todoInCategory.forEach(value => {
             if (value.length != 0) {
                 console.log("value", value)
                 let divElem = document.createElement("div")
@@ -374,16 +402,10 @@ function showCategory(idOfTheCategory, categoryClassName) {
                 iterateDiv.appendChild(divElem);
             }
         })
-        if (totalValueLength === 0) iterateDiv.textContent = "Nothing in this category!";
     }
-    let btn = document.createElement("button");
-    btn.setAttribute("class", "btnTypeB")
-    btn.classList.add('goBackCateSection')
-    btn.setAttribute("onclick", "hideCategory()")
-    btn.textContent = 'Go Back'
     childDiv.appendChild(title);
     childDiv.appendChild(iterateDiv)
-    childDiv.appendChild(btn);
+    childDiv.appendChild(makeMaterialIcon("arrow_back", "hideCategory()","arrow-back"))
     CategoryShowSection.appendChild(childDiv);
 }
 

@@ -2,22 +2,26 @@ const mainExpandedForm  = document.querySelector(".mainExpandedForm")
 const todoExpandedWrapper  = document.querySelector(".todoExpandedWrapper")
 const todoExpanded  = document.querySelector(".todoExpanded")
 const todoContentInInput = document.querySelector(".todoContentInInput");
-const editTypeBorderColor = document.querySelector(".editTypeBorderColor");    
+const editTypeBorderColor = document.querySelector(".editTypeBorderColor");
 const subBtnMain = document.querySelector(".subBtnMain"); 
 let warningAreaOTE = document.querySelector(".warningAreaOTE");
 let prevVal,todoIdGlobal,prevSelVal;
 
-//hCOnC = handle Content on click
 
-function hCOnC(){
+function toggleIcons(temp){
     let textOfIcon = editTypeBorderColor.textContent;
-    console.log(textOfIcon)
-    if(textOfIcon=="border_color"){
+    todoContentInInput.value = temp;
+    if(textOfIcon=="edit"){
         todoContentInInput.select()
         editTypeBorderColor.textContent="cancel"
     }else{
-        editTypeBorderColor.textContent="border_color"
+        editTypeBorderColor.textContent="edit"
     }
+}
+//hCOnC = handle Content on click
+function hCOnC(){
+    let temp = prevVal;
+    toggleIcons(temp);
     todoContentInInput.toggleAttribute("readonly")
     todoContentInInput.classList.toggle("whenReadOnly")
 }
@@ -47,7 +51,11 @@ function backHandleEArea(){
 }
 
 //todoCPT = todoContentPopupToggle
-function todoCPT(todoId,prevCategory){
+function todoCPT(event,todoId,prevCategory){
+    let checkIcon = document.querySelector(".theIcon");
+    console.log(event.target,event.target==checkIcon)
+    if(checkIcon&&event.target!==checkIcon){
+    positionHandler(null,"todoContentInInput","editTypeBorderColor")
     todoIdGlobal = todoId;
     prevVal = localStorage.getItem(todoId);
     todoContentInInput.value = prevVal;
@@ -55,6 +63,7 @@ function todoCPT(todoId,prevCategory){
     todoExpandedWrapper.hidden=false;
     renderList("categorySelectPopUpArea","todoPopUpSel",prevCategory)
     prevSelVal = prevCategory;
+    }
 }
 
 mainExpandedForm.addEventListener("submit",(e)=>{
@@ -68,15 +77,12 @@ mainExpandedForm.addEventListener("submit",(e)=>{
         warningAreaOTE.textContent = "No changes!"
     }else{
         if(prevSelVal!==category){
-            console.log(prevSelVal)
             let dataInsideIt = localStorage.getItem(prevSelVal);
             let newArrForm = (dataInsideIt.split(" "));
             let index = 0;
             newArrForm.forEach(elem=>{
                 if(elem==todoIdGlobal.substring(5)){
-                    console.log("elem",elem)
                     index = newArrForm.indexOf(elem)
-                    console.log("index", index)
                 }
             })
             newArrForm.splice(index,1)
