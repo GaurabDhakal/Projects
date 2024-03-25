@@ -52,9 +52,10 @@ function backHandleEArea(){
 
 //todoCPT = todoContentPopupToggle
 function todoCPT(event,todoId,prevCategory){
+    let checkIconParent = event.target.parentElement;
     let checkIcon = document.querySelector(".theIcon");
     console.log(event.target,event.target==checkIcon)
-    if(checkIcon&&event.target!==checkIcon){
+    if(checkIcon&&event.target!==checkIcon&&checkIconParent!==event.target){
     positionHandler(null,"todoContentInInput","editTypeBorderColor")
     todoIdGlobal = todoId;
     prevVal = localStorage.getItem(todoId);
