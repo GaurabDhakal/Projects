@@ -22,12 +22,11 @@ body,.headTitle{
 }
 .MainAll{
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 20vh;
     flex-direction: column;
+    position: relative;
+    margin: auto;
     color: white;
-    height: min-content;
     padding: 50px;
 }
 
@@ -58,7 +57,7 @@ select{
     border: 1px solid transparent;
     border: 1px solid #2c2c2c;
     border-radius: 4px;
-    width: 28rem;
+    width: 110%;
 }
 #usrVal:focus{
     outline: none;
@@ -117,15 +116,14 @@ li{
 #listArea .liDiv,.iterativeDiv, .liDiv{
     display: flex;
     border-radius: 8px;
-    flex-wrap: wrap;
     align-items: center;
     margin: 5px;
     transition: .2s all linear;
     color: white;
     border: 1px solid rgb(29, 22, 22);
-    min-width: 100vh;
-    max-width: 110vh;
+    text-overflow: ellipsis;
     height: auto;
+    width: 100vh;
     justify-content: space-between;
     padding: 10px;
 }
@@ -136,8 +134,7 @@ li{
     border-radius: 8px;
 }
 #listArea .liDiv:hover,.iterativeDiv, .liDiv:hover{
-    border: 1px solid rgb(51, 47, 23);
-    box-shadow: 1px 1px 15px rgb(51, 47, 23);
+    border-bottom: 1px solid rgb(195, 175, 61);
     cursor: pointer;
 }
 
@@ -356,6 +353,7 @@ background-color: rgb(220, 200, 96);
 .listElem{
     padding: 3px;
     font-size: .99rem;
+    text-overflow: ellipsis;
 }
 .listElem:hover{
     color: rgb(103, 211, 2);
@@ -365,7 +363,15 @@ background-color: rgb(220, 200, 96);
     align-items: center;
     justify-content: center;
 }
+.forMobile{
+    display: hidden;
+}
+.newCateFormParentElem{
+    position: absolute;
+    z-index: 1000;
+}
 .add-cate-title{
+    font-size: 1em;
     margin: 3px;
 }
 .warningCateSection{

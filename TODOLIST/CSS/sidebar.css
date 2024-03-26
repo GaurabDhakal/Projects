@@ -1,18 +1,22 @@
 .menuBarContainer{
     height: 100%;
-    width: 18%;
     position: fixed;
-    display: flex;
+    z-index: 100;
+    min-width: 18%;
+}
+.menuBarContainerCollapsed{
+    transition: all ease-in-out 200ms;
+    min-width: 10vh;
 }
 .menuBar{
     height: 100%;
+    width: 100%;
     position: absolute;
     color: white;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     background-color: #1e1f20;
-    width: 100%;
     transition: .2s all ease-in-out;
 }
 .toAreaOFCL{
@@ -125,7 +129,7 @@
 
 .collapsedSidebar{
     display: flex;
-    width: 9vh;
+    min-width: 9vh;
 }
 
 .categoryListing{
@@ -161,7 +165,9 @@
     display: flex;
     justify-content: center;
 }
-
+.menuBarContainerCollapsedMobile{
+    transition: all ease-in-out 200ms;
+}
 .logout{
     display: flex;
     justify-content: center;
@@ -172,6 +178,7 @@
 
 .activeCategoryInSideBar{
     color: #a9d3ee;
+    border: none;
     background-color: #004a77;
 }
 .categoryDelBtn:hover{

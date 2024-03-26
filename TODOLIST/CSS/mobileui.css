@@ -1,71 +1,145 @@
-@media screen and (max-width: 900px){
-    body{
-        font-size: 14px;
-    }
-    .MainAll{
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@media (width<=950px){
+    #listArea .liDiv,.iterativeDiv, .liDiv{
         display: flex;
-        padding: 20px;
-        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid gold;
+        max-width: 20rem;
+        font-size: small;
     }
-    select{
-        width: 100%;
+    #listArea .liDiv:hover,.iterativeDiv, .liDiv:hover{
+        border-bottom: 1px solid goldenrod;
+        cursor: pointer;
     }
-    .MainAll .formMain #usrVal{
-        width: 100%;
+    
+    .btnsAddTask{
+        display: flex;
+        justify-content: center;
+    }
+    .headTitle{
+        text-align: center;
+        font-size: large;
+    }
+    .noListMessage{
+        font-size: smaller;
     }
     .afterUsrInp{
         flex-direction: column;
     }
-    #listArea .liDiv,.iterativeDiv, .liDiv{
+    .afterUsrInp > .categorySelectOption > #cateSelect{
+        display: block;
+    }
+    .formMain > #usrVal{
+        max-width: 110%;
+        margin: 10px;
+    }
+    #btnAdd{
+        margin-bottom: 0;
+        height: 2.3rem;
+        margin-top: 7px;
+        width: max-content;
+    }
+    .listElem,.categoryNameShow {
+        font-size: small;
+    }
+    .todoExpanded {
+        
+        z-index: 1000;
+    }
+    .todoExpanded form{
+        border: 1px solid red;
+        margin: 10px;
+    }
+}
+@media (width <=852px){
+    .categoryNameShow,.preAddSection{
+        font-size: x-small;
+    }
+    .theIcon{
+        scale: 0.8;
+    }
+    .lbiwrapper{
+        display: none;
+    }
+    .liDiv{
+        border-bottom: 1px solid rgb(37, 19, 19);
+        display: flex;
         flex-direction: column;
-        min-width: 100%;
-        max-width: 100%;
     }
-    .newUsrView{
-        padding: 20px;
+    .liDivInsideCategory{
+        display: flex;
+        flex-direction: row;
     }
-    .newUsrView .inputsNew input[type="text"]{
+    .miniDiv{
+        display: flex;
+        margin-left: auto;
+        justify-content: end;
+    }
+    .listElem{
         width: 100%;
+        display: flex;
     }
-    .infoOfStorage{
-        width: 100%;
+    .material-symbols-outlined{
+        scale: 0.8;
     }
-    .AddCategoryPopUP #newCategoryForm{ 
-        padding: 20px;
+    .delAllSec,.btnTypeB,.btnTypeC{
+        scale: 0.8;
     }
-    .AddCategoryPopUP {
-        width: 100%;
-        height: 100%;
+
+}
+
+@media (width<500px){
+    .mobile-three-dot{
+        cursor: pointer;
     }
-    #cateName{
-        width: 100%;
+    .innerForMob{
+        display: flex;
+        align-items: center;
     }
-    .dangerZone{
-        flex-direction: column;
-        width: 100%;
-        position: static;
-        margin: 20px 0;
+    .tOfMob{
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .tOfMob>h3{
+        user-select: none;
+        margin: auto;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+    }
+    .btnMobileMenu{
+        background-color: transparent;
+        border: none;
+        margin-top: .3em;
+        color: white;
     }
     .menuBarContainer{
-        width: 100%;
-        position: static;
+        display: none;
     }
-    .menuBar{
-        flex-direction: row;
-        height: auto;
-        width: 100%;
+
+    .forMobile{
+        width: auto;
+        display: block;
+        top:0;
+        margin: 10px;
+        color:white;
+
+        position: absolute;
     }
-    .logoutMain{
-        margin: 20px 0;
+     .mainInpArea{
+        justify-content: center;
+        max-width: 10em;
     }
-    .menuBar .navbar ul,
-    .iconOfCategoryAdd{
-        flex-direction: column;
+    .mainInpArea >  .todoContentInInput {
+        min-width: 17em;
+        width: 10%;
     }
-    .iconOfCategoryAdd{
-        margin: 20px 0;
+    .mainExpandedForm{
+        justify-content: center;
+        height: 25rem;
     }
-    .categoryListing{
-        width: 100%;
+    .categorySelectPopUpArea > #cateSelect{
+        max-width: 2rem;
+        min-width: 12em;
     }
 }

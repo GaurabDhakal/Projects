@@ -120,11 +120,14 @@ function handleRenameCategory(categoryName, event,optional) {
         warningCateSection.textContent = `Choose a unique category name.`
     }
     else {
-        console.log(optional)
+        try {
             if(optional){
                 syncCateTitle(document.querySelector(".hTagForTitleOfCategory"),categoryPrefix+usrInp.value);
             }
             let temp = localStorage.getItem(categoryName)
+            if(temp===null){
+                throw new Error("Category not found!")
+            }
             localStorage.removeItem(categoryName);
             let tempName = categoryPrefix + (usrInp.value).charAt(0).toUpperCase() + usrInp.value.slice(1);
             localStorage.setItem(tempName, temp)
@@ -137,6 +140,9 @@ function handleRenameCategory(categoryName, event,optional) {
             renderCategories();
             handleBackBtn();
             renderList("categorySelectOption");
+        } catch (error) {
+            createToast("error", `Error renaming category "${categoryName.slice(categoryPrefix.length)}"!`)
+        }
     }
 }
 
@@ -241,7 +247,7 @@ function openModal(categoryName) {
     popupContainerMinContainerSpan.setAttribute("class", "material-symbols-outlined")
     popupContainerMinContainerSpan.textContent = "delete";
     const popupContainerMinP = document.createElement("p");
-    popupContainerMinP.textContent = "Delete Category";
+    popupContainerMinP.textContent = "Delete";
     delElem.appendChild(popupContainerMinContainerSpan)
     delElem.appendChild(popupContainerMinP)
     delElem.setAttribute("onclick", `deleteCategory("${categoryName}")`)
@@ -251,7 +257,7 @@ function openModal(categoryName) {
     minDivRenameSection.setAttribute("class", "popup-container-min-rename-section-inside")
     const p = document.createElement("p");
     p.setAttribute("class", "popup-container-min-rename-section-p")
-    p.textContent = "Rename Category";
+    p.textContent = "Rename";
     minDivRenameSection.setAttribute("onclick", `renameCategory("${categoryName}")`)
     minDivRenameSection.appendChild(makeMaterialIcon("edit"));
     minDivRenameSection.appendChild(p);
@@ -332,6 +338,7 @@ function renderCategories() {
     }
 }
 function deleteCategory(categoryName) {
+    try{
     localStorage.removeItem(categoryName);
     hideCategory()
     miniPopupMenuToggle(popUp)
@@ -339,6 +346,9 @@ function deleteCategory(categoryName) {
     createToast("success", `Category "${categoryName.slice(categoryPrefix.length)}" deleted!`)
     renderLocalStorage();
     renderCategories();
+    }catch(e){
+        createToast("error", `Error deleting category "${categoryName.slice(categoryPrefix.length)}"!`)
+    }
 }
 
 function syncCateTitle(cateElem,cateName){
@@ -388,6 +398,7 @@ function showCategory(idOfTheCategory, categoryClassName) {
                 console.log("value", value)
                 let divElem = document.createElement("div")
                 divElem.classList.add("liDiv")
+                divElem.classList.add("liDivInsideCategory")
                 let liA = document.createElement('li');
                 let btnElem = document.createElement("button");
                 btnElem.setAttribute("class", "checkIcon");

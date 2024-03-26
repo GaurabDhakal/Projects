@@ -7,8 +7,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     height: 100vh;
+    z-index: 1000;
     width: 100%;
-    background-color: #0d0d0e78; 
+    background-color: #0d0d0e58; 
     color: white;
 }
 .titleMainEF,.warningAreaOTE{
@@ -33,14 +34,15 @@
 .mainExpandedForm > div{
     margin: 1em;
 }
-
+.popup-container-parent {
+    z-index: 100;
+}
 .todoContentInInput{
     height: 2.6em;
     font-size: 1.1em;
     border-radius: 5px;
     min-width: 23rem;
     padding: 4px;
-    max-width: 19em;
     border:1px solid #2c2c2c;
 }
 .todoContentInInput:focus{
@@ -90,7 +92,7 @@
     border-radius: 4px;
     cursor: pointer;
     color: white;
-    width: 15em;
+    min-width: 15em;
 }
 .editTypeBorderColor{
     cursor: pointer;

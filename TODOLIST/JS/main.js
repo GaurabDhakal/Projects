@@ -64,6 +64,7 @@ function deleteAllLocal(){
     for(let key of onlyTodoKeys){
         localStorage.removeItem(key);
     }
+    createToast("success","All tasks removed successfully.");
     hideWarning()
     renderLocalStorage();
 }
