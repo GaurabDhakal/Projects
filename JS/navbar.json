@@ -1,0 +1,122 @@
+[
+    {
+      "tagName": "div",
+      "attributes": {
+        "id": "navbar"
+      },
+      "content": [
+        {
+          "tagName": "nav",
+          "content": [
+            {
+              "tagName": "div",
+              "attributes": {
+                "class": "logo"
+              },
+              "content": "Gaurab Dhakal" 
+            },
+            {
+              "tagName": "input",
+              "attributes": {
+                "type": "checkbox",
+                "id": "click"
+              }
+            },
+            {
+              "tagName": "label",
+              "attributes": {
+                "for": "click",
+                "class": "menu-btn"
+              },
+              "content": [
+                {
+                  "tagName": "i",
+                  "attributes": {
+                    "class": "fas fa-bars"
+                  }
+                }
+              ]
+            },
+            {
+              "tagName": "ul",
+              "content": [
+                {
+                  "tagName": "li",
+                  "content": [
+                    {
+                      "tagName": "a",
+                      "attributes": {
+                        "href": "index.html"
+                      },
+                      "content": "Home"
+                    }
+                  ]
+                },
+                {
+                  "tagName": "li",
+                  "content": [
+                    {
+                      "tagName": "a",
+                      "attributes": {
+                        "href": "CountryPredictor.html"
+                      },
+                      "content": "Country Predictor" 
+                    }
+                  ]
+                },
+                {
+                  "tagName": "li",
+                  "content": [
+                    {
+                      "tagName": "a",
+                      "attributes": {
+                        "href": "genderGuesser.html"
+                      },
+                      "content": "Gender Predictor" 
+                    }
+                  ]
+                },
+                {
+                  "tagName": "li",
+                  "content": [
+                    {
+                      "tagName": "a",
+                      "attributes": {
+                        "href": "passwordGenerator.html"
+                      },
+                      "content": "Password Generator" 
+                    }
+                  ]
+                },
+                {
+                  "tagName": "li",
+                  "content": [
+                    {
+                      "tagName": "a",
+                      "attributes": {
+                        "href": "weather.html"
+                      },
+                      "content": "Weather Checker" 
+                    }
+                  ]
+                },
+                {
+                  "tagName": "li",
+                  "content": [
+                    {
+                      "tagName": "a",
+                      "attributes": {
+                        "href": "TODOLIST/index.html"
+                      },
+                      "content": "Todo-List" 
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  

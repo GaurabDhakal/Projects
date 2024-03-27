@@ -26,23 +26,7 @@
     </style>
 </head>
 <body>
-    <div id="navbar">
-        <nav>
-            <div class="logo">Gaurab Dhakal</div>
-            <input type="checkbox" id="click" />
-            <label for="click" class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </label>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#"  class="active">Country Predictor</a></li>
-                <li><a href="genderGuesser.html">Gender Predictor</a></li>
-                <li><a href="youtubeDislikeReturn.html" >Youtube Dislike Return</a></li>
-                <li><a href="weather.html" >Weather Checker</a></li>
-                <li><a href="TODOLIST/index.html" >Todo-List</a></li>
-            </ul>
-        </nav>
-        </div>
+    <div id="navbarContainer"></div>
     <div class="history" id="history" hidden>
         <div class="historyHeaderDiv">
             <h3 class="headerHistory" >History</h3>
@@ -93,15 +77,6 @@
 </div>
 </body>
 <script src="JS/country_predictor.js"></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLH5Q0M1F5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HLH5Q0M1F5');
-</script>
-
+<script src="JS/navloader.js"></script>
 <script src="JS/buttonTransform.js"></script>
 </html>
