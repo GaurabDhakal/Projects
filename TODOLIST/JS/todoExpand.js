@@ -121,8 +121,9 @@ mainExpandedForm.addEventListener("submit", (e) => {
             let TempArrAfter = TempArr.join(" ");
             localStorage.setItem(category, TempArrAfter);
         }
-        console.log(todoIdGlobal.slice("todo_".length))
-        hEHU(prevVal,todoIdGlobal.slice("todo_".length),category)
+        if(prevVal !== val){
+            hEHU(prevVal,todoIdGlobal.slice("todo_".length),category)
+        }
         createToast("success", "Changes saved!");
         localStorage.setItem(todoIdGlobal, val);
         backHandleEArea();
