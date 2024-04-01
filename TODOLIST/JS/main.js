@@ -38,6 +38,9 @@ function formatList(){
 }
 
 function delData(id,noCompulsion,optional){
+    if(localStorage.getItem(`edithistory_${id}`)){
+        localStorage.removeItem(`edithistory_${id}`);
+    }
     localStorage.removeItem(storageKeyPrefix + id); // Add the prefix to the storage key
     formatList();
     createToast("success","Item checked off the list.");

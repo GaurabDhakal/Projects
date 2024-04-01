@@ -61,6 +61,15 @@
     display: flex;
     margin-left: .3em;
 }
+.showEditHistoryBtn{
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    background: #312f2f ;
+    color: white;
+    margin: 1em;
+    cursor: pointer;
+}
 .subBtnArea > button{
     padding: 10px;
     width: 5em;
@@ -78,7 +87,7 @@
     justify-content: space-between;
 }
 
-.subBtnArea > button:hover{
+.subBtnArea > button:hover,.showEditHistoryBtn:hover{
     transition: background-color .3s cubic-bezier(0.4, 0, 1, 1.5);
     background: #494040;
 }
