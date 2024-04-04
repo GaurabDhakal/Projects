@@ -195,8 +195,3 @@ function toggleSettingsMenu(param){
 }
 
 
-window.addEventListener('load', function() {
-    const loader = document.querySelector('.loader-container');
-    loader.style.display = 'none'; 
-  });
-  
