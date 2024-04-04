@@ -9,6 +9,7 @@
     --def-hover-bg-popups:#2a2a2a;
     --default-text-color-popups:white;
     --def-bg-popups:#1e1f20;
+    --listElem-hover:rgb(103, 211, 2);
 }
 *{
     font-family: var(--defFont);
@@ -242,6 +243,7 @@ background-color: rgb(220, 200, 96);
 .noListMessage{
     display: flex;
     flex-direction: column;
+    color: var(--default-text-color);
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -369,7 +371,7 @@ background-color: rgb(220, 200, 96);
     text-overflow: ellipsis;
 }
 .listElem:hover{
-    color: rgb(103, 211, 2);
+    color: var(--listElem-hover);
 }
 .miniDiv{
     display: flex;
@@ -428,4 +430,5 @@ background-color: rgb(220, 200, 96);
     --def-sidebar-border: 1px solid rgb(123, 152, 185);
     --def-hover-bg-popups: #303067;
     --def-bg-popups: #111124;
+    --listElem-hover: rgb(116, 95, 2);
 }

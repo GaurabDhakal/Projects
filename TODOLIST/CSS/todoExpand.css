@@ -40,13 +40,16 @@
 .popup-container-parent {
     z-index: 100;
 }
+.todoContentInInput.whenReadOnly{
+    color: var(--default-text-color) !important;
+}
 .todoContentInInput{
     height: 2.6em;
     font-size: 1.1em;
     border-radius: 5px;
     min-width: 23rem;
     padding: 4px;
-    color: var(--default-text-color) !important;
+
     border:1px solid var(--default-border-color);
 }
 .todoContentInInput:focus{
@@ -69,8 +72,8 @@
     padding: 7px;
     border: none;
     border-radius: 5px;
-    background: var(--default-bg-color) ;
-    color: var(--default-text-color);
+    background: rgb(107, 247, 216);
+    color: black;
     margin: 1em;
     cursor: pointer;
 }
@@ -99,8 +102,8 @@
     background: rgb(44, 55, 57);
 }
 .showEditHistoryBtn:hover{
-    transition: background-color .3s cubic-bezier(0.4, 0, 1, 1.5);
-    background: var(--default-bg-color);
+    transition: all .3s cubic-bezier(0.4, 0, 1, 1.5);
+    background: rgb(31, 186, 152);
 }
 .categorySelectPopUpArea select{
     -webkit-appearance: none;  /* Remove default styling (cross-browser) */
