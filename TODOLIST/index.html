@@ -7,6 +7,7 @@
     <title>Todozen Pro</title>
     <link rel="stylesheet" href="./CSS/todo.css">
     <link rel="stylesheet" href="./CSS/customSelect.css">
+    <link rel="stylesheet" href="./CSS/popupForTheme.css">
     <link rel="stylesheet" href="./CSS/mobileui.css">
     <link rel="stylesheet" href="./CSS/todoExpand.css">
     <link rel="stylesheet" href="./CSS/editHistory.css">
@@ -20,7 +21,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-<body>
+<body class="theme">
     <div class="newViewExtraLayer" id="newUsrView" hidden>
         <div class="newUsrView">
             <form class="newUsrView newUsrForm">
@@ -39,9 +40,9 @@
     <div class="oldViewExtraLayer" id="OldUsrViewDefault" hidden>
         <div class="OldUsrViewDefault">
             <div class="menuBarContainer">
-                <div class="menuBar">
+                <div class="menuBar theme">
                     <div class="navbar toAreaOFCL">
-                        <div class="cateTitle">
+                        <div class="cateTitle theme">
                             <div class="toBeHiddenAfterCollapse">
                                 <p>Categories</p>
                             </div>
@@ -65,13 +66,13 @@
                     </div>
                     <div class="toBeHiddenAfterCollapse logoutMain settingsUpperLayerParent">
                         <div class="logout settingsUpperLayer">
-                            <div class="toBeHiddenAfterCollapse settingMenu">
+                            <div class="toBeHiddenAfterCollapse settingMenu theme">
                                 <span class="material-symbols-outlined settingsIcon">settings</span>
                                 <p class="settingMenuName">Settings</p>
                             </div>
                             <div class="settingOptionPopupWrapper" hidden>
-                                <div class="settingOptionPopup">
-                                    <div class="changeNameSettings" onclick="callBackCN()">
+                                <div class="settingOptionPopup theme">
+                                    <div class="changeNameSettings theme" onclick="callBackCN()">
                                         <div class="iconOfEditSetting">
                                             <span class="material-symbols-outlined">
                                                 edit
@@ -79,6 +80,16 @@
                                         </div>
                                         <div class="nameOfSetting">
                                             <p class="nameOfSettingP">Change name</p>
+                                        </div>
+                                    </div>
+                                    <div class="themeSettings changeThemeIcon" >
+                                        <div class="iconOfEditSetting">
+                                            <span class="material-symbols-outlined">
+                                                light_mode
+                                            </span>
+                                        </div>
+                                        <div class="nameOfSetting">
+                                            <p class="nameOfSettingP">Change Theme</p>
                                         </div>
                                     </div>
                                 </div>
@@ -93,21 +104,21 @@
                 </div>
             </div>
             <div class="categoryShowSection"></div>
-            <div class="MainAllParent">
+            <div class="MainAllParent theme">
 
                 <div class="MainAll">
-                    <h1 class="headTitle">{head title here}</h1>
-                    <div class="preAddSectionParent">
+                    <h1 class="headTitle theme">{head title here}</h1>
+                    <div class="preAddSectionParent theme">
                         <div class="preAddSection">
                             <p>Add task</p>
-                            <button id="preAddBtn"><span class="material-symbols-outlined">
+                            <button id="preAddBtn" class="theme"><span class="material-symbols-outlined">
                                     add_task
                                 </span></button>
                         </div>
                     </div>
                     <div class="formParent" hidden>
                         <form class="formMain">
-                            <input type="text" id="usrVal" autocomplete="off" placeholder="Add a task..."
+                            <input type="text" id="usrVal" class="theme" autocomplete="off" placeholder="Add a task..."
                                 maxlength="80" />
                             <div class="afterUsrInp">
                                 <div class="categorySelectOption"></div>
@@ -118,12 +129,12 @@
                             </div>
                         </form>
                     </div>
-                    <div class="warning" hidden></div>
-                    <p class="totalTaskCount"></p>
+                    <div class="warning theme" hidden></div>
+                    <p class="totalTaskCount theme"></p>
                     <div id="listArea"></div>
                     <div class="delAllSec"></div>
                     <div id="noListMessage">
-                        <div class="noListMessage">
+                        <div class="noListMessage theme">
                         </div>
                     </div>
                 </div>
@@ -132,7 +143,7 @@
     </div>
     <div class="newCateFormParentElem" hidden>
         <div class="AddCategoryPopUP">
-            <form id="newCategoryForm" onsubmit="handleNewCateSubmission(event)">
+            <form id="newCategoryForm" class="theme" onsubmit="handleNewCateSubmission(event)">
                 <h4 class="titleOfNewCategory">Category name: </h4>
                 <input type="text" id="cateName" minlength="3" maxlength="60" autocomplete="off"
                     placeholder="Enter name of the category" />
@@ -146,14 +157,14 @@
     </div>
     <div class="todoExpandedWrapper" hidden>
         <div class="todoExpanded">
-            <form class="mainExpandedForm">
+            <form class="mainExpandedForm theme">
                 <div class="titleMainEF">Edit Todo</div>
                 <div class="mainInpArea">
-                    <input type="text" class="todoContentInInput whenReadOnly" value="this is a dd" readonly />
+                    <input type="text" class="todoContentInInput theme whenReadOnly" value="this is a dd" readonly />
                     <span class="material-symbols-outlined editTypeBorderColor">edit</span>
                 </div>
                 <div class="tECEBandSelect">
-                    <div class="categorySelectPopUpArea"></div>
+                    <div class="categorySelectPopUpArea" ></div>
                     <div class="subBtnArea">
                         <button type="button" onclick="backHandleEArea()" class="subBtnCancel">Cancel</button>
                         <button type="Submit" class="subBtnMain">Save</button>
@@ -165,22 +176,35 @@
                 <div class="warningAreaOTE"></div>
             </form>
         </div>
-
+    </div>
+    <div class="popupForTheme" hidden>
+        <div class="sectionPopupTheme">
+                <div class="selectArea">
+                    <div class="innerSelectThemeArea">
+                    <span class="closeButton theme" onclick="toggleEditHistory()" style="color: #f7f7f7;">×</span>
+                    <label for="theme" style="color: #f7f7f7;">Choose a theme(BETA):</label>
+                    <select name="theme" style="background-color: black; color: white;" id="theme" class="theme">
+                    <option value="dark" id="dark">Dark</option>
+                    <option value="light" id="light">Light</option>
+                    </select>
+            </div>
+                </div>
+        </div>
     </div>
     <div class="popup-container-parent mainModal" hidden>
         <div class="popup-container">
             <div class="popup-container-parent-min-content">
-                <div class="popup-container-min-rename-section">
+                <div class="popup-container-min-rename-section theme">
                 </div>
-                <div class="popup-container-min">
+                <div class="popup-container-min theme">
                 </div>
             </div>
         </div>
     </div>
     <div class="parentEditHistoryPopup" hidden>
         <div class="popupContainerEditHistory">
-            <div class="editHistoryWrapper">
-                <span class="closeButton" onclick="toggleEditHistory()">&times;</span>
+            <div class="editHistoryWrapper theme">
+                <span class="closeButton theme" onclick="toggleEditHistory()">&times;</span>
                 <div class="editHistory">
                     <div class="headerArea">
                         <h3 class="ehTitle">Previous Versions</h3>
@@ -191,11 +215,11 @@
         </div>
     </div>
     <div id="toast-container"></div>
-    <div class="versionInfo"></div>
+    <div class="versionInfo theme"></div>
     <div class="forMobile" hidden>
         <div class="innerForMob">
             <button class="btnMobileMenu" onclick="handleToggleSidebar(`mobile`)"><span
-                    class="material-symbols-outlined mobile-three-dot">menu</span></button>
+                    class="material-symbols-outlined mobile-three-dot theme">menu</span></button>
             <div class="tOfMob">
                 <h3>Todozen Pro</h3>
             </div>
@@ -203,6 +227,7 @@
     </div>
 </body>
 <script src="./JS/todoExpand.js"></script>
+<script src="./JS/toggleTheme.js"></script>
 <script src="./JS/main.js"></script>
 <script src="./JS/ListLoader.js"></script>
 <script src="./JS/editHistory.js"></script>

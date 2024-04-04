@@ -1,3 +1,5 @@
+@import url('./vars.css');
+
 .todoExpanded{
     position: fixed;
     top: 50%;
@@ -16,14 +18,15 @@
     text-align: center;
 }
 .titleMainEF{
+    color: var(--default-text-color);
     font-size: 1.1em;
     padding: 5px;
     border-bottom: 1px solid rgb(187, 184, 76);
 
 }
 .todoExpanded form{
-    border: 1px solid rgb(17, 29, 32);
-    background-color: #1e1e1e;
+    border: 1px solid var(--default-border-color);
+    background-color: var(--default-bg-color);
     border-radius: 2em;
     display: flex;
     align-items: center;
@@ -43,7 +46,8 @@
     border-radius: 5px;
     min-width: 23rem;
     padding: 4px;
-    border:1px solid #2c2c2c;
+    color: var(--default-text-color) !important;
+    border:1px solid var(--default-border-color);
 }
 .todoContentInInput:focus{
     outline: none;
@@ -65,8 +69,8 @@
     padding: 7px;
     border: none;
     border-radius: 5px;
-    background: #312f2f ;
-    color: white;
+    background: var(--default-bg-color) ;
+    color: var(--default-text-color);
     margin: 1em;
     cursor: pointer;
 }
@@ -74,10 +78,10 @@
     padding: 10px;
     width: 5em;
     margin: 5px;
-    border: none;
+    border: 1px solid var(--default-border-color);
     background: #312f2f ;
     cursor: pointer;
-    color: #ffffff ;
+    color: var(--default-text-color) ;
     border-radius: 5px;
 }
 
@@ -86,10 +90,17 @@
     align-items: center;
     justify-content: space-between;
 }
-
-.subBtnArea > button:hover,.showEditHistoryBtn:hover{
+.subBtnCancel,.subBtnMain{
+    border: none !important;
+    color: white !important;
+}
+.subBtnCancel:hover,.subBtnM:hover{
+    transition: all .3s cubic-bezier(0.4, 0, 1, 1.5);
+    background: rgb(44, 55, 57);
+}
+.showEditHistoryBtn:hover{
     transition: background-color .3s cubic-bezier(0.4, 0, 1, 1.5);
-    background: #494040;
+    background: var(--default-bg-color);
 }
 .categorySelectPopUpArea select{
     -webkit-appearance: none;  /* Remove default styling (cross-browser) */
@@ -105,6 +116,7 @@
 }
 .editTypeBorderColor{
     cursor: pointer;
+    color: var(--default-text-color);
     scale: 1.2;
     margin: 10px;
     user-select: none;

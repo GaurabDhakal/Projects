@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: var(--defFont);
 }
 .parentEditHistoryPopup{
     position: fixed;
@@ -31,7 +31,7 @@
     border: 1px solid #222; /* Darker border color */
     border-radius: 8px;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: var(--defFont);
     background-color: rgb(17, 17, 17); /* Semi-transparent dark background */
     color: #ddd;
     width: 80%; /* Adjust width for optimal appearance */

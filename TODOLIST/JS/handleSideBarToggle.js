@@ -27,7 +27,7 @@ function logoutBtnIconToggler(condition){
 
 function handleToggleSidebar(device){
     let cateTitle = document.querySelector(".cateTitle")
-    if(device!='mobile'&&mobileOrNot==false){
+    if(device!='mobile'&&!mobileOrNot){
         logoutBtnIconToggler()
         menuBarContainer.classList.toggle("menuBarContainerCollapsed")
         if(!sidebarSection.classList.contains(nameOfClass)){

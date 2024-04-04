@@ -62,15 +62,6 @@ function delData(id,noCompulsion,optional){
 function hideWarning(){
     warningArea.hidden = true;
 }
-function deleteAllLocal(){
-    let onlyTodoKeys = Object.keys(localStorage).filter((value)=>value.startsWith(storageKeyPrefix));
-    for(let key of onlyTodoKeys){
-        localStorage.removeItem(key);
-    }
-    createToast("success","All tasks removed successfully.");
-    hideWarning()
-    renderLocalStorage();
-}
 
 function storeInLocal(usrVal){
     let cateValue = document.getElementById("cateSelect")
@@ -106,20 +97,7 @@ function handleSubmit(){
 }
 function renderLocalStorage(){
     const keys = Object.keys(localStorage).filter(key => key.startsWith(storageKeyPrefix)); // Filter out items without the prefix
-    let parentElem = document.querySelector(".delAllSec");
-    if(keys.length===0) noListMessage.hidden=false;
-    if(keys.length > 1){
-        parentElem.textContent = "";
-        let btnDelAll = document.createElement("button");
-        btnDelAll.classList.add("btnDesignClear");
-        btnDelAll.textContent = "Remove All";
-        btnDelAll.setAttribute("class",`btnTypeB`);
-        btnDelAll.setAttribute("onclick",`deleteAllLocal()`);
-        parentElem.appendChild(btnDelAll);
-    }
-    else {
-        parentElem.textContent = "";
-    }
+
     formatList();
     let totalTaskCount = document.querySelector('.totalTaskCount')
     totalTaskCount.textContent = `Total tasks: ${keys.length}`
@@ -143,6 +121,7 @@ function renderLocalStorage(){
                 let checkIcon = document.createElement("span");
                 checkIcon.setAttribute("class","material-symbols-outlined");
                 checkIcon.classList.add("theIcon")
+                checkIcon.classList.add("theme")
                 checkIcon.textContent = "task_alt"
     
                 let categoryNameShow = document.createElement("p");
@@ -168,6 +147,7 @@ function renderLocalStorage(){
                 miniDiv.appendChild(categoryNameShow)
                 miniDiv.appendChild(btnElem)
                 elemDiv.classList.add("liDiv")
+                elemDiv.classList.add("theme")
                 elemDiv.appendChild(miniDiv);
                 elem.classList.add(`${key}`);
                 elem.innerHTML = (`TODO: ${value} <br />`);

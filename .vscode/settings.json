@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.port": 55
+    "liveServer.settings.port": 55,
+    "azureAutomation.directory.basePath": "c:\\Users\\Gaurab"
 }

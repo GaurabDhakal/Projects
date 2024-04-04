@@ -1,0 +1,32 @@
+.popupForTheme{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.442);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+legend{
+    text-align: center;
+}
+.sectionPopupTheme{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.innerSelectThemeArea{
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgb(25, 40, 40);
+    padding: 3em;
+}
+.innerSelectThemeArea select{
+    display: grid;
+    gap: 10px;
+}

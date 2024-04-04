@@ -244,7 +244,7 @@ function openModal(categoryName) {
     popUpRename.innerHTML = ``;
     delElem.innerHTML = ``;
     const popupContainerMinContainerSpan = document.createElement("span");
-    popupContainerMinContainerSpan.setAttribute("class", "material-symbols-outlined")
+    popupContainerMinContainerSpan.setAttribute("class", "material-symbols-outlined delRenMenuIcons")
     popupContainerMinContainerSpan.textContent = "delete";
     const popupContainerMinP = document.createElement("p");
     popupContainerMinP.textContent = "Delete";
@@ -259,7 +259,7 @@ function openModal(categoryName) {
     p.setAttribute("class", "popup-container-min-rename-section-p")
     p.textContent = "Rename";
     minDivRenameSection.setAttribute("onclick", `renameCategory("${categoryName}")`)
-    minDivRenameSection.appendChild(makeMaterialIcon("edit"));
+    minDivRenameSection.appendChild(makeMaterialIcon("edit",false,"delRenMenuIcons"));
     minDivRenameSection.appendChild(p);
     popUpRename.appendChild(minDivRenameSection)
 }
@@ -380,6 +380,8 @@ function showCategory(idOfTheCategory, categoryClassName) {
 
     let title = document.createElement("h3"); // TITLE
     title.classList.add("hTagForTitleOfCategory")
+    title.classList.add("theme")
+
     syncCateTitle(title,idOfTheCategory);
     // title.textContent = idOfTheCategory.slice(categoryPrefix.length)
     // title.setAttribute("onclick", `renameCategory("${idOfTheCategory}",true)`)
@@ -398,10 +400,11 @@ function showCategory(idOfTheCategory, categoryClassName) {
                 console.log("value", value)
                 let divElem = document.createElement("div")
                 divElem.classList.add("liDiv")
+                divElem.classList.add("theme")
                 divElem.classList.add("liDivInsideCategory")
                 let liA = document.createElement('li');
                 let btnElem = document.createElement("button");
-                btnElem.setAttribute("class", "checkIcon");
+                btnElem.setAttribute("class", "checkIcon theme");
                 btnElem.setAttribute("onclick", `delData(${value},"${idOfTheCategory}")`);
                 let checkIcon = document.createElement("span");
                 checkIcon.setAttribute("class", "material-symbols-outlined");
@@ -416,7 +419,7 @@ function showCategory(idOfTheCategory, categoryClassName) {
     }
     childDiv.appendChild(title);
     childDiv.appendChild(iterateDiv)
-    childDiv.appendChild(makeMaterialIcon("arrow_back", "hideCategory()","arrow-back"))
+    childDiv.appendChild(makeMaterialIcon("arrow_back", "hideCategory()","arrow-back","theme"))
     CategoryShowSection.appendChild(childDiv);
 }
 

@@ -104,7 +104,7 @@
     .tOfMob>h3{
         user-select: none;
         margin: auto;
-        font-family: "Open Sans", sans-serif;
+        font-family:var(--defFont);
         font-weight: 400;
     }
     .btnMobileMenu{

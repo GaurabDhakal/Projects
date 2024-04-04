@@ -1,10 +1,11 @@
 
 let selectElem = document.createElement("select");
 selectElem.setAttribute("id","cateSelect")
+selectElem.setAttribute("class","theme")
 
 function renderList(className,optional,preSelectVal){
     let categorySelectOption = document.querySelector(`.${className}`);
-    if(optional) selectElem.setAttribute("class",`${optional}`)
+    if(optional) selectElem.setAttribute("class",`${optional} theme`)
     selectElem.innerHTML =``
     let defaultOption = document.createElement("option");
     defaultOption.value = "def"
