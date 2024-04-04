@@ -1,3 +1,4 @@
+
 let usrValUni = document.getElementById("usrVal");
 let listArea = document.getElementById("listArea");
 let warningArea = document.querySelector('.warning');
@@ -7,7 +8,6 @@ let iconSettings = document.querySelector(".settingsIcon");
 const storageKeyPrefix = "todo_"; // Add a prefix to the storage key
 const audio = new Audio("./click.wav");
 audio.load();
-
 const errorMessages = [
     "Please enter a task before submitting.",
     "Tasks cannot be left blank. Please add a description.",
@@ -64,6 +64,9 @@ function hideWarning(){
 }
 
 function storeInLocal(usrVal){
+    let todaysData = JSON.parse(localStorage.getItem("todoList_todaysData"));
+    todaysData.count++;
+    localStorage.setItem("todoList_todaysData", JSON.stringify(todaysData));
     let cateValue = document.getElementById("cateSelect")
     const id = Math.floor(Math.random()*10000);
 
@@ -99,9 +102,13 @@ function renderLocalStorage(){
     const keys = Object.keys(localStorage).filter(key => key.startsWith(storageKeyPrefix)); // Filter out items without the prefix
 
     formatList();
+    if(keys.length<1){
+        // if(noListMessage.hidden) noListMessage.hidden = false;
+        handleNoListMsgFn()
+        noListMessage.hidden = false;
+    }
     let totalTaskCount = document.querySelector('.totalTaskCount')
     totalTaskCount.textContent = `Total tasks: ${keys.length}`
-    
     if(keys.length>0){
         for(let key of keys){
             if(!noListMessage.hidden) noListMessage.hidden = true;
