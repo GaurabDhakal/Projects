@@ -36,7 +36,7 @@ function handleNoListMsgFn() {
     } else {
         let randomWish = wellWishes[Math.floor(Math.random() * wellWishes.length)];
         let randomWishSplit = randomWish.split("!");
-        elemOfWishes.innerHTML = `<h3>${randomWishSplit[0]}!</h3><p>${randomWishSplit[1]}<br>
+        elemOfWishes.innerHTML = `${todaysData.count>3?`<h3> ${randomWishSplit[0]}!</h3><p>${randomWishSplit[1]}!</p>`:`Let's get few more tasks done!`}<p>
         You completed ${todaysData.count} ${todaysData.count>1?"tasks":"task"} today.</p>`;
     }
 }
