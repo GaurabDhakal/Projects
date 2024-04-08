@@ -44,8 +44,8 @@ function displayWeather(weatherData){
         let weatherHumidity = document.createElement("p");
         let weatherEmoji = document.createElement("p");
         window.document.title = `${(temp-273.15).toFixed(2)}°C - ${city}`
-        weatherTempr.innerHTML = `Temperature: ${(temp-273.15).toFixed(2)}°C`;
-        weatherCity.textContent = `${city}`;
+        weatherTempr.innerHTML = `<span class="tempr">Temperature: ${(temp-273.15).toFixed(2)}°C</span>`;
+        weatherCity.innerHTML = `<span class="city">${city}</span>`;
         let finalDescription = ((description)).charAt(0).toUpperCase()+((description)).slice(1);
         weatherDescription.textContent = `Description: ${finalDescription}`;
         weatherHumidity.textContent = `Humidity: ${humidity}%`;
