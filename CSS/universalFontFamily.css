@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 *{
-    font-family: "Lato", sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
 }
 p{
-    font-family: "Lato", sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
 }
 /* YOUTUBE DISLIKE RETURN GUIDE AREA */
 
 #warning{
-    font-family: 'PT Sans', sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
 }
 .tableColumn{
-    font-family: 'PT Sans', sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
 }

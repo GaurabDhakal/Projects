@@ -1,39 +1,44 @@
+/* Mobile Styles */
 @media (max-width: 1000px) {
-    body{
-        background-image: none;
-    }
-    #container{
-        background-color: rgb(0, 0, 0);
-        background-size: 100% 100%;
+    #container,
+    .container {
+        background-color: #222831;
+        background-size: cover;
         background-repeat: no-repeat;
-        padding:10vh 0 16vh 0;
-        width: 95%;
-        margin-bottom: 10vh;
+        padding: 2rem 0;
+        width: 100%;
+        border-radius: 3em;
         min-height: 60vh;
-        height: 76vh;
+        margin-top: 3em;
         max-height: 80vh;
-        /* height: fit-content; */
-        
+        box-sizing: border-box;
     }
-    input{
-        margin: 16px 0;
+  
+    input {
+      margin: 1rem 0;
+      width: 100%;
+      max-width: 300px;
     }
-    #output{
-    font-size: medium;
+  
+    #output {
+      font-size: 1rem;
     }
-    table tr td,table tr th{
-        padding: 7px;
+  
+    table tr td,
+    table tr th {
+      padding: 0.5rem;
     }
-    table tr{
-        
+  
+    table {
+      padding: 1rem;
+      width: 100%;
     }
-    table{
-        padding: 10px;
+  }
+  
+  /* Tablet Styles */
+  @media only screen and (min-width: 682px) and (max-width: 999px) {
+    #container,
+    .container {
+      min-height: 65vh;
     }
-    
-}
-@media only screen and (min-width: 682px) and (max-width: 999px) {
-    #container{
-        min-height: 65vh;
-    }
-}
+  }

@@ -1,39 +1,48 @@
-#container,.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid grey;
-    border-radius: 2px;
-    width: 60%;
-    height: 65vh;
-    color: white;
-    background-size: 100% 100%;
-    /* background-image: url("../Assests/bgContainer.jpg"); */
-    background-color: rgb(35, 31, 29);
-    margin-top: 50px;
-    margin-left: auto;
-    padding: auto;
-    margin-right: auto;
-}
-#output{
-    margin-bottom: 9px;
-}
-th,td{
-    padding: 10px 30px ;
+/* Container Styles */
+#container,
+.container {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 2em;
+  width: 35rem;
+  height: 65vh;
+  color: white;
+  background-size: 100% 100%;
+  background-color: #222831;
+  margin-top: 50px;
+  margin-left: auto;
+  padding: auto;
+  margin-right: auto;
 }
 
-.containerWeatherPageBody{
-    /* background-image: url("../Assests/bgForWeatherPage.bmp");
-     */
+#output {
+  margin-bottom: 9px;
 }
-@media (max-width: 1000px) {
-    .containerWeatherPageBody{
-        width: max-content;
-        padding: 20px;
-        height: 65vh;
-    }
-    .containerWeatherPageBody #loadingGif .spinner-border {
-        border-top-color: white;
-    }
+
+th,
+td {
+  padding: 10px 30px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #container,
+  .container {
+    width: 100%;
+    height: auto;
+    min-height: 65vh;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  th,
+  td {
+    padding: 8px 20px;
+  }
 }

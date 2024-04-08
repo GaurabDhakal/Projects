@@ -27,7 +27,8 @@
 </head>
 <body>
     <div id="navbarContainer"></div>
-    <div class="history" id="history" hidden>
+    <div id="historyParent" hidden>
+    <div class="history" id="history">
         <div class="historyHeaderDiv">
             <h3 class="headerHistory" >History</h3>
         </div>
@@ -48,11 +49,15 @@
         onmouseleave="btnSize(false,`#clearHistory`)">Clear History</button><br>
     </div>
     </div>
+</div>
 
 <div id="containerOuterlayer">
     <div id="container" class="show">
         <h2>Country Predictor</h2>
-        <div><input type="text" id="country" placeholder="Enter the first name here! " />
+        <div class="submissionDiv">
+            <input type="text" id="country" 
+            autocomplete="off"
+            placeholder="Enter the first name here! " />
             <button type="button" class="btnTransform btnTypeA" id="predictB" 
             onmousedown="btnSize(true,`.btnTransform`)"
             onmouseup="btnSize(false,`.btnTransform`)" 
@@ -62,7 +67,21 @@
         <div id="loadingGif" hidden>
             <div class="spinner-border"></div>
         </div>
-        <div id="output"></div>
+        <div class="errorArea"></div>
+        <div id="output" hidden>
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>S.N</th>
+                        <th>Country</th>
+                        <th>Probability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
         <button type="button" id="showHB"
         class="btnTypeA"
         onclick="showHistory()" onmousedown="btnSize(true,`#showHB`)"

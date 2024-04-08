@@ -32,8 +32,9 @@ li h3 {
 }
 
 #warning {
-    background-color: black;
     padding: 4px;
+    border-radius: 10px;
+    font-size: medium;
     margin: 6px;
 }
 
