@@ -51,7 +51,7 @@ function displayResult(result) {
             <tr>
                 <td>${i + 1}</td> 
                 <td>${countryName.of(countryCode)}</td>
-                <td>${((result.country[i].probability)*100).toFixed(1)+"%"}</td>
+                <td>${((result.country[i].probability)*100).toFixed()+"%"}</td>
             </tr>
         `;
         tableBody.insertAdjacentHTML("beforeend", row);
@@ -184,9 +184,7 @@ function showHistory() {
                         `<div id="toBeHiddenLater"> ${timestamp}: ${name} ` +
                         ": " +
                         countryName.of(parsedValue.country[0].country_id) +
-                        `, Probability: ${parsedValue.country[0].probability.toFixed(
-                            3
-                        )}</div><br>`;
+                        `, Probability: ${(parsedValue.country[0].probability*100).toFixed()+"%"}</div><br>`;
                 }
             } catch (error) {
                 console.error("Error parsing value for key:", key, error);
