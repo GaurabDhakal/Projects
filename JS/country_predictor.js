@@ -12,22 +12,27 @@ const prefixKey = "CP_";
 
 let universalResult;
 let chkError = () => {
-        return "Data of name isn't available!";
+        if(universalResult.error){
+            return universalResult.error.message;
+        }else{
+            return "Data not available";
+        
+        }
 
 };
-
+let errorMsgArea = document.querySelector(".errorArea");
 // Function to display error message in output element
 function displayErrorMessage(message) {
-    document.querySelector(".errorArea").textContent = message;
+    errorMsgArea.textContent = message;
 }
 
 // Function to display loading message in output element
 function displayLoadingMessage() {
-    document.querySelector(".errorArea").textContent = "Loading";
+    errorMsgArea.textContent = "Loading";
 }
 
 function displayResult(result) {
-    document.querySelector(".errorArea").hidden = true;
+    errorMsgArea.hidden = true;
     // Show the output div
     output.hidden = false;
     // Hide the loading area
@@ -61,7 +66,9 @@ async function countryPredict() {
     loadingArea.hidden = false;
 
     if (usrInp.length === 0) {
+        console.log("No name entered");
         loadingArea.hidden = true;
+        errorMsgArea.hidden = false;
         usrInpElem.classList.add("invalidInputWarning");
         displayErrorMessage("Kindly enter the name first!");
     } else if (hasSpace) {

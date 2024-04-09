@@ -27,7 +27,12 @@ th,
 td {
   padding: 10px 30px;
 }
-
+.errorArea{
+  font-style: italic;
+  margin: 10px;
+  border-bottom: 2px solid rgb(0, 255, 208);
+  border-radius: 3px;
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
   #container,
