@@ -41,15 +41,16 @@ form button:active{
     margin-top: 11px;
 }
 #divcalculator{
-  background-color: black;
-  color: white;
-    border: 1px solid rgb(66, 82, 66);
+    background-color: rgb(17, 13, 22);
+    color: white;
+    border-radius: 3em;
+    border: none;
+    box-shadow: 1px 1px 10px 1px black;
     display: flex;
     height: 70vh;
     margin: auto;
     width: 50%;
     align-items: center;
-    border-radius: 3px;
     flex-direction: column;
     justify-content: center;
 }
