@@ -45,7 +45,7 @@ let guessTheGender = async ()=> {
             <tr>
                 <td class="tableColumn">${(result.name).charAt(0).toUpperCase()+(result.name).slice(1)}</td>
                 <td class="tableColumn">${(result.gender).charAt(0).toUpperCase()+(result.gender).slice(1)}</td>
-                <td class="tableColumn">${result.probability}</td>
+                <td class="tableColumn">${result.probability*100+"%"}</td>
                 <td class="tableColumn">${result.count}</td>
             </tr>
             </table>
