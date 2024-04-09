@@ -32,18 +32,13 @@ let options = {
     if(usrValElem.classList.contains("invalidInputWarning")){
         usrValElem.classList.remove("invalidInputWarning")
     }
-let response = await fetch(`https://returnyoutubedislikeapi.com/votes?videoId=${usrVal}`,options);
+    let extractedId = usrVal.split("v=")[1] || usrVal;
+    console.log(extractedId)
+let response = await fetch(`https://returnyoutubedislikeapi.com/votes?videoId=${extractedId}`,options);
 let result = await response.json();
 const keysCount = Object.keys(result);
 console.log(keysCount);
-if(keysCount.length==7){
-let chkStatus = ()=>{
-    if((result.deleted)===true){
-        return "This video is deleted!"
-    }else{
-        return "This video is not deleted!"
-    }
-}
+if(keysCount.length==7){}
 console.log(result);
 loader.hidden = true;
 outputArea.innerHTML = `
