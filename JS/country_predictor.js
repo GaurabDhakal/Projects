@@ -51,7 +51,7 @@ function displayResult(result) {
             <tr>
                 <td>${i + 1}</td> 
                 <td>${countryName.of(countryCode)}</td>
-                <td>${result.country[i].probability.toFixed(3)}</td>
+                <td>${((result.country[i].probability)*100).toFixed(1)+"%"}</td>
             </tr>
         `;
         tableBody.insertAdjacentHTML("beforeend", row);
