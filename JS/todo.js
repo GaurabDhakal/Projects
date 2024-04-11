@@ -5,7 +5,7 @@ document.querySelector(".formMain").addEventListener("submit",(e)=>{
 const usrValUni = document.getElementById("usrVal");
 let listArea = document.getElementById("listArea");
 let warningArea = document.querySelector('.warning');
-const storageKeyPrefix = "todo_"; // Add a prefix to the storage key
+const storageKeyPrefix = "todoV1_"; // Add a prefix to the storage key
 
 function clearInput(){
     usrValUni.value = "";
@@ -38,6 +38,18 @@ function deleteAllLocal(){
 
 function storeInLocal(usrVal){
     const id = Math.floor(Math.random()*10000);
+    const usrValObj = [{
+        todoItem:usrVal,
+        createdAt:Date.now()
+    }]
+    let tempLocal = localStorage.getItem("todos")
+    if(tempLocal){
+        tempLocal = JSON.parse(tempLocal);
+        tempLocal.push(usrValObj[0])
+        localStorage.setItem("todos",JSON.stringify(tempLocal))
+    }else{
+        localStorage.setItem("todos",JSON.stringify(usrValObj))
+    }
     localStorage.setItem(storageKeyPrefix + id, usrVal); // Add the prefix to the storage key
 }
 
@@ -94,6 +106,4 @@ usrValUni.addEventListener("input",()=>{
         hideWarning()
     }
 })
-
-
 renderLocalStorage();
