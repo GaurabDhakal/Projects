@@ -80,9 +80,6 @@ option {
     background-color: rgb(44, 202, 210);
     text-align: center;
 }
-#country{
-    margin-top: 15px;
-}
 
 @media (max-width: 1000px) {
     nav .logo{

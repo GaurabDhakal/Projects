@@ -55,14 +55,18 @@
     <div id="container" class="show">
         <h2>Country Predictor</h2>
         <div class="submissionDiv">
-            <input type="text" id="country" 
+            <div class="inpDiv">
+                <input type="text" id="country" 
             autocomplete="off"
             placeholder="Enter the first name here! " />
-            <button type="button" class="btnTransform btnTypeA" id="predictB" 
+            </div>
+            <div class="btnDiv">
+                <button type="button" class="btnTransform btnTypeA" id="predictB" 
             onmousedown="btnSize(true,`.btnTransform`)"
             onmouseup="btnSize(false,`.btnTransform`)" 
             onmouseleave="btnSize(false,`.btnTransform`)" 
             onclick="countryPredict()">Predict</button>
+            </div>
         </div>
         <div id="loadingGif" hidden>
             <div class="spinner-border"></div>
