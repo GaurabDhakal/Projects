@@ -12,7 +12,7 @@ async function dislikeReturn(){
     if(usrVal.length===0){
         loader.hidden = true;
         usrValElem.classList.add("invalidInputWarning")
-        outputArea.innerHTML=`<p class="invalidInputWarning invalidInputWarningPtag">Seems like you forgot to enter the id?`
+        outputArea.innerHTML=`<p class="invalidInputWarning invalidInputWarningPtag">Empty Input Field!`
         return;
     }
     try{
@@ -32,8 +32,6 @@ async function dislikeReturn(){
         console.log(extractedId)
         let response = await fetch(`https://returnyoutubedislikeapi.com/votes?videoId=${extractedId}`,options);
         let result = await response.json();
-        const keysCount = Object.keys(result);
-        console.log(result);
         loader.hidden = true;
         if(result.status!=400){
             outputArea.innerHTML = `

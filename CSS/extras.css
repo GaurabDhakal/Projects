@@ -67,9 +67,10 @@ option {
 }
 
 .invalidInputWarningPtag {
-    background-color: black;
-    border-radius: 5px;
-    padding: 10px;
+    color: rgb(98, 174, 255);
+    border: none;
+    border-radius: 2px;
+    border-bottom: 3px solid rgb(51, 153, 153);
 }
 
 .dislikeContainer{

@@ -12,11 +12,9 @@ let guessTheGender = async ()=> {
         usrInpElem.classList.add("invalidInputWarning")
         loader.hidden = true;
         outputArea.innerHTML = `<p class="invalidInputWarningPtag invalidInputWarning">Please enter the name!</p>`
-    } else if(hasSpace){
-        loader.hidden = true;
-        outputArea.innerHTML = `<p class="invalidInputWarningPtag invalidInputWarning">Whitespaces are not allowed(first name only)</p>`
-    } 
+    }
     else {
+        n = hasSpace?n.split(" ")[0]:n;
         if(usrInpElem.classList.contains("invalidInputWarning")){
             usrInpElem.classList.remove("invalidInputWarning")
         }

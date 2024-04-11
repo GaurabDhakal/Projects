@@ -71,13 +71,12 @@ async function countryPredict() {
         errorMsgArea.hidden = false;
         usrInpElem.classList.add("invalidInputWarning");
         displayErrorMessage("Kindly enter the name first!");
-    } else if (hasSpace) {
-        loadingArea.hidden = true;
-        displayErrorMessage("Whitespaces are not allowed (first name only)");
-    } else {
+    }else {
         if (usrInpElem.classList.contains("invalidInputWarning")) {
             usrInpElem.classList.remove("invalidInputWarning");
         }
+
+        usrInp = hasSpace?usrInp.split(" ")[0]:usrInp;
         displayLoadingMessage();
         let options = {
             method: "GET",
