@@ -38,6 +38,7 @@ function formatList(){
 }
 
 function delData(id,noCompulsion,optional){
+
     if(localStorage.getItem(`edithistory_${id}`)){
         localStorage.removeItem(`edithistory_${id}`);
     }
@@ -57,6 +58,7 @@ function delData(id,noCompulsion,optional){
     console.log(cateLocalKey)
     if(noCompulsion) showCategory(noCompulsion,classGenNFind(cateLocalKey[0]));
     hideWarning();
+    handleNoListMsgFn();
     renderLocalStorage();
 }
 function hideWarning(){
