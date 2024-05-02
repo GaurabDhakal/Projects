@@ -15,7 +15,7 @@ function toggleIcons(temp) {
     let textOfIcon = editTypeBorderColor.textContent;
     todoContentInInput.value = temp;
     if (textOfIcon == "edit") {
-        todoContentInInput.select()
+        todoContentInInput.focus()
         editTypeBorderColor.textContent = "cancel"
     } else {
         editTypeBorderColor.textContent = "edit"

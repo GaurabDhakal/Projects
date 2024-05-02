@@ -1,4 +1,5 @@
 
+
 .todoExpanded{
     position: fixed;
     top: 50%;
@@ -42,6 +43,12 @@
 .todoContentInInput.whenReadOnly{
     color: var(--default-text-color) !important;
 }
+.todoContentInInput:read-write{
+    border-bottom: 1px solid rgb(65, 81, 3);
+    color: white;
+    border-radius: 5px;
+    background-color: var(--default-bg-color);
+}
 .todoContentInInput{
     height: 2.6em;
     font-size: 1.1em;
@@ -71,10 +78,14 @@
     padding: 7px;
     border: none;
     border-radius: 5px;
-    background: rgb(107, 247, 216);
-    color: black;
+    background-color: #4f5a58;
+    color: white;
     margin: 1em;
     cursor: pointer;
+}
+.showEditHistoryBtn:hover{
+    background-color: #29433e;
+    transition: all .3s cubic-bezier(0.4, 0, 1, 1.5);
 }
 .subBtnArea > button{
     padding: 10px;
@@ -100,10 +111,7 @@
     transition: all .3s cubic-bezier(0.4, 0, 1, 1.5);
     background: rgb(44, 55, 57);
 }
-.showEditHistoryBtn:hover{
-    transition: all .3s cubic-bezier(0.4, 0, 1, 1.5);
-    background: rgb(31, 186, 152);
-}
+
 .categorySelectPopUpArea select{
     -webkit-appearance: none;  /* Remove default styling (cross-browser) */
     -moz-appearance: none;
