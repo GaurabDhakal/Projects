@@ -1,0 +1,32 @@
+[
+  {
+    "section": "intro",
+    "class":"intro",
+    "title": "About Me",
+    "content": "Hello, I am Gaurab Dhakal, a dedicated student striving to master programming languages while residing in Kathmandu, Nepal."
+  },
+  {
+    "class":"mySkills",
+    "section": "skills",
+    "title": "I am Learning",
+    "skills": ["HTML", "CSS", "JavaScript","Python","Numpy","NodeJS","ExpressJS","TypeScript"]
+  },
+  {
+    "class":"projects",
+    "title":"My Basic Projects",
+    "section":"projects",
+    "projects":{
+      "TODOLIST":"/TODOLIST/index.html",
+      "Gender Predictor":"/genderGuesser.html",
+      "Country Predictor":"/CountryPredictor.html",
+      "Password Generator":"/passwordGenerator.html",
+      "Weather Checker": "/weather.html"
+    }
+  },
+  {
+    "class":"conclusion",
+    "title":"At The End",
+    "section":"conclusion",
+    "content":"I am gradually learning and improving my coding skills day by day so, for now my projects are very very basic but soon i will be adding some cool projects!"
+  }
+]

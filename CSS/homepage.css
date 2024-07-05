@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --def-bg-color: #191b0f;
+  --def-text-color: white;
+  --def-border-bottom: rgba(15, 15, 6, 0.849);
+  --def-font-family: GoogleSans, sans-serif;
+  --def-anchor-hover-bg:#e1ff4b;
+  --def-anchor-border-color:black;
+}
+:root:has(#light:checked) {
+  --def-bg-color: white;
+  --def-text-color: black;
+}
+:root:has(#dark:checked) {
+  --def-bg-color: black;
+  --def-anchor-hover-bg:#8fa200;
+  --def-anchor-border-color:gray;
+  --def-border-bottom: rgba(255, 255, 121, 0.849);
+  --def-text-color: white;
+}
+
+body {
+  background-color: var(--def-bg-color);
+  color: var(--def-text-color);
+}
+
+.main {
+  display: flex;
+  background-color: var(--def-bg-color);
+  min-height: 100vh;
+  color: var(--def-text-color);
+}
+.main > .mainContent {
+  width: 100%;
+}
+.main > .mainContent > div > h1,
+.main > .mainContent p {
+  text-align: center;
+}
+.main > .mainContent > .intro > p > .myName {
+  font-weight: bold;
+  color: rgb(2, 12, 26);
+}
+.main > .mainContent > .intro > .introContent {
+  padding: 10px;
+}
+.main > .graphics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px;
+  color: var(--def-text-color);
+}
+.main > .graphics > .imagesGraphics {
+  width: 45%;
+  height: 45%;
+  border-radius: 15px;
+  margin: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  object-fit: contain;
+}
+.main > .graphics > .imagesGraphics:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+.footer {
+  font-family: var(--def-font-family);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  margin-top: auto;
+  width: 100%;
+  height: 8vh;
+}
+
+.titleOfAboutMe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.titleOfAboutMe > h1 {
+  padding: 10px;
+  font-family: "GoogleSans", sans-serif;
+  border-bottom: 5px solid var(--def-border-bottom);
+  border-radius: 6px;
+}
+
+.mySkills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mySkills > .skillsTitle > h1 {
+  padding: 10px;
+  font-family: "GoogleSans", sans-serif;
+  border-bottom: 5px solid var(--def-border-bottom);
+  border-radius: 6px;
+}
+.mySkills > .skillsMain ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 5em;
+}
+.mySkills > .skillsMain ul > li {
+  max-width: 8em;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-bottom: 4px solid var(--def-border-bottom);
+  border-radius: 10px;
+  background-color: var(--def-bg-color);
+  color: var(--def-text-color);
+  transition: all 0.5s ease-in-out;
+}
+.mySkills > .skillsMain ul > li:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 60px rgb(232, 255, 104);
+}
+
+.projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em;
+  flex-direction: column;
+  justify-content: center;
+}
+.projects > div > .projectsTitle {
+  padding: 10px;
+  font-family: "GoogleSans", sans-serif;
+  border-bottom: 5px solid var(--def-border-bottom);
+  border-radius: 6px;
+}
+.projects > .anchorsDiv {
+  margin: 3px;
+  display: flex;
+}
+.projects > .anchorsDiv > .anchorProjects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--def-text-color);
+  text-align: center;
+  padding: 5px;
+  border: 1px solid var(--def-anchor-border-color);
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 0.4em;
+}
+.projects > .anchorsDiv > .anchorProjects:hover {
+  transition: 0.5s all ease-in-out;
+  background-color: var(--def-anchor-hover-bg);
+}
+
+.themeSelectionSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.themeSelectionSection > fieldset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 5rem;
+  border-color: #1d006b;
+  width: 15rem;
+}
+.themeSelectionSection > fieldset legend {
+  text-align: center;
+  font-weight: bold;
+}
+.themeSelectionSection > fieldset select {
+  border-radius: 5px;
+  border: none;
+  background-color: #36172a;
+  color: rgb(244, 244, 255);
+  padding: 7px 20px;
+  outline: none;
+  cursor: pointer;
+  margin: 10px;
+}
+.themeSelectionSection > fieldset select > option {
+  border: none;
+  outline: none;
+}
+
+.conclusion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2em;
+}
+.conclusion > div > .conclusionTitle {
+  padding: 10px;
+  font-family: "GoogleSans", sans-serif;
+  border-bottom: 5px solid var(--def-border-bottom);
+  border-radius: 6px;
+}
+
+/*# sourceMappingURL=container.css.map */
+
+
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap");
+@font-face {
+  font-family: "GoogleSans";
+  src: url("../Assests/GoogleSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  font-family: var(--def-font-family);
+}
+
+nav {
+  display: flex;
+  background-color: rgb(22, 32, 17);
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+}
+nav ul {
+  display: flex;
+}
+nav ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  transition: 0.4s all ease-in-out;
+  border-radius: 5px;
+  margin: 10px;
+  transform-origin: center;
+}
+nav ul li a:hover {
+  background-color: white;
+  color: black;
+}
+nav ul li a:active {
+  transform: scale(0.97);
+}
+nav ul li a.active {
+  background-color: white;
+  color: black;
+}
+nav .logo {
+  margin: 10px;
+  color: white;
+  font-size: clamp(2vh, 3vw, 4vh);
+}
+
+.dropDown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dropDownMain {
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+}
+#dropDownMain > .dropdownContent > .dropDownMainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin: 5px;
+  position: absolute;
+}
+
+/*# sourceMappingURL=nav.css.map */
