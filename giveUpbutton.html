@@ -1,51 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <link rel="icon" href=
-    "/Assests/logo.png" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Give Up Button</title>
-    <style>
-        body{
-            display: flex;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            justify-content: center;
+    <head>
+        <link rel="icon" href="/Assets/logo.png" type="image/x-icon" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Give Up Button</title>
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                height: 100vh;
+                flex-direction: column;
+                justify-content: center;
+            }
+            button {
+                border: 1px solid black;
+                padding: 2rem 4rem;
+                background-color: rgb(16, 151, 97);
+                transition: 0.5s all linear;
+                cursor: pointer;
+                border-radius: 5px;
+                transform-origin: center;
+            }
+            button:hover {
+                background-color: red;
+            }
+            button:active {
+                transform: scale(0.9);
+            }
+            p {
+                display: inline-flex;
+                font-size: 10rem;
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="looser()">Give Up</button>
+        <p id="looser"></p>
+    </body>
+    <script>
+        function looser() {
+            alert(`Looser😂😂`);
+            document.getElementById("looser").innerText = "LOOSER 🫵🫵";
         }
-        button{
-            border: 1px solid black;
-            padding: 2rem 4rem;
-            background-color: rgb(16, 151, 97);
-            color: white;
-            transition: .5s all linear;
-            cursor: pointer;
-            border-radius: 5px;
-            transform-origin: center;
-        }
-        button:hover{
-            background-color: red;
-            color: white;
-        }
-        button:active{
-            transform: scale(.9);
-        }
-        p{
-            display: inline-flex;
-            font-size: 10rem;
-            z-index: -1;
-        }
-    </style>
-</head>
-<body>
-    <button onclick="looser()">Give Up</button>
-    <p id="looser"></p>
-</body>
-<script>
-    function looser(){
-        alert(`Looser😂😂`);
-        document.getElementById('looser').innerText="LOOSER 🫵🫵"
-    }
-</script>
+    </script>
 </html>

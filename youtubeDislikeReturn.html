@@ -1,52 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/Assets/logo.png" type="image/x-icon" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        />
+        <link rel="stylesheet" href="./CSS/navbar.css" />
+        <link rel="stylesheet" href="./CSS/buttons.css" />
+        <link rel="stylesheet" href="./CSS/tables.css" />
+        <link rel="stylesheet" href="./CSS/extras.css" />
+        <link rel="stylesheet" href="./CSS/container.css" />
+        <link rel="stylesheet" href="./CSS/inputs.css" />
+        <link rel="stylesheet" href="./CSS/containerMobile.css" />
+        <link rel="stylesheet" href="./CSS/loading_anim.css" />
+        <link rel="stylesheet" href="./CSS/footer.css" />
+        <link rel="stylesheet" href="./CSS/universalFontFamily.css" />
+        <title>Youtube Dislike Return</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href=
-    "/Assests/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="./CSS/navbar.css" />
-    <link rel="stylesheet" href="./CSS/buttons.css">
-    <link rel="stylesheet" href="./CSS/tables.css">
-    <link rel="stylesheet" href="./CSS/extras.css">
-    <link rel="stylesheet" href="./CSS/container.css">
-    <link rel="stylesheet" href="./CSS/inputs.css">
-    <link rel="stylesheet" href="./CSS/containerMobile.css">
-    <link rel="stylesheet" href="./CSS/loading_anim.css">
-    <link rel="stylesheet" href="./CSS/footer.css">
-    <link rel="stylesheet" href="./CSS/universalFontFamily.css">
-    <title>Youtube Dislike Return</title>
-</head>
-
-<body>
-    <div id="navbarContainer"></div>
-    <div id="container">
-        <h2 align="center" style="margin-bottom: 15px;">Youtube Dislike Return</h2>
-        <br />
-        <div>
-            <label for="name">Enter Video ID or Link :</label><br>
-            <input type="text" id="name" placeholder="Enter video id here!!! " />
-            <button type="button" class="btnTransform btnTypeA" onmousedown="btnSize(true,`.btnTransform`)"
-            onmouseup="btnSize(false,`.btnTransform`)" 
-            onmouseleave="btnSize(false,`.btnTransform`)" onclick="dislikeReturn()">Show</button>
-        </div> 
-        <div id="loadingGif" hidden>
-            <div class="spinner-border" class="" role="status">
-                <span class="sr-only"></span>
-            </div>  
+    <body>
+        <div id="navbarContainer"></div>
+        <div id="container">
+            <h2 align="center" style="margin-bottom: 15px">
+                Youtube Dislike Return
+            </h2>
+            <br />
+            <div>
+                <label for="name">Enter Video ID or Link :</label><br />
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter video id here!!! "
+                />
+                <button
+                    type="button"
+                    class="btnTransform btnTypeA"
+                    onmousedown="btnSize(true, `.btnTransform`)"
+                    onmouseup="btnSize(false, `.btnTransform`)"
+                    onmouseleave="btnSize(false, `.btnTransform`)"
+                    onclick="dislikeReturn()"
+                >
+                    Show
+                </button>
+            </div>
+            <div id="loadingGif" hidden>
+                <div class="spinner-border" class="" role="status">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+            <p id="output"></p>
+            <p id="warning"></p>
         </div>
-        <p id="output"></p>
-        <p id="warning">
-        </p>
-    </div>
-    <div class="footer">
-        <p>Gaurab Dhakal &copy; 2024</p>
-    </div>
-</body>
-<script src="JS/ytdr.js"></script>
-<script src="JS/buttonTransform.js"></script>
-<script src="./JS/navloader.js"></script>
-
+        <div class="footer">
+            <p>Gaurab Dhakal &copy; 2024</p>
+        </div>
+    </body>
+    <script src="JS/ytdr.js"></script>
+    <script src="JS/buttonTransform.js"></script>
+    <script src="./JS/navloader.js"></script>
 </html>

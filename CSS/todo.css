@@ -1,25 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-*{
-    font-family: 'Signika Negative', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+* {
+    font-family: "Signika Negative", sans-serif;
 }
-:root{
-    --defFont: 'Signika Negative', sans-serif;
+:root {
+    --defFont: "Signika Negative", sans-serif;
 }
 
-
-body,.headTitle{
+body,
+.headTitle {
     margin: 0;
     scroll-behavior: smooth;
     background-color: rgb(37, 37, 33);
 }
-.headTitle{
+.headTitle {
     margin: 15px;
 }
-.MainAll{
+.MainAll {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,54 +29,58 @@ body,.headTitle{
     height: min-content;
     padding: 50px;
 }
-.MainAll .formMain{
+.MainAll .formMain {
     display: flex;
     align-items: center;
 }
 
-.MainAll .formMain #usrVal{
+.MainAll .formMain #usrVal {
     padding: 15px;
     margin-right: 4px;
     font-family: var(--defFont);
-    width: clamp(20rem,30rem,40rem);
+    width: clamp(20rem, 30rem, 40rem);
 }
 
-.warning{
+.warning {
     margin: 10px 10px 0 10px;
     border: 1px solid gray;
     padding: 6px;
     color: black;
     background: rgb(120, 233, 255);
 }
-.liDiv button{
+.liDiv button {
     margin: 5px;
 }
 
-.MainAll .formMain #btnAdd,.liDiv button,.btnDesignClear{
+.MainAll .formMain #btnAdd,
+.liDiv button,
+.btnDesignClear {
     padding: 15px 25px;
     background-color: rgb(250, 247, 90);
     border-radius: 2px;
-    
+
     box-shadow: 2px 2px 0px rgb(255, 231, 15);
     border: 1px solid rgb(128, 128, 128);
-    transition: .3s all ease-in-out;
+    transition: 0.3s all ease-in-out;
     cursor: pointer;
 }
-.MainAll .formMain #btnAdd:hover,.liDiv button:hover,.btnDesignClear:hover{
+.MainAll .formMain #btnAdd:hover,
+.liDiv button:hover,
+.btnDesignClear:hover {
     background-color: rgb(255, 238, 129);
     border-radius: 4px;
     box-shadow: none;
 }
 
-li{
+li {
     list-style: none;
 }
 
-#listArea{
+#listArea {
     margin: 10px;
 }
 
-#listArea .liDiv{
+#listArea .liDiv {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -89,35 +93,34 @@ li{
     justify-content: space-between;
     padding: 10px;
 }
-#navbar nav .logo{
+#navbar nav .logo {
     font-family: var(--defFont);
-    font-size: clamp(1vh,2rem,3rem);
+    font-size: clamp(1vh, 2rem, 3rem);
 }
 
-@media (width < 657px){
-    .MainAll{
+@media (width < 657px) {
+    .MainAll {
         width: 100%;
     }
-    .MainAll .formMain #usrVal{
+    .MainAll .formMain #usrVal {
         width: 27.4vh;
     }
-    #listArea .liDiv{
+    #listArea .liDiv {
         min-width: 40vh;
         max-width: 60vh;
         flex-wrap: wrap;
     }
-    #listArea .liDiv button{
+    #listArea .liDiv button {
         justify-content: center;
     }
-    
 }
-@media (width <400px){
-    .MainAll .formMain #usrVal{
+@media (width <400px) {
+    .MainAll .formMain #usrVal {
         width: 25vh;
     }
 }
-@media(width <=370){
-    .MainAll .formMain #usrVal{
+@media (width <=370) {
+    .MainAll .formMain #usrVal {
         width: 24vh;
     }
 }

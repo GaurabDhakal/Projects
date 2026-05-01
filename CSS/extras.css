@@ -1,5 +1,5 @@
 body {
-    /* background-image: url('../Assests/bgImg.jpg'); */
+    /* background-image: url('../Assets/bgImg.jpg'); */
     background-color: rgb(15, 23, 21);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -8,7 +8,7 @@ body {
 
 p {
     margin: 5px;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: "Titillium Web", sans-serif;
 }
 
 h3 {
@@ -73,8 +73,8 @@ option {
     border-bottom: 3px solid rgb(51, 153, 153);
 }
 
-.dislikeContainer{
-    margin: .1rem;
+.dislikeContainer {
+    margin: 0.1rem;
     padding: 10px;
     cursor: pointer;
     color: black;
@@ -83,11 +83,12 @@ option {
 }
 
 @media (max-width: 1000px) {
-    nav .logo{
+    nav .logo {
         font-size: 25px;
     }
 }
 
-table tr th,td{
-    padding: .4rem;
+table tr th,
+td {
+    padding: 0.4rem;
 }

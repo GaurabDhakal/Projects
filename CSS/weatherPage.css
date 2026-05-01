@@ -1,4 +1,4 @@
-.errorMessage{
+.errorMessage {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -7,74 +7,73 @@
     font-size: 1.3rem !important;
     border-radius: 5px;
 }
-input{
-    margin: 10px;
-}
 
-h3{
-    border-bottom: 1px solid rgb(132, 255, 121);
-    border-radius: 4px;
+h3 {
+    font-size: xx-large;
     padding: 10px;
 }
 
 /* Result Display Area Styles */
 .resultDisplayArea {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #0f0b2d;
+    font-family: "Montserrat", sans-serif;
+    background-color: #061713;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
+    border: 1px solid #202025;
+    width: 400px;
     text-align: center;
-    width: 350px;
-    /* color: #333; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  .city {
+}
+
+.city {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-  }
-  
-  .tempr {
+}
+
+.tempr {
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-  }
-  
-  .resultDisplayArea p {
+}
+
+.resultDisplayArea p {
     margin: 0.5rem 0;
     font-size: 1rem;
-  }
-  
-  .weatherEmoji {
+}
+
+.weatherEmoji {
     font-size: 3rem;
     margin-top: 1rem;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
+}
+.weatherForm{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
     .resultDisplayArea {
-      width: 90%;
-      padding: 1.2rem;
+        padding: 1.2rem;
     }
-  
+
     .city {
-      font-size: 1.6rem;
+        font-size: 1.6rem;
     }
-  
+
     .tempr {
-      font-size: 1.3rem;
+        font-size: 1.3rem;
     }
-  
+
     .resultDisplayArea p {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
-  
+
     .weatherEmoji {
-      font-size: 2.5rem;
+        font-size: 2.5rem;
     }
-  }
+}

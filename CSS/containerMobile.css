@@ -1,44 +1,26 @@
 /* Mobile Styles */
 @media (max-width: 1000px) {
-    #container,
-    .container {
-        background-color: #222831;
-        background-size: cover;
-        background-repeat: no-repeat;
-        padding: 2rem 0;
-        width: 100%;
-        border-radius: 3em;
-        min-height: 60vh;
-        margin-top: 3em;
-        max-height: 80vh;
-        box-sizing: border-box;
-    }
-  
-    input {
-      margin: 1rem 0;
-      width: 100%;
-      max-width: 300px;
-    }
-  
+
+
     #output {
-      font-size: 1rem;
+        font-size: 1rem;
     }
-  
+
     table tr td,
     table tr th {
-      padding: 0.5rem;
+        padding: 0.5rem;
     }
-  
+
     table {
-      padding: 1rem;
-      width: 100%;
+        padding: 1rem;
+        width: 100%;
     }
-  }
-  
-  /* Tablet Styles */
-  @media only screen and (min-width: 682px) and (max-width: 999px) {
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 682px) and (max-width: 999px) {
     #container,
     .container {
-      min-height: 65vh;
+        min-height: 65vh;
     }
-  }
+}

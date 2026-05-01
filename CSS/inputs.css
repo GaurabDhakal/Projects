@@ -1,16 +1,17 @@
 input {
-    padding: 10px;
+    padding: 11px;
     width: 20em;
+    border-radius: 5px;
+    border: 1px solid #464c4882;
     outline: none;
-    border-radius: 4px;
 }
 
-.submissionDiv{
+.submissionDiv {
     display: flex;
     margin-bottom: 10px;
     align-items: center;
 }
-.btnDiv{
+.btnDiv {
     display: flex;
     align-items: center;
     margin-left: 5px;

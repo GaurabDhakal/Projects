@@ -1,52 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        />
+        <link rel="stylesheet" href="./CSS/navbar.css" />
+        <link rel="stylesheet" href="./CSS/buttons.css" />
+        <link rel="stylesheet" href="./CSS/tables.css" />
+        <link rel="icon" href="./Assets/logo.png" type="image/x-icon" />
+        <link rel="stylesheet" href="./CSS/extras.css" />
+        <link rel="stylesheet" href="./CSS/container.css" />
+        <link rel="stylesheet" href="./CSS/inputs.css" />
+        <link
+            rel="stylesheet"
+            media="screen and (max-width: 699px)"
+            href="./CSS/containerMobile.css"
+        />
+        <link rel="stylesheet" href="./CSS/loading_anim.css" />
+        <link rel="stylesheet" href="./CSS/footer.css" />
+        <link rel="stylesheet" href="./CSS/universalFontFamily.css" />
+        <title>Gender Predictor</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="./CSS/navbar.css" />
-    <link rel="stylesheet" href="./CSS/buttons.css">
-    <link rel="stylesheet" href="./CSS/tables.css">
-    <link rel="icon" href="./Assests/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="./CSS/extras.css">
-    <link rel="stylesheet" href="./CSS/container.css">
-    <link rel="stylesheet" href="./CSS/inputs.css">
-    <link rel="stylesheet" media='screen and (max-width: 699px)' href="./CSS/containerMobile.css">
-    <link rel="stylesheet" href="./CSS/loading_anim.css">
-    <link rel="stylesheet" href="./CSS/footer.css">
-    <link rel="stylesheet" href="./CSS/universalFontFamily.css">
-    <title>Gender Predictor</title>
-</head>
-
-<body>
-    <div id="navbarContainer"></div>
-    <div id="container">
-        <h2 align="center" style="margin-bottom: 10px;">Gender Predictor</h2>
-        <br />
-        <div>
-            <input type="text"
-            autocomplete="off" id="name" placeholder="Enter the first name here! " />
-            <button type="button" onclick="guessTheGender()" class="btnTransform btnTypeA" onmousedown="btnSize(true,`.btnTransform`)"
-            onmouseup="btnSize(false,`.btnTransform`)" 
-            onmouseleave="btnSize(false,`.btnTransform`)">Predict</button>
+    <body>
+        <div id="navbarContainer"></div>
+        <div id="container">
+            <h2 style="margin-bottom: 10px; text-align: center">
+                Gender Predictor
+            </h2>
+            <br />
+            <div>
+                <input
+                    type="text"
+                    autocomplete="off"
+                    id="name"
+                    placeholder="Enter the first name here! "
+                />
+                <button
+                    type="button"
+                    onclick="guessTheGender()"
+                    class="btnTransform btnTypeA"
+                    onmousedown="btnSize(true, `.btnTransform`)"
+                    onmouseup="btnSize(false, `.btnTransform`)"
+                    onmouseleave="btnSize(false, `.btnTransform`)"
+                >
+                    Predict
+                </button>
+            </div>
+            <div id="loadingGif" hidden>
+                <div
+                    class="spinner-border"
+                    id="hideLoadingGif"
+                    role="status"
+                    hidden
+                ></div>
+            </div>
+            <p id="output"></p>
+            <p id="warning">
+                Note: In some cases, the requested result may not be displayed
+                due to absence of the data of the name.
+            </p>
         </div>
-        <div id="loadingGif" hidden>
-            <div class="spinner-border" id="hideLoadingGif" role="status" hidden>
-        </div>    
+        <div class="footer">
+            <p>Gaurab Dhakal &copy; 2024</p>
         </div>
-        <p id="output"></p>
-        <p align="center" id="warning">
-            Note: In some cases, the requested result may not be displayed due to
-            absence of the data of the name.
-        </p>
-    </div>
-    <div class="footer">
-        <p>Gaurab Dhakal &copy; 2024</p>
-    </div>
-</body>
-<script src="./JS/gender_guesser.js"></script>
-<script src="./JS/buttonTransform.js"></script>
-<script src="./JS/navloader.js"></script>
-
+    </body>
+    <script src="./JS/gender_guesser.js"></script>
+    <script src="./JS/buttonTransform.js"></script>
+    <script src="./JS/navloader.js"></script>
 </html>

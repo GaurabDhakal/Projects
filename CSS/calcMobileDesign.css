@@ -1,17 +1,16 @@
 @media (max-width: 1000px) {
-    .forMobDivCalc{
+    .forMobDivCalc {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    nav .logo{
+    nav .logo {
         font-size: 25px;
-        
     }
-    .calculator{
+    .calculator {
         margin: 5px;
     }
-    #divcalculator{
+    #divcalculator {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -21,25 +20,24 @@
         height: auto;
         padding: 10px 0;
     }
-    input{
+    input {
         padding-left: 20px;
     }
-    #heading{
+    #heading {
         text-align: center;
         margin: 10px;
     }
-    body{
+    body {
         overflow: hidden;
         background-image: none;
-        
     }
-    button{
+    button {
         margin: 1rem 0;
     }
-    button[type="reset"]{
+    button[type="reset"] {
         margin-left: 1rem;
     }
-    button[type="button"]{
+    button[type="button"] {
         margin-left: 1rem;
     }
 }
